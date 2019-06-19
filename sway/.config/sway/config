@@ -1,0 +1,426 @@
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term gnome-terminal 
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu "rofi -i -modi drun,run,window -show drun"
+set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+
+# Background
+set $background /home/acosta/Pictures/Wallpapers/adwaita-day.jpg
+
+# Waylock command
+set $swaylockcmd swaylock -i $background --scaling fill
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $wsbs 0:S
+set $ws1 1:1
+set $ws2 2:2
+set $ws3 3:3
+set $ws4 4:4
+set $ws5 5:5
+set $ws6 6:6
+set $ws7 7:7
+set $ws8 8:8
+set $ws9 9:9
+set $ws10 10:10
+
+set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD89MF92L"
+set $ws1output "Dell Inc. DELL U2417H 5K9YD89MF92L"
+set $ws2output "Dell Inc. DELL U2417H 5K9YD89MF92L"
+set $ws3output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws4output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws5output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws6output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws7output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws8output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws9output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+set $ws10output eDP-1
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/local/share/backgrounds/sway/)
+output "*" bg $background fill
+
+#output eDP-1 scale 1.25
+
+### Assign workspaces to screens
+workspace $wsbs  output $wsbsoutput
+workspace $ws1  output $ws1output
+workspace $ws2  output $ws2output
+workspace $ws3  output $ws3output
+workspace $ws4  output $ws4output
+workspace $ws5  output $ws5output
+workspace $ws6  output $ws6output
+workspace $ws7  output $ws7output
+workspace $ws8  output $ws8output
+workspace $ws9  output $ws9output
+workspace $ws10 output $ws10output
+
+
+### Input configuration
+    input "2:7:SynPS/2_Synaptics_TouchPad" {
+        dwt enabled
+        tap enabled
+        natural_scroll enabled
+        middle_emulation enabled
+    }
+
+    input * {
+        xkb_layout "pt"
+        xkb_numlock enabled
+    }
+
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # start a terminal
+    bindsym $mod+Return exec $term
+
+    # kill focused window
+    bindsym $mod+Shift+q kill
+
+    # start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # _move_ the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # switch to workspace
+    bindsym $mod+Backslash workspace $wsbs
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
+    # move focused container to workspace
+    bindsym $mod+Shift+Backslash move container to workspace $wsbs
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
+
+    # reset workspace placement
+    bindsym $mod+Shift+r \
+        workspace $ws1; move workspace to output $ws1output; \
+        workspace $ws2; move workspace to output $ws2output; \
+        workspace $ws3; move workspace to output $ws3output; \
+        workspace $ws4; move workspace to output $ws4output; \
+        workspace $ws5; move workspace to output $ws5output; \
+        workspace $ws6; move workspace to output $ws6output; \
+        workspace $ws7; move workspace to output $ws7output; \
+        workspace $ws8; move workspace to output $ws8output; \
+        workspace $ws9; move workspace to output $ws9output; \
+        workspace $ws10; move workspace to output $ws10output
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Shift+$left resize shrink width 100px
+    bindsym Shift+$down resize grow height 100px
+    bindsym Shift+$up resize shrink height 100px
+    bindsym Shift+$right resize grow width 100px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Shift+Left resize shrink width 100px
+    bindsym Shift+Down resize grow height 100px
+    bindsym Shift+Up resize shrink height 100px
+    bindsym Shift+Right resize grow width 100px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+#
+# Custom Modes
+#
+
+    set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
+    mode "$mode_system" {
+        bindsym l exec $swaylockcmd, mode "default"
+        bindsym e exec swaymsg exit, mode "default"
+        bindsym s exec systemctl suspend, mode "default"
+        bindsym h exec systemctl hibernate, mode "default"
+        bindsym r exec systemctl reboot, mode "default"
+        bindsym p exec systemctl poweroff, mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    set $mode_media Pause (space), Next ($right), Previous($left), Exit (Esc)
+    mode "$mode_media" {
+        bindsym space \
+            exec dbus-send --print-reply \
+                --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                org.mpris.MediaPlayer2.Player.PlayPause, \
+            mode "default"
+        bindsym $right \
+            exec dbus-send --print-reply \
+               --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                org.mpris.MediaPlayer2.Player.Next, \
+            mode "default"
+        bindsym $left \
+            exec dbus-send --print-reply \
+                --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                org.mpris.MediaPlayer2.Player.Previous, \
+            mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    set $mode_goto Go to: (f) Franz, (s) Skype, (c) Chrome
+    mode "$mode_goto" {
+        bindsym f [class="Franz"] focus, mode "default"
+        bindsym s [class="Skype"] focus, mode "default"
+        bindsym c [class="Google-chrome"] focus, mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    
+    bindsym $mod+Home mode "$mode_system"
+    bindsym $mod+m mode "$mode_media"
+    bindsym $mod+g mode "$mode_goto"
+
+# capture all screens to clipboard    
+bindsym Print exec grim - | wl-copy
+    
+# capture the specified screen area to clipboard    
+bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy    
+    
+# capture the focused monitor to clipboard    
+bindsym Shift+Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
+bindsym $mod+Scroll_Lock exec $swaylockcmd
+
+###########################
+# Settings keys.
+# More can be found with xmodmap
+
+# Keybindings for the soundbuttons
+bindsym XF86AudioMute           exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume    exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume    exec amixer set Master 5%-
+bindsym XF86AudioMicMute        exec amixer set Capture toggle
+
+# Brightness and settings
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86Tools exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+focus_follows_mouse no
+
+#
+# Status Bar:
+#
+    bar {
+        #position top
+        #status_command i3status
+        strip_workspace_numbers yes
+        swaybar_command "cd /home/acosta/external/Waybar && build/waybar"
+    }
+
+#
+# Colors
+#
+
+    # Solarized
+    set $black      #000000
+    set $white      #FFFFFF
+    set $gray1      #1a1a1a
+    set $gray2      #292b2e
+    set $gray3      #5f676a
+    set $gray4      #aaaaaa
+
+    set $base03     #002b36
+    set $base02     #073642
+    set $base01     #586e75
+    set $base00     #657b83
+    set $base0      #839496
+    set $base1      #93a1a1
+    set $base2      #eee8d5
+    set $base3      #fdf6e3
+    set $yellow     #b58900
+    set $orange     #cb4b16
+    set $red        #dc322f
+    set $magenta    #d33682
+    set $violet     #6c71c4
+    set $blue       #268bd2
+    set $cyan       #2aa198
+    set $green      #859900
+
+    # class                 border  backgr. text    indica. child_border
+    client.focused          $gray2  $gray2  $gray4  $gray2    $gray2
+    client.unfocused        $gray3  $gray3  $gray4  $gray3    $gray3
+
+#
+# Gaps
+#
+    smart_borders on
+    smart_gaps on
+    #gaps inner 10
+
+#
+# Custom window setups
+#
+    # clion "search everywere" popup
+    for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
+    for_window [app_id="gnome-calculator"] floating enable
+
+    #assign [class="Google-chrome"] workspace $ws1
+    #assign [app_id="gnome-terminal-server"] workspace $ws2
+
+#
+# Autostart services and daemons
+#
+    #exec gnome-power-manager
+    exec lxpolkit
+    exec swayidle \
+         timeout 180 '$swaylockcmd -f' \
+         timeout 240 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep '$swaylockcmd -f'
+
+    #exec_always {
+    #    gsettings set $gnome-schema gtk-theme 'Yaru'
+    #    gsettings set $gnome-schema icon-theme 'Yaru'
+    #    gsettings set $gnome-schema cursor-theme 'Yaru'
+    #}
+
+#
+# Autostart apps
+#
+
+    #exec_always swaymsg "workspace $ws1" && swaymsg "exec google-chrome-stable --password-store=gnome %U" && sleep 0.5 &&\
+    #            swaymsg "workspace $ws2" && swaymsg "exec gnome-terminal" && sleep 0.5 &&\
+    #            swaymsg "workspace $ws10" && swaymsg "exec /snap/bin/spotify" && sleep 0.5 &&\
+    #            swaymsg "workspace $ws1"
+
+    exec google-chrome-stable --password-store=gnome %U
+    exec gnome-terminal
+
+
+include /usr/local/etc/sway/config.d/*

@@ -1,0 +1,159 @@
+{
+    "layer": "bottom",
+    "position": "top",
+
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/right-arrow-dark"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/spotify",
+        "custom/left-arrow-dark", 
+        "tray",
+        "custom/ubuntu-updates",
+        "backlight",
+        "network#wifi",
+        "network#eth",
+        "network#none",
+        "custom/upower",
+        "pulseaudio",
+        "idle_inhibitor"],
+
+    "custom/left-arrow-dark": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/left-arrow-light": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/right-arrow-dark": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/right-arrow-light": {
+        "format": "",
+        "tooltip": false
+    },
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name} {icon}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "disable-scroll": false
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "on-click": "gnome-calendar",
+        "tooltip": false
+    },
+    "network#wifi": {
+        "format": "",
+        "format-wifi": "{icon} {signalStrength}%",
+        "format-alt": "{icon} {essid} ({ipaddr})",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "interval": 10,
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi",
+        "tooltip": false
+    },
+    "network#eth": {
+        "format": "",
+        "format-ethernet": "{icon}",
+        "format-alt": "{icon} {ipaddr}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "interval": 10,
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network",
+        "tooltip": false
+    },
+    "network#none": {
+        "format": "",
+        "format-disconnected": "{icon}",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "interval": 10,
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}",
+        "format-muted": "婢 {volume}",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["奄", "奔", "墳", ""]
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/spotify": {
+        "format": "{icon}",
+        "format-alt": "{icon} {}",
+        "format-alt-click": "click-right",
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/music.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true,
+        "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",        
+        "format-icons": {
+          "default": ""
+        }
+    },
+    "custom/upower": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/upower.sh",
+        "escape": true,
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
+    },
+    "custom/ubuntu-updates": {
+        "format": "{}",
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/ubuntu_updates.sh",
+        "escape": true,
+        "on-click": "update-manager"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{icon} {percent}%",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "brightnessctl set 1%-",
+        "on-scroll-up": "brightnessctl set 1%+"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-alt": "{icon} {status}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 15
+    }
+}
