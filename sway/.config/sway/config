@@ -340,7 +340,7 @@ focus_follows_mouse no
         #position top
         #status_command i3status
         strip_workspace_numbers yes
-        swaybar_command "cd /home/acosta/external/Waybar && build/waybar"
+        swaybar_command "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
     }
 
 #

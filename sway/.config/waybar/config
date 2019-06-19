@@ -154,6 +154,7 @@
         "tooltip": false
     },
     "tray": {
-        "icon-size": 15
+        "icon-size": 15,
+        "spacing": 10
     }
 }

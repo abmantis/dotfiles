@@ -43,6 +43,10 @@ window#waybar.solo {
     color:      rgba(217, 216, 216, 1);
 }
 
+#workspaces button:hover {
+    background: rgba(217, 216, 216, 0.2);
+}
+
 #workspaces button.focused {
     border-top: 3px solid rgba(217, 216, 216, 1);
     border-bottom: 3px solid rgba(217, 216, 216, 0);
