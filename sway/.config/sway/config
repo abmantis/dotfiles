@@ -404,11 +404,12 @@ focus_follows_mouse no
               resume 'swaymsg "output * dpms on"' \
          before-sleep '$swaylockcmd -f'
 
-    #exec_always {
-    #    gsettings set $gnome-schema gtk-theme 'Yaru'
-    #    gsettings set $gnome-schema icon-theme 'Yaru'
-    #    gsettings set $gnome-schema cursor-theme 'Yaru'
-    #}
+    set $gnome-schema org.gnome.desktop.interface
+    exec_always {
+        gsettings set $gnome-schema gtk-theme 'Yaru'
+        gsettings set $gnome-schema icon-theme 'Yaru'
+        gsettings set $gnome-schema cursor-theme 'Yaru'
+    }
 
 #
 # Autostart apps
