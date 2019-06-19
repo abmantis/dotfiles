@@ -1,3 +1,9 @@
+# Components:
+- Waybar
+- swaylock and swayidle
+- rofi
+- swaybg
+
 # Deps:
 - lxpolkit
 - pavucontrol
