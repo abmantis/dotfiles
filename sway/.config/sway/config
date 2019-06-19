@@ -252,7 +252,7 @@ bindsym $mod+r mode "resize"
 # Custom Modes
 #
 
-    set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
+    set $mode_system System: Lock (l), Logout (e), Suspend (s), Hibernate (h), Reboot (r), Poweroff (p)
     mode "$mode_system" {
         bindsym l exec $swaylockcmd, mode "default"
         bindsym e exec swaymsg exit, mode "default"
@@ -266,7 +266,7 @@ bindsym $mod+r mode "resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_media Pause (space), Next ($right), Previous($left), Exit (Esc)
+    set $mode_media Pause (space), Next ($right), Previous($left), Exit (esc)
     mode "$mode_media" {
         bindsym space \
             exec dbus-send --print-reply \
@@ -287,7 +287,7 @@ bindsym $mod+r mode "resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_goto Go to: (f) Franz, (s) Skype, (c) Chrome
+    set $mode_goto Go to: Franz (f), Skype (s), Chrome (c)
     mode "$mode_goto" {
         bindsym f [class="Franz"] focus, mode "default"
         bindsym s [class="Skype"] focus, mode "default"
