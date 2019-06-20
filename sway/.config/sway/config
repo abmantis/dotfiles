@@ -1,90 +1,52 @@
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term gnome-terminal 
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu "rofi -i -modi drun,run,window -show drun"
-set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+# import extra configs
+    include enabled_configs/*
 
-# Background
-set $background /home/acosta/Pictures/Wallpapers/adwaita-day.jpg
+# Logo key. Use Mod1 for Alt.
+    set $mod Mod4
+# Home row direction keys, like vim
+    set $left h
+    set $down j
+    set $up k
+    set $right l
+
+# Your preferred terminal emulator
+    set $term gnome-terminal 
 
 # Waylock command
-set $swaylockcmd swaylock -i $background --scaling fill
+    set $swaylockcmd swaylock -i $background --scaling fill
 
 # Define names for default workspaces for which we configure key bindings later on.
-set $wsbs 0:S
-set $ws1 1:1
-set $ws2 2:2
-set $ws3 3:3
-set $ws4 4:4
-set $ws5 5:5
-set $ws6 6:6
-set $ws7 7:7
-set $ws8 8:8
-set $ws9 9:9
-set $ws10 10:10
+    set $wsbs 0:S
+    set $ws1 1:1
+    set $ws2 2:2
+    set $ws3 3:3
+    set $ws4 4:4
+    set $ws5 5:5
+    set $ws6 6:6
+    set $ws7 7:7
+    set $ws8 8:8
+    set $ws9 9:9
+    set $ws10 10:10
 
-set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD89MF92L"
-set $ws1output "Dell Inc. DELL U2417H 5K9YD89MF92L"
-set $ws2output "Dell Inc. DELL U2417H 5K9YD89MF92L"
-set $ws3output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws4output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws5output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws6output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws7output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws8output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws9output "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-set $ws10output eDP-1
+# Output configuration
+    output "*" bg $background fill
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/local/share/backgrounds/sway/)
-output "*" bg $background fill
-
-#output eDP-1 scale 1.25
-
-### Assign workspaces to screens
-workspace $wsbs  output $wsbsoutput
-workspace $ws1  output $ws1output
-workspace $ws2  output $ws2output
-workspace $ws3  output $ws3output
-workspace $ws4  output $ws4output
-workspace $ws5  output $ws5output
-workspace $ws6  output $ws6output
-workspace $ws7  output $ws7output
-workspace $ws8  output $ws8output
-workspace $ws9  output $ws9output
-workspace $ws10 output $ws10output
-
-
-### Input configuration
-    input "2:7:SynPS/2_Synaptics_TouchPad" {
-        dwt enabled
-        tap enabled
-        natural_scroll enabled
-        middle_emulation enabled
-    }
-
+# Input configuration
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
     input * {
         xkb_layout "pt"
         xkb_numlock enabled
     }
 
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+    input $touchpad_name {
+        dwt enabled
+        tap enabled
+        natural_scroll enabled
+        middle_emulation enabled
+    }
 
 ### Key bindings
 #
@@ -138,6 +100,20 @@ workspace $ws10 output $ws10output
 #
 # Workspaces:
 #
+
+    # Assign workspaces to screens
+    workspace $wsbs output $wsbsoutput
+    workspace $ws1  output $ws1output
+    workspace $ws2  output $ws2output
+    workspace $ws3  output $ws3output
+    workspace $ws4  output $ws4output
+    workspace $ws5  output $ws5output
+    workspace $ws6  output $ws6output
+    workspace $ws7  output $ws7output
+    workspace $ws8  output $ws8output
+    workspace $ws9  output $ws9output
+    workspace $ws10 output $ws10output
+    
     # switch to workspace
     bindsym $mod+Backslash workspace $wsbs
     bindsym $mod+1 workspace $ws1
@@ -163,18 +139,31 @@ workspace $ws10 output $ws10output
     bindsym $mod+Shift+9 move container to workspace $ws9
     bindsym $mod+Shift+0 move container to workspace $ws10
 
-    # reset workspace placement
+    # switch to next/prev workspaces
+    bindsym alt+tab workspace next
+    bindsym alt+shift+tab workspace prev
+
+    # reset workspace and window placement
     bindsym $mod+Shift+r \
-        workspace $ws1; move workspace to output $ws1output; \
-        workspace $ws2; move workspace to output $ws2output; \
-        workspace $ws3; move workspace to output $ws3output; \
-        workspace $ws4; move workspace to output $ws4output; \
-        workspace $ws5; move workspace to output $ws5output; \
-        workspace $ws6; move workspace to output $ws6output; \
-        workspace $ws7; move workspace to output $ws7output; \
-        workspace $ws8; move workspace to output $ws8output; \
-        workspace $ws9; move workspace to output $ws9output; \
-        workspace $ws10; move workspace to output $ws10output
+        workspace $wsbs, move workspace to output $wsbsoutput, \
+        workspace $ws1, move workspace to output $ws1output, \
+        workspace $ws2, move workspace to output $ws2output, \
+        workspace $ws3, move workspace to output $ws3output, \
+        workspace $ws4, move workspace to output $ws4output, \
+        workspace $ws5, move workspace to output $ws5output, \
+        workspace $ws6, move workspace to output $ws6output, \
+        workspace $ws7, move workspace to output $ws7output, \
+        workspace $ws8, move workspace to output $ws8output, \
+        workspace $ws9, move workspace to output $ws9output, \
+        workspace $ws10, move workspace to output $ws10output, \
+        exec swaymsg '[class="Franz"]                   focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Skype"]                   focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Google-chrome"]           focus, move window to workspace $ws1 ', \
+        exec swaymsg '[app_id="gnome-terminal-server"]  focus, move window to workspace $ws2 ', \
+        exec swaymsg '[class="Code"]                    focus, move window to workspace $ws3 ', \
+        exec swaymsg '[class="Spotify"]                 focus, move window to workspace $ws10', \
+        exec swaymsg "workspace $ws1"
+        
 #
 # Layout stuff:
 #
@@ -200,6 +189,7 @@ workspace $ws10 output $ws10output
 
     # move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -247,11 +237,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
 #
 # Custom Modes
 #
-
     set $mode_system System: Lock (l), Logout (e), Suspend (s), Hibernate (h), Reboot (r), Poweroff (p)
     mode "$mode_system" {
         bindsym l exec $swaylockcmd, mode "default"
@@ -297,41 +285,58 @@ bindsym $mod+r mode "resize"
         bindsym Return mode "default"
         bindsym Escape mode "default"
     }
-    
-    bindsym $mod+Home mode "$mode_system"
+
+#
+# Screen capture
+#    
+    bindsym $mod+p mode "$mode_system"
     bindsym $mod+m mode "$mode_media"
     bindsym $mod+g mode "$mode_goto"
 
-# capture all screens to clipboard    
-bindsym Print exec grim - | wl-copy
-    
-# capture the specified screen area to clipboard    
-bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy    
-    
-# capture the focused monitor to clipboard    
-bindsym Shift+Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+    # capture all screens to clipboard    
+    bindsym Print exec grim - | wl-copy
+        
+    # capture the specified screen area to clipboard    
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy    
+        
+    # capture the focused monitor to clipboard    
+    bindsym Shift+Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
-bindsym $mod+Scroll_Lock exec $swaylockcmd
-
-###########################
+#
 # Settings keys.
 # More can be found with xmodmap
 
-# Keybindings for the soundbuttons
-bindsym XF86AudioMute           exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume    exec amixer set Master 5%+
-bindsym XF86AudioLowerVolume    exec amixer set Master 5%-
-bindsym XF86AudioMicMute        exec amixer set Capture toggle
+    # Keybindings for the soundbuttons
+    bindsym XF86AudioMute           exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume    exec amixer set Master 5%+
+    bindsym XF86AudioLowerVolume    exec amixer set Master 5%-
+    bindsym XF86AudioMicMute        exec amixer set Capture toggle
 
-# Brightness and settings
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86Tools exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
+    bindsym XF86AudioPlay   exec dbus-send --print-reply \
+                                --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                                org.mpris.MediaPlayer2.Player.PlayPause
+    bindsym XF86AudioPrev   exec exec dbus-send --print-reply \
+                                --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                                org.mpris.MediaPlayer2.Player.Prev
+    bindsym XF86AudioNext   exec exec dbus-send --print-reply \
+                                --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                                org.mpris.MediaPlayer2.Player.Next
 
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
+    # Brightness and settings
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    bindsym XF86Tools exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
 
-focus_follows_mouse no
+#
+# Other bindings
+#
+
+    bindsym Ctrl+Alt+l exec $swaylockcmd
+
+    # The middle button over a titlebar kills the window
+    bindsym --release button2 kill
+
+    focus_follows_mouse no
 
 #
 # Status Bar:
@@ -340,7 +345,7 @@ focus_follows_mouse no
         #position top
         #status_command i3status
         strip_workspace_numbers yes
-        swaybar_command "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
+        swaybar_command $swaybar_cmd
     }
 
 #
@@ -393,6 +398,10 @@ focus_follows_mouse no
     #assign [class="Google-chrome"] workspace $ws1
     #assign [app_id="gnome-terminal-server"] workspace $ws2
 
+# Back to workspace 1
+    workspace $ws1 
+
+
 #
 # Autostart services and daemons
 #
@@ -414,14 +423,13 @@ focus_follows_mouse no
 #
 # Autostart apps
 #
-
-    #exec_always swaymsg "workspace $ws1" && swaymsg "exec google-chrome-stable --password-store=gnome %U" && sleep 0.5 &&\
+    #exec_always swaymsg "workspace $ws1" && swaymsg "exec google-chrome-stable --password-store=gnome" && sleep 0.5 &&\
     #            swaymsg "workspace $ws2" && swaymsg "exec gnome-terminal" && sleep 0.5 &&\
     #            swaymsg "workspace $ws10" && swaymsg "exec /snap/bin/spotify" && sleep 0.5 &&\
     #            swaymsg "workspace $ws1"
 
-    exec google-chrome-stable --password-store=gnome %U
-    exec gnome-terminal
+    exec google-chrome-stable --password-store=gnome
+    exec franz
 
 
 include /usr/local/etc/sway/config.d/*

@@ -1,0 +1,27 @@
+# Swaybar Command
+    set $swaybar_cmd "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
+
+# Application launcher
+    set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+
+# Background
+    set $background /home/acosta/Pictures/Wallpapers/adwaita-day.jpg
+
+# Set outputs for each workspace
+    set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD89MF92L"
+    set $ws1output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
+    set $ws2output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
+    set $ws3output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws4output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws5output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws6output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws7output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws8output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws9output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+    set $ws10output eDP-1
+
+# Touchpad name
+    set $touchpad_name "2:7:SynPS/2_Synaptics_TouchPad"
+
+# Autostart apps
+    exec gnome-terminal

@@ -1,0 +1,30 @@
+# Swaybar Command
+    set $swaybar_cmd waybar
+
+# Background
+    set $background ~/Pictures/914205-wallpaper.jpg
+
+# Your preferred application launcher
+    set $menu bash -c "source /etc/profile.d/snapd.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+
+# Set outputs for each workspace
+    set $wsbsoutput eDP-1
+    set $ws1output  eDP-1
+    set $ws2output  eDP-1
+    set $ws3output  eDP-1
+    set $ws4output  eDP-1
+    set $ws5output  eDP-1
+    set $ws6output  eDP-1
+    set $ws7output  eDP-1
+    set $ws8output  eDP-1
+    set $ws9output  eDP-1
+    set $ws10output eDP-1
+
+# Touchpad name
+    set $touchpad_name "1739:31251:DLL07BE:01_06CB:7A13_Touchpad"    
+
+# Autostart apps
+    exec redshift-gtk
+    exec dropbox
+    exec solaar
+    exec ~/Scripts/delayed_autostart_list.sh

@@ -3,6 +3,7 @@
 - swaylock and swayidle
 - rofi
 - swaybg
+- redshift-wlr-gamma-control-git (optional for redshift)
 
 # Deps:
 - lxpolkit
@@ -13,3 +14,14 @@
 - Download a [Ubuntu Nerd Font](http://nerdfonts.com/)
 - Unzip and copy to `~/.fonts`
 - Run the command `fc-cache -fv` to manually rebuild the font cache
+
+# Using Gnome Keyring with Chrome
+Chrome must be launched with `--password-store=gnome` for it to use the Gnome Keyring to store passwords. For this to work seamlessly, copy the desktop file to the user folder:
+`cp /usr/share/applications/google-chrome.desktop .local/share/applications/`
+Then edit this and add `--password-store=gnome` to the varios `Exec` lines.
+
+# Fix empty/white Java apps:
+Add the `_JAVA_AWT_WM_NONREPARENTING=1` env var to `~/.config/environment.d/profile.conf`
+
+# Sway non-generic configs:
+Non-generic configs (ones that are specific to a machine), go into the sway/available_configs directory. Each machine creates a link (ln -s) inside the sway/enabled_configs dir to their specific config file.
