@@ -381,8 +381,8 @@ bindsym $mod+r mode "resize"
     set $green      #859900
 
     # class                 border  backgr. text    indica. child_border
-    client.focused          $gray2  $gray2  $gray4  $gray2    $gray2
-    client.unfocused        $gray3  $gray3  $gray4  $gray3    $gray3
+    client.focused          $gray2  $gray2  $gray4  $cyan  $gray2
+    client.unfocused        $gray3  $gray3  $gray4  $cyan  $gray3
 
 #
 # Gaps
