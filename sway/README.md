@@ -20,6 +20,15 @@ Chrome must be launched with `--password-store=gnome` for it to use the Gnome Ke
 `cp /usr/share/applications/google-chrome.desktop .local/share/applications/`
 Then edit this and add `--password-store=gnome` to the varios `Exec` lines.
 
+For ssh keys with passphrases, add the following to the `.bash_profile`:
+```
+# Gnome keyring setup for SSH
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+```
+
 # Fix empty/white Java apps:
 Add the `_JAVA_AWT_WM_NONREPARENTING=1` env var to `~/.config/environment.d/profile.conf`
 
