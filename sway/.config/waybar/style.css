@@ -60,11 +60,11 @@ window#waybar.solo {
     color:      rgba(46, 120, 238, 1);
 }
 
-#mode, #workspaces, #tray, #custom-ubuntu-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
+#mode, #workspaces, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
     background: #353535;
 }
 
-#mode, #tray, #custom-spotify, #custom-ubuntu-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor {
+#mode, #tray, #custom-spotify, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor {
     padding:     0px 10px 0px 10px;
     min-width:  25px;
 }
@@ -85,11 +85,11 @@ window#waybar.solo {
     color: red;
 }
 
-#custom-ubuntu-updates.update {
+#custom-system-updates.update {
     color: cyan;
 }
 
-#custom-ubuntu-updates.restart {
+#custom-system-updates.restart {
     color: red;
 }
 

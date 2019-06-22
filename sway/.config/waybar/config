@@ -8,7 +8,7 @@
         "custom/spotify",
         "custom/left-arrow-dark", 
         "tray",
-        "custom/ubuntu-updates",
+        "custom/system-updates",
         "backlight",
         "network#wifi",
         "network#eth",
@@ -127,11 +127,11 @@
         "escape": true,
         "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },
-    "custom/ubuntu-updates": {
+    "custom/system-updates": {
         "format": "{}",
         "interval": 3600,
         "return-type": "json",
-        "exec": "~/.config/waybar/modules/ubuntu_updates.sh",
+        "exec": "~/.config/waybar/modules/system_updates.sh",
         "escape": true,
         "on-click": "update-manager"
     },
