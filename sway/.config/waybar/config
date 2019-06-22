@@ -65,7 +65,7 @@
             "disconnected": [""]
         },
         "interval": 10,
-        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi",
+        "on-click": "gnome-terminal -- nmtui",
         "tooltip": false
     },
     "network#eth": {
@@ -79,7 +79,7 @@
             "disconnected": [""]
         },
         "interval": 10,
-        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network",
+        "on-click": "gnome-terminal -- nmtui",
         "tooltip": false
     },
     "network#none": {
@@ -91,7 +91,7 @@
             "disconnected": [""]
         },
         "interval": 10,
-        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network",
+        "on-click": "gnome-terminal -- nmtui",
         "tooltip": false
     },
     "pulseaudio": {

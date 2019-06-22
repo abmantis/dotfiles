@@ -187,6 +187,9 @@
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
+    # Toggle floating window sticky state
+    bindsym $mod+shift+s sticky toggle
+
     # move focus to the parent container
     bindsym $mod+a focus parent
 
@@ -391,8 +394,12 @@ bindsym $mod+r mode "resize"
 #
 # Custom window setups
 #
-    # clion "search everywere" popup
+    focus_on_window_activation focus
+
+    # jetbrains "search everywere" popups
     for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
+    for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating enable
+
     for_window [app_id="gnome-calculator"] floating enable
 
     #assign [class="Google-chrome"] workspace $ws1
