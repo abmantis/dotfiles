@@ -1,0 +1,20 @@
+font=Ubuntu 11
+text-color=#ffffffdd
+background-color=#292b2edd
+border-color=#555555dd
+border-size=2
+border-radius=2
+width=500
+height=200
+padding=10
+
+default-timeout=4000
+ignore-timeout=0
+
+[hidden]
+format=(and %h more)
+text-color=#777777
+
+[urgency=high]
+background-color=#c00000
+border-color=#ff0000

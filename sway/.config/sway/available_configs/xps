@@ -24,7 +24,10 @@
     set $touchpad_name "1739:31251:DLL07BE:01_06CB:7A13_Touchpad"    
 
 # Autostart apps
-    exec redshift-gtk
+    exec mako
+    exec_always makoctl reload
+    
+    exec redshift
     exec dropbox
     exec solaar
     exec ~/Scripts/delayed_autostart_list.sh
