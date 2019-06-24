@@ -3,6 +3,7 @@
 - swaylock and swayidle
 - rofi
 - swaybg
+- mako
 - redshift-wlr-gamma-control-git (optional for redshift)
 
 # Deps:
