@@ -8,7 +8,7 @@ width=500
 height=200
 padding=10
 
-default-timeout=4000
+default-timeout=5000
 ignore-timeout=0
 
 [hidden]

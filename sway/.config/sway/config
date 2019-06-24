@@ -385,14 +385,14 @@ bindsym $mod+r mode "resize"
     client.unfocused        $gray3  $gray3  $gray4  $cyan  $gray3
 
 #
-# Gaps
+# Gaps and borders
 #
     smart_borders on
     smart_gaps on
     #gaps inner 10
 
 #
-# Custom window setups
+# Window settings
 #
     focus_on_window_activation focus
 
@@ -401,13 +401,11 @@ bindsym $mod+r mode "resize"
     for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating enable
 
     for_window [app_id="gnome-calculator"] floating enable
-
-    #assign [class="Google-chrome"] workspace $ws1
-    #assign [app_id="gnome-terminal-server"] workspace $ws2
+    
+    for_window [class="^(?i)google-chrome"] border pixel 1
 
 # Back to workspace 1
     workspace $ws1 
-
 
 #
 # Autostart services and daemons
