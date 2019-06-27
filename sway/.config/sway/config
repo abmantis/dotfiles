@@ -417,6 +417,8 @@ bindsym $mod+r mode "resize"
         gsettings set $gnome-schema cursor-theme 'Yaru'
     }
 
+    exec_always python3 scripts/dimm_unfocused_windows.py
+
 #
 # Autostart apps
 #
