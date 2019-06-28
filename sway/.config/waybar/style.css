@@ -61,6 +61,10 @@ window#waybar.solo {
     font-family:   "Ubuntu";
 }
 
+#custom-spotify {
+    font-family:   "Ubuntu";
+}
+
 #mode, #workspaces, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
     background: #353535;
 }
