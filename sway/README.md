@@ -5,6 +5,7 @@
 - swaybg
 - mako
 - redshift-wlr-gamma-control-git (optional for redshift)
+- jq (used in some commands)
 
 # Deps:
 - lxpolkit
