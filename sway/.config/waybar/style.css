@@ -1,7 +1,7 @@
 * {
     border:        none;
     border-radius: 0;
-    font-family:   Ubuntu, "Ubuntu Nerd Font", Sans;
+    font-family:   "Ubuntu Nerd Font", "Ubuntu";
     font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
@@ -58,6 +58,11 @@ window#waybar.solo {
 
 #mode {
     color:      rgba(46, 120, 238, 1);
+    font-family:   "Ubuntu";
+}
+
+#custom-spotify {
+    font-family:   "Ubuntu";
 }
 
 #mode, #workspaces, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
