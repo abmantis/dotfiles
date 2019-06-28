@@ -336,8 +336,10 @@ bindsym $mod+r mode "resize"
 
     bindsym Ctrl+Alt+l exec $swaylockcmd
 
-    # The middle button over a titlebar kills the window
-    bindsym --release button2 kill
+    # The middle mouse button over a titlebar kills the window
+    bindsym button2 kill
+    # The right mouse button over a titlebar toggles flaot mode
+    bindsym button3 floating toggle
 
     focus_follows_mouse no
 
