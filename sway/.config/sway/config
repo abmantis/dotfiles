@@ -82,6 +82,9 @@
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
+    # regen outputs
+    bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh
+
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
@@ -172,7 +175,9 @@
         exec swaymsg '[class="Google-chrome"]           focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="gnome-terminal-server"]  focus, move window to workspace $ws2 ', \
         exec swaymsg '[class="Code"]                    focus, move window to workspace $ws3 ', \
-        exec swaymsg '[class="Spotify"]                 focus, move window to workspace $ws10', \
+        exec swaymsg '[class="jetbrains-clion"]         focus, move window to workspace $ws4 ', \
+        exec swaymsg '[app_id="dlt_viewer"]             focus, move window to workspace $ws5', \
+        exec swaymsg '[class="Spotify"]                 focus, move window to workspace $ws10', \        
         exec swaymsg "workspace $ws1"
         
 #
@@ -417,7 +422,8 @@ bindsym $mod+r mode "resize"
         gsettings set $gnome-schema cursor-theme 'Yaru'
     }
 
-    exec_always python3 scripts/dimm_unfocused_windows.py
+    exec $HOME/.config/sway/scripts/generate_outputs.sh
+    exec sleep 1 ; python3 $HOME/.config/sway/scripts/dimm_unfocused_windows.py
 
 #
 # Autostart apps
