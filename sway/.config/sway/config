@@ -157,6 +157,8 @@
     bindsym alt+tab workspace next
     bindsym alt+shift+tab workspace prev
 
+    for_window [workspace=$wsbs] layout tabbed
+
     # reset workspace and window placement
     bindsym $mod+Shift+r \
         workspace $wsbs, move workspace to output $wsbsoutput, \
