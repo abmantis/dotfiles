@@ -1,6 +1,10 @@
 # Swaybar Command
     set $swaybar_cmd "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
 
+# Screen lock and off idle time
+    set $screenidletimelock 180
+    set $screenidletimeoff 240
+
 # Application launcher
     set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
 

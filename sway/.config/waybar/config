@@ -101,7 +101,8 @@
             "phone": [" ", " ", " ", " "],
             "default": ["奄", "奔", "墳", ""]
         },
-        "scroll-step": 10,
+        "on-scroll-up": "amixer set Master 5%+",
+        "on-scroll-down": "amixer set Master 5%-",
         "on-click": "pavucontrol",
         "tooltip": false
     },

@@ -1,6 +1,10 @@
 # Swaybar Command
     set $swaybar_cmd waybar
 
+# Screen lock and off idle time
+    set $screenidletimelock 600
+    set $screenidletimeoff 660
+
 # Background
     set $background ~/Pictures/914205-wallpaper.jpg
 

@@ -4,6 +4,9 @@
 - rofi
 - swaybg
 - mako
+- grim (for screenshots)
+- slurp (for screenshots)
+- wl-copy (for screenshots)
 - redshift-wlr-gamma-control-git (optional for redshift)
 - jq (used in some commands)
 

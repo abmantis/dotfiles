@@ -170,14 +170,14 @@
         workspace $ws8, move workspace to output $ws8output, \
         workspace $ws9, move workspace to output $ws9output, \
         workspace $ws10, move workspace to output $ws10output, \
-        exec swaymsg '[class="Franz"]                   focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="Skype"]                   focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="Google-chrome"]           focus, move window to workspace $ws1 ', \
-        exec swaymsg '[app_id="gnome-terminal-server"]  focus, move window to workspace $ws2 ', \
-        exec swaymsg '[class="Code"]                    focus, move window to workspace $ws3 ', \
-        exec swaymsg '[class="jetbrains-clion"]         focus, move window to workspace $ws4 ', \
-        exec swaymsg '[app_id="dlt_viewer"]             focus, move window to workspace $ws5', \
-        exec swaymsg '[class="Spotify"]                 focus, move window to workspace $ws10', \        
+        exec swaymsg '[class="Franz"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
+        exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
+        exec swaymsg '[class="Code"]                        focus, move window to workspace $ws3 ', \
+        exec swaymsg '[class="jetbrains-clion"]             focus, move window to workspace $ws4 ', \
+        exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5', \
+        exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
         exec swaymsg "workspace $ws1"
         
 #
@@ -259,7 +259,7 @@ bindsym $mod+r mode "resize"
 #
 # Custom Modes
 #
-    set $mode_system System: Lock (l), Logout (e), Suspend (s), Hibernate (h), Reboot (r), Poweroff (p)
+    set $mode_system System: Lock (l), Logout (e), Suspend (s), Hibernate (h), Reboot (r), Poweroff (p), Windows (w)
     mode "$mode_system" {
         bindsym l exec $swaylockcmd, mode "default"
         bindsym e exec swaymsg exit, mode "default"
@@ -267,6 +267,7 @@ bindsym $mod+r mode "resize"
         bindsym h exec systemctl hibernate, mode "default"
         bindsym r exec systemctl reboot, mode "default"
         bindsym p exec systemctl poweroff, mode "default"
+        bindsym w exec grub-reboot 2 && systemctl reboot, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -412,8 +413,8 @@ bindsym $mod+r mode "resize"
     #exec gnome-power-manager
     exec lxpolkit
     exec swayidle \
-         timeout 180 '$swaylockcmd -f' \
-         timeout 240 'swaymsg "output * dpms off"' \
+         timeout $screenidletimelock '$swaylockcmd -f' \
+         timeout $screenidletimeoff 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep '$swaylockcmd -f'
 
@@ -425,7 +426,7 @@ bindsym $mod+r mode "resize"
     }
 
     exec $HOME/.config/sway/scripts/generate_outputs.sh
-    exec sleep 1 ; python3 $HOME/.config/sway/scripts/dimm_unfocused_windows.py
+    exec sleep 1 && python3 $HOME/.config/sway/scripts/dimm_unfocused_windows.py
 
 #
 # Autostart apps
