@@ -16,3 +16,4 @@
 
 # Autostart apps
     exec gnome-terminal
+    exec skypeforlinux

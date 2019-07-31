@@ -157,6 +157,8 @@
     bindsym alt+tab workspace next
     bindsym alt+shift+tab workspace prev
 
+    for_window [workspace=$wsbs] layout tabbed
+
     # reset workspace and window placement
     bindsym $mod+Shift+r \
         workspace $wsbs, move workspace to output $wsbsoutput, \
@@ -331,9 +333,6 @@ bindsym $mod+r mode "resize"
 #
 # Other bindings
 #
-
-    bindsym Ctrl+Alt+l exec $swaylockcmd
-
     # The middle mouse button over a titlebar kills the window
     bindsym button2 kill
     # The right mouse button over a titlebar toggles flaot mode
@@ -403,6 +402,13 @@ bindsym $mod+r mode "resize"
     for_window [app_id="gnome-calculator"] floating enable
     
     for_window [class="^(?i)google-chrome"] border pixel 1
+
+    assign [class="Franz"] $wsbs
+    assign [class="Skype"] $wsbs
+    #assign [class="jetbrains-clion"] $ws4
+    #assign [class="jetbrains-studio"] $ws4
+    # assign does not work with spotify (https://github.com/swaywm/sway/issues/3793)
+    for_window [class="Spotify"] move window to workspace $ws10 
 
 # Back to workspace 1
     workspace $ws1 
