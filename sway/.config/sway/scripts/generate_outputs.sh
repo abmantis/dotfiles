@@ -38,7 +38,7 @@ then
     # Set outputs for each workspace
     echo '
         set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD89MF92L"
-        set $ws1output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
+        set $ws1output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
         set $ws2output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
         set $ws3output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
         set $ws4output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
