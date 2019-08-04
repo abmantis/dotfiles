@@ -305,7 +305,7 @@ bindsym $mod+r mode "resize"
 
     # capture all screens to clipboard    
     bindsym Print exec grim - | wl-copy
-        
+
     # capture the specified screen area to clipboard    
     bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy    
         

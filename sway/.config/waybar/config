@@ -9,12 +9,12 @@
         "custom/left-arrow-dark", 
         "tray",
         "custom/system-updates",
-        "backlight",
         "network#wifi",
         "network#eth",
         "network#none",
-        "custom/upower",
+        "backlight",
         "pulseaudio",
+        "custom/upower",
         "idle_inhibitor"],
 
     "custom/left-arrow-dark": {
@@ -95,8 +95,8 @@
         "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon} {volume}",
-        "format-muted": "婢 {volume}",
+        "format": "{icon} {volume}%",
+        "format-muted": "婢 {volume}%",
         "format-icons": {
             "phone": [" ", " ", " ", " "],
             "default": ["奄", "奔", "墳", ""]
