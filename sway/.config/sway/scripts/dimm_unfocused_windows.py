@@ -3,7 +3,7 @@
 # This script requires i3ipc-python package (install it from a system package manager
 # or pip).
 # It makes inactive windows transparent. Use `transparency_val` variable to control
-# transparency strength in range of 0…1.
+# transparency strength in range of 0...1.
 # Refer: https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py
 
 import i3ipc
