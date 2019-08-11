@@ -114,7 +114,6 @@
 #
 # Workspaces:
 #
-
     # Assign workspaces to screens
     workspace $wsbs output $wsbsoutput
     workspace $ws1  output $ws1output
@@ -304,13 +303,13 @@ bindsym $mod+r mode "resize"
     bindsym $mod+g mode "$mode_goto"
 
     # capture all screens to clipboard    
-    bindsym Print exec grim - | wl-copy
+    bindsym Print exec grim - | wl-copy && notify-send "All screens copied to clipboard"
 
     # capture the specified screen area to clipboard    
-    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy    
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Region copied to clipboard"
         
     # capture the focused monitor to clipboard    
-    bindsym Shift+Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+    bindsym Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy && notify-send "Display $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') copied to clipboard"
 
 #
 # Settings keys.
@@ -401,6 +400,7 @@ bindsym $mod+r mode "resize"
 
     for_window [app_id="gnome-calculator"] floating enable
     
+    # remove titlebar for chrome
     for_window [class="^(?i)google-chrome"] border pixel 1
 
     assign [class="Franz"] $wsbs
