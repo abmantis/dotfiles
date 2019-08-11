@@ -30,6 +30,33 @@
     set $ws9 9:9
     set $ws10 10:10
 
+    set $workspace_reset_wspcs_cmd \
+        workspace $wsbs, move workspace to output $wsbsoutput, \
+        workspace $ws1, move workspace to output $ws1output, \
+        workspace $ws2, move workspace to output $ws2output, \
+        workspace $ws3, move workspace to output $ws3output, \
+        workspace $ws4, move workspace to output $ws4output, \
+        workspace $ws5, move workspace to output $ws5output, \
+        workspace $ws6, move workspace to output $ws6output, \
+        workspace $ws7, move workspace to output $ws7output, \
+        workspace $ws8, move workspace to output $ws8output, \
+        workspace $ws9, move workspace to output $ws9output, \
+        workspace $ws10, move workspace to output $ws10output
+    
+    set $workspace_reset_apps_cmd \
+        exec swaymsg '[class="Franz"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
+        exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
+        exec swaymsg '[class="Code"]                        focus, move window to workspace $ws3 ', \
+        exec swaymsg '[class="jetbrains-clion"]             focus, move window to workspace $ws4 ', \
+        exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5 ', \
+        exec swaymsg '[title="Google Duo - Google Chrome"]  focus, move window to workspace $ws9 ', \
+        exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
+        exec swaymsg "workspace $ws1"
+
+    set $workspace_reset_cmd $workspace_reset_wspcs_cmd, $workspace_reset_apps_cmd
+
 # Set variables for external commands
     set $spotifyplay    exec dbus-send --print-reply \
                             --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
@@ -159,27 +186,7 @@
     for_window [workspace=$wsbs] layout tabbed
 
     # reset workspace and window placement
-    bindsym $mod+Shift+r \
-        workspace $wsbs, move workspace to output $wsbsoutput, \
-        workspace $ws1, move workspace to output $ws1output, \
-        workspace $ws2, move workspace to output $ws2output, \
-        workspace $ws3, move workspace to output $ws3output, \
-        workspace $ws4, move workspace to output $ws4output, \
-        workspace $ws5, move workspace to output $ws5output, \
-        workspace $ws6, move workspace to output $ws6output, \
-        workspace $ws7, move workspace to output $ws7output, \
-        workspace $ws8, move workspace to output $ws8output, \
-        workspace $ws9, move workspace to output $ws9output, \
-        workspace $ws10, move workspace to output $ws10output, \
-        exec swaymsg '[class="Franz"]                       focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
-        exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
-        exec swaymsg '[class="Code"]                        focus, move window to workspace $ws3 ', \
-        exec swaymsg '[class="jetbrains-clion"]             focus, move window to workspace $ws4 ', \
-        exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5', \
-        exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
-        exec swaymsg "workspace $ws1"
+    bindsym $mod+Shift+r $workspace_reset_cmd
         
 #
 # Layout stuff:
