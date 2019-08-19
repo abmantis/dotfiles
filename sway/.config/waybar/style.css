@@ -8,14 +8,6 @@
     transition-duration: 0s;
 }
 
-#custom-right-arrow-dark, #custom-left-arrow-dark {
-    color: #353535;
-}
-#custom-right-arrow-light, #custom-left-arrow-light {
-    color: #292b2e;
-    background: #353535;
-}
-
 window {
     color:      rgba(217, 216, 216, 1);
     background: rgba(35, 31, 32, 0.00);
@@ -31,7 +23,8 @@ window#waybar.solo {
 }
 
 #workspaces {
-    padding: 0 5px;
+    padding: 0 10px;
+    border-bottom-right-radius: 15px;
 }
 
 #workspaces button {
@@ -57,33 +50,34 @@ window#waybar.solo {
 }
 
 #mode {
-    color:      rgba(46, 120, 238, 1);
+    color:      rgba(238, 46, 36, 1);
+    background: #353535;
     font-family:   "Ubuntu";
+    margin-left: 10px;
+    padding: 0px 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-#custom-spotify {
-    font-family:   "Ubuntu";
+#custom-spotify, #tray {
+    font-family: "Ubuntu";
 }
 
-#mode, #workspaces, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
+#workspaces, #clock, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network {
     background: #353535;
 }
 
-#mode, #tray, #custom-spotify, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor {
-    padding:     0px 10px 0px 10px;
+#mode {
     min-width:  25px;
 }
 
-#network.wifi {
-    padding:     0px 0px 0px 10px;
+#tray {
+    border-bottom-left-radius: 15px;
 }
 
-#network.eth {
-    padding:     0px 0px 0px 0px;
-}
-
-#network.none {
-    padding:     0px 10px 0px 0px;
+#tray, #custom-spotify, #custom-system-updates, #network, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor {
+    padding:    0px 15px 0px 15px;
+    min-width:  25px;
 }
 
 #custom-upower.low {
@@ -99,8 +93,9 @@ window#waybar.solo {
 }
 
 #clock {
-    padding:     0px 16px 0px 10px;
-    min-width:  140px;
+    padding: 0px 15px;    
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #battery.warning {

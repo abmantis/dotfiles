@@ -18,17 +18,17 @@
     set $swaylockcmd swaylock -i $background --scaling fill
 
 # Define names for default workspaces for which we configure key bindings later on.
-    set $wsbs 0:S
-    set $ws1 1:1
-    set $ws2 2:2
-    set $ws3 3:3
-    set $ws4 4:4
-    set $ws5 5:5
-    set $ws6 6:6
-    set $ws7 7:7
-    set $ws8 8:8
-    set $ws9 9:9
-    set $ws10 10:10
+    set $wsbs "0:S "
+    set $ws1 "1:1 "
+    set $ws2 "2:2 "
+    set $ws3 "3:3 "
+    set $ws4 "4:4 "
+    set $ws5 "5:5 "
+    set $ws6 "6:6 "
+    set $ws7 "7:7 "
+    set $ws8 "8:8 "
+    set $ws9 "9:9 "
+    set $ws10 "10:10 "
 
     set $workspace_reset_wspcs_cmd \
         workspace $wsbs, move workspace to output $wsbsoutput, \

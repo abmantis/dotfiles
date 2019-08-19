@@ -2,37 +2,18 @@
     "layer": "bottom",
     "position": "top",
 
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/right-arrow-dark"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
     "modules-right": [
         "custom/spotify",
-        "custom/left-arrow-dark", 
         "tray",
         "custom/system-updates",
-        "network#wifi",
-        "network#eth",
-        "network#none",
         "backlight",
+        "network",
         "pulseaudio",
         "custom/upower",
         "idle_inhibitor"],
 
-    "custom/left-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/left-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
     "sway/mode": {
         "format": " {}"
     },
@@ -54,39 +35,15 @@
         "on-click": "gnome-calendar",
         "tooltip": false
     },
-    "network#wifi": {
+    "network": {
         "format": "",
+        "format-disconnected": "{icon}",
+        "format-ethernet": "{icon}",
         "format-wifi": "{icon} {signalStrength}%",
         "format-alt": "{icon} {essid} ({ipaddr})",
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "interval": 10,
-        "on-click": "gnome-terminal -- nmtui",
-        "tooltip": false
-    },
-    "network#eth": {
-        "format": "",
-        "format-ethernet": "{icon}",
-        "format-alt": "{icon} {ipaddr}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "interval": 10,
-        "on-click": "gnome-terminal -- nmtui",
-        "tooltip": false
-    },
-    "network#none": {
-        "format": "",
-        "format-disconnected": "{icon}",
-        "format-icons": {
-            "wifi": ["", "" ,""],
             "ethernet": [""],
             "disconnected": [""]
         },
@@ -156,6 +113,6 @@
     },
     "tray": {
         "icon-size": 15,
-        "spacing": 10
+        "spacing": 15
     }
 }
