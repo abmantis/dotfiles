@@ -1,5 +1,6 @@
 # Swaybar Command
-    set $swaybar_cmd "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
+    #set $swaybar_cmd "cd /home/acosta/external/sway_repos/Waybar && build/waybar"
+    set $swaybar_cmd "/home/acosta/external/sway_repos/Waybar/build/waybar"
 
 # Screen lock and off idle time
     set $screenidletimelock 180

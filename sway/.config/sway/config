@@ -439,7 +439,7 @@ bindsym $mod+r mode "resize"
     }
 
     exec $HOME/.config/sway/scripts/generate_outputs.sh
-    exec sleep 1 && python3 $HOME/.config/sway/scripts/dimm_unfocused_windows.py
+    exec sleep 2 ; /usr/bin/python3 $HOME/.config/sway/scripts/dimm_unfocused_windows.py
 
 #
 # Autostart apps
