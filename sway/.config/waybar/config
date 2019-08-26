@@ -7,11 +7,11 @@
     "modules-right": [
         "custom/spotify",
         "tray",
-        "custom/system-updates",
-        "backlight",
         "network",
         "pulseaudio",
         "custom/upower",
+        "custom/system-updates",
+        "backlight",
         "idle_inhibitor"],
 
     "sway/mode": {

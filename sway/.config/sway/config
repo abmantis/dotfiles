@@ -53,7 +53,7 @@
         exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5 ', \
         exec swaymsg '[title="Google Duo - Google Chrome"]  focus, move window to workspace $ws9 ', \
         exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
-        exec swaymsg "workspace $ws1"
+        exec swaymsg 'workspace $ws1'
 
     set $workspace_reset_cmd $workspace_reset_wspcs_cmd, $workspace_reset_apps_cmd
 
@@ -434,8 +434,8 @@ bindsym $mod+r mode "resize"
     set $gnome-schema org.gnome.desktop.interface
     exec_always {
         gsettings set $gnome-schema gtk-theme 'Yaru'
-        gsettings set $gnome-schema icon-theme 'Yaru'
-        gsettings set $gnome-schema cursor-theme 'Yaru'
+        gsettings set $gnome-schema icon-theme 'Adwaita'
+        gsettings set $gnome-schema cursor-theme 'Adwaita'
     }
 
     exec $HOME/.config/sway/scripts/generate_outputs.sh
@@ -444,11 +444,6 @@ bindsym $mod+r mode "resize"
 #
 # Autostart apps
 #
-    #exec_always swaymsg "workspace $ws1" && swaymsg "exec google-chrome-stable --password-store=gnome" && sleep 0.5 &&\
-    #            swaymsg "workspace $ws2" && swaymsg "exec gnome-terminal" && sleep 0.5 &&\
-    #            swaymsg "workspace $ws10" && swaymsg "exec /snap/bin/spotify" && sleep 0.5 &&\
-    #            swaymsg "workspace $ws1"
-
     exec google-chrome-stable --password-store=gnome
     exec franz
 
