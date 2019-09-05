@@ -287,6 +287,8 @@ bindsym $mod+r mode "resize"
         bindsym space  $spotifyplay, mode "default"
         bindsym $right $spotifynext, mode "default"
         bindsym $left  $spotifyprev, mode "default"
+        bindsym Plus   exec amixer set Master 5%+
+        bindsym Minus  exec amixer set Master 5%-
         bindsym Return mode "default"
         bindsym Escape mode "default"
     }
