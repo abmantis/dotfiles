@@ -82,7 +82,7 @@ window#waybar.solo {
     padding:    0px 5px;
 }
 
-#tray, #custom-spotify, #network, #custom-upower, #pulseaudio {
+#tray, #custom-spotify, #custom-spotify_next, #network, #custom-upower, #pulseaudio {
     padding:    0px 15px 0px 15px;
     min-width:  25px;
 }

@@ -6,6 +6,7 @@
     "modules-center": ["clock"],
     "modules-right": [
         "custom/spotify",
+        "custom/spotify_next",
         "tray",
         "network",
         "pulseaudio",
@@ -75,6 +76,14 @@
         "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",        
         "format-icons": {
           "default": ""
+        }
+    },
+    "custom/spotify_next": {
+        "format": "{icon}",
+        "exec-if": "pgrep spotify",
+        "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
+        "format-icons": {
+          "default": "怜"
         }
     },
     "custom/upower": {
