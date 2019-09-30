@@ -25,10 +25,10 @@
     set $ws4 "4:4 "
     set $ws5 "5:5 "
     set $ws6 "6:6 "
-    set $ws7 "7:7 "
-    set $ws8 "8:8 "
-    set $ws9 "9:9 "
-    set $ws10 "10:10 "
+    set $ws7 "7:F1 "
+    set $ws8 "8:F2 "
+    set $ws9 "9:F3 "
+    set $ws10 "10:F4 "
 
     set $workspace_reset_wspcs_cmd \
         workspace $wsbs, move workspace to output $wsbsoutput, \
@@ -67,6 +67,8 @@
     set $spotifynext    exec dbus-send --print-reply \
                             --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
                             org.mpris.MediaPlayer2.Player.Next
+    set $volumeup       exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    set $volumedown     exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Output configuration
     output "*" bg $background fill
@@ -162,10 +164,10 @@
     bindsym $mod+4 workspace $ws4
     bindsym $mod+5 workspace $ws5
     bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
+    bindsym $mod+F1 workspace $ws7
+    bindsym $mod+F2 workspace $ws8
+    bindsym $mod+F3 workspace $ws9
+    bindsym $mod+F4 workspace $ws10
     # move focused container to workspace
     bindsym $mod+Shift+Backslash move container to workspace $wsbs
     bindsym $mod+Shift+1 move container to workspace $ws1
@@ -174,10 +176,10 @@
     bindsym $mod+Shift+4 move container to workspace $ws4
     bindsym $mod+Shift+5 move container to workspace $ws5
     bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws10
+    bindsym $mod+Shift+F1 move container to workspace $ws7
+    bindsym $mod+Shift+F2 move container to workspace $ws8
+    bindsym $mod+Shift+F3 move container to workspace $ws9
+    bindsym $mod+Shift+F4 move container to workspace $ws10
 
     # switch to next/prev workspaces
     bindsym alt+tab workspace next
@@ -287,8 +289,8 @@ bindsym $mod+r mode "resize"
         bindsym space  $spotifyplay, mode "default"
         bindsym $right $spotifynext, mode "default"
         bindsym $left  $spotifyprev, mode "default"
-        bindsym Plus   exec amixer set Master 5%+
-        bindsym Minus  exec amixer set Master 5%-
+        bindsym Plus   $volumeup
+        bindsym Minus  $volumedown
         bindsym Return mode "default"
         bindsym Escape mode "default"
     }
@@ -325,8 +327,8 @@ bindsym $mod+r mode "resize"
 # More can be found with xmodmap
     # Keybindings for the soundbuttons
     bindsym XF86AudioMute           exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioRaiseVolume    exec amixer set Master 5%+
-    bindsym XF86AudioLowerVolume    exec amixer set Master 5%-
+    bindsym XF86AudioRaiseVolume    $volumeup
+    bindsym XF86AudioLowerVolume    $volumedown
     bindsym XF86AudioMicMute        exec amixer set Capture toggle
 
     bindsym XF86AudioPlay   $spotifyplay

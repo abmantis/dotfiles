@@ -56,7 +56,7 @@
         "format": "{icon} {volume}%",
         "format-muted": "婢 {volume}%",
         "format-icons": {
-            "phone": [" ", " ", " ", " "],
+            "phone": ["奄", "奔", "墳", " "],
             "default": ["奄", "奔", "墳", ""]
         },
         "on-scroll-up": "amixer set Master 5%+",

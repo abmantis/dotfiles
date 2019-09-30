@@ -27,7 +27,7 @@ then
         set $ws4output  "Ancor Communications Inc ASUS ML239 BBLMIB518036" 
         set $ws5output  "Ancor Communications Inc ASUS ML239 BBLMIB518036" 
         set $ws6output  "Ancor Communications Inc ASUS ML239 BBLMIB518036" 
-        set $ws7output  "Ancor Communications Inc ASUS ML239 BBLMIB518036" 
+        set $ws7output  eDP-1
         set $ws8output  eDP-1
         set $ws9output  eDP-1
         set $ws10output eDP-1
