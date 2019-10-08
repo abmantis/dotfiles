@@ -12,6 +12,9 @@
 # Background
     set $background /home/acosta/Pictures/Wallpapers/adwaita-day.jpg
 
+# Theme
+    set $gtk_theme 'Yaru'
+
 # Touchpad name
     set $touchpad_name "2:7:SynPS/2_Synaptics_TouchPad"
 

@@ -437,7 +437,7 @@ bindsym $mod+r mode "resize"
 
     set $gnome-schema org.gnome.desktop.interface
     exec_always {
-        gsettings set $gnome-schema gtk-theme 'Yaru'
+        gsettings set $gnome-schema gtk-theme $gtk_theme
         gsettings set $gnome-schema icon-theme 'Adwaita'
         gsettings set $gnome-schema cursor-theme 'Adwaita'
     }

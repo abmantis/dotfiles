@@ -8,7 +8,10 @@
 # Background
     set $background ~/Pictures/914205-wallpaper.jpg
 
-# Your preferred application launcher
+# Theme
+    set $gtk_theme 'Yaru-dark'
+
+# Application launcher
     set $menu bash -c "source /etc/profile.d/snapd.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
 
 # Touchpad name
