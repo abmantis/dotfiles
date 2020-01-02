@@ -26,4 +26,4 @@
     exec solaar
     exec ~/Scripts/delayed_autostart_list.sh
     exec pulseeffects --gapplication-service
-    exec sleep 1 && google-chrome-stable --new-window https://duo.google.com
+    exec sleep 5 && google-chrome-stable --password-store=gnome --new-window https://duo.google.com 

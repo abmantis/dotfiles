@@ -68,7 +68,7 @@
         "format": "{icon}",
         "format-alt": "{icon} {}",
         "format-alt-click": "click-right",
-        "interval": 1,
+        "interval": 10,
         "return-type": "json",
         "exec": "~/.config/waybar/modules/music.sh",
         "exec-if": "pgrep spotify",
@@ -80,6 +80,7 @@
     },
     "custom/spotify_next": {
         "format": "{icon}",
+        "interval": 10,
         "exec-if": "pgrep spotify",
         "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
         "format-icons": {
@@ -88,7 +89,7 @@
     },
     "custom/upower": {
         "format": "{}",
-        "interval": 5,
+        "interval": 60,
         "return-type": "json",
         "exec": "~/.config/waybar/modules/upower.sh",
         "escape": true,

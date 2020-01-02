@@ -1,9 +1,11 @@
 #!/bin/bash
 
 BATTERY=0
-BATTERY_STATE=$(echo "${BATTERY_INFO}" | upower -i $(upower -e | grep 'DisplayDevice') | grep -E "state|to\ full" | awk '{print $2}')
-BATTERY_POWER=$(echo "${BATTERY_INFO}" | upower -i $(upower -e | grep 'DisplayDevice') | grep -E "percentage" | awk '{print $2}' | tr -d '%')
-BATTERY_TIME=$(echo "${BATTERY_INFO}" | upower -i $(upower -e | grep 'DisplayDevice') | grep -E "time\ to\ empty" | awk '{print $4}{print $5}')
+DISPLAYDEVICE=$(upower -e | grep 'DisplayDevice')
+UPOWER_DATA=$(upower -i ${DISPLAYDEVICE})
+BATTERY_STATE=$(echo "${UPOWER_DATA}" | grep -E "state|to\ full" | awk '{print $2}')
+BATTERY_POWER=$(echo "${UPOWER_DATA}" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
+BATTERY_TIME=$(echo "${UPOWER_DATA}" | grep -E "time\ to\ empty" | awk '{print $4}{print $5}')
 URGENT_VALUE=10
 
 printf -v BATTERY_POWER_INT %.0f "$BATTERY_POWER"

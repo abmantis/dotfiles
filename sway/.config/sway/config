@@ -53,6 +53,7 @@
         exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5 ', \
         exec swaymsg '[title="Google Duo - Google Chrome"]  focus, move window to workspace $ws9 ', \
         exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
+        exec swaymsg 'workspace $wsbs', \
         exec swaymsg 'workspace $ws1'
 
     set $workspace_reset_cmd $workspace_reset_wspcs_cmd, $workspace_reset_apps_cmd
@@ -413,6 +414,8 @@ bindsym $mod+r mode "resize"
     
     # remove titlebar for chrome
     for_window [class="^(?i)google-chrome"] border pixel 1
+    # Chrome PiP window
+    for_window [title="Picture in picture"] floating enable
 
     assign [class="Franz"] $wsbs
     assign [class="Skype"] $wsbs
@@ -422,7 +425,8 @@ bindsym $mod+r mode "resize"
     for_window [class="Spotify"] move window to workspace $ws10 
 
 # Back to workspace 1
-    workspace $ws1 
+    workspace $wsbs
+    workspace $ws1
 
 #
 # Autostart services and daemons
@@ -443,14 +447,16 @@ bindsym $mod+r mode "resize"
     }
 
     exec $HOME/.config/sway/scripts/generate_outputs.sh
-    exec sleep 2 ; $HOME/.config/sway/scripts/dimm_unfocused_windows.py
-    exec $HOME/.config/sway/scripts/autotiling.py
+    #exec sleep 2 ; $HOME/.config/sway/scripts/dimm_unfocused_windows.py
+    #exec $HOME/.config/sway/scripts/autotiling.py
 
 #
 # Autostart apps
 #
-    exec google-chrome-stable --password-store=gnome
-    exec franz
+    # delay chrome to ensure the keyring daemon starts first 
+    exec sleep 1 && google-chrome-stable --password-store=gnome
+    # delay franz so that network is available and it doesn't go crazy
+    exec sleep 1 && franz
 
 
 include /usr/local/etc/sway/config.d/*
