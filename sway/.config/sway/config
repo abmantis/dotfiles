@@ -44,7 +44,7 @@
         workspace $ws10, move workspace to output $ws10output
     
     set $workspace_reset_apps_cmd \
-        exec swaymsg '[class="Franz"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Ferdi"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
@@ -296,9 +296,9 @@ bindsym $mod+r mode "resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_goto Go to: Franz (f), Skype (s), Chrome (c)
+    set $mode_goto Go to: Ferdi (f), Skype (s), Chrome (c)
     mode "$mode_goto" {
-        bindsym f [class="Franz"] focus, mode "default"
+        bindsym f [class="Ferdi"] focus, mode "default"
         bindsym s [class="Skype"] focus, mode "default"
         bindsym c [class="Google-chrome"] focus, mode "default"
 
@@ -417,7 +417,7 @@ bindsym $mod+r mode "resize"
     # Chrome PiP window
     for_window [title="Picture in picture"] floating enable
 
-    assign [class="Franz"] $wsbs
+    assign [class="Ferdi"] $wsbs
     assign [class="Skype"] $wsbs
     #assign [class="jetbrains-clion"] $ws4
     #assign [class="jetbrains-studio"] $ws4
@@ -455,8 +455,8 @@ bindsym $mod+r mode "resize"
 #
     # delay chrome to ensure the keyring daemon starts first 
     exec sleep 1 && google-chrome-stable --password-store=gnome
-    # delay franz so that network is available and it doesn't go crazy
-    exec sleep 1 && franz
+    # delay ferdi so that network is available and it doesn't go crazy
+    exec sleep 1 && ferdi
 
 
 include /usr/local/etc/sway/config.d/*
