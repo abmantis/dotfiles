@@ -9,6 +9,7 @@
 - wl-copy (for screenshots)
 - redshift-wlr-gamma-control-git (optional for redshift)
 - jq (used in some commands)
+- wlogout (nice logout menu)
 
 # Deps:
 - lxpolkit

@@ -13,7 +13,8 @@
         "custom/upower",
         "custom/system-updates",
         "backlight",
-        "idle_inhibitor"],
+        "idle_inhibitor",
+        "custom/power_menu"],
 
     "sway/mode": {
         "format": " {}"
@@ -81,6 +82,7 @@
     "custom/spotify_next": {
         "format": "{icon}",
         "interval": 10,
+        "exec": "echo 'x'",
         "exec-if": "pgrep spotify",
         "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
         "format-icons": {
@@ -120,6 +122,13 @@
             "deactivated": ""
         },
         "tooltip": false
+    },
+    "custom/power_menu": {
+        "format": "{icon}",
+        "on-click": "wlogout",
+        "format-icons": {
+          "default": ""
+        }
     },
     "tray": {
         "icon-size": 15,
