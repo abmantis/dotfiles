@@ -10,7 +10,7 @@
     set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
 
 # Background
-    set $background /home/acosta/Pictures/Wallpapers/adwaita-day.jpg
+    set $background /home/acosta/Pictures/Wallpapers/i-see-stars.jpg
 
 # Theme
     set $gtk_theme 'Yaru'
@@ -21,3 +21,4 @@
 # Autostart apps
     exec gnome-terminal
     exec skypeforlinux
+    exec teams

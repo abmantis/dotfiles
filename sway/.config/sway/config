@@ -46,6 +46,7 @@
     set $workspace_reset_apps_cmd \
         exec swaymsg '[class="Ferdi"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Microsoft Teams - Preview"]   focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
         exec swaymsg '[class="Code"]                        focus, move window to workspace $ws3 ', \
@@ -296,10 +297,11 @@ bindsym $mod+r mode "resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_goto Go to: Ferdi (f), Skype (s), Chrome (c)
+    set $mode_goto Go to: Ferdi (f), Skype (s), Teams (t), Chrome (c)
     mode "$mode_goto" {
         bindsym f [class="Ferdi"] focus, mode "default"
         bindsym s [class="Skype"] focus, mode "default"
+        bindsym t [class="Microsoft Teams - Preview"] focus, mode "default"
         bindsym c [class="Google-chrome"] focus, mode "default"
 
         # back to normal: Enter or Escape
@@ -411,6 +413,9 @@ bindsym $mod+r mode "resize"
     for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating enable
 
     for_window [app_id="gnome-calculator"] floating enable
+
+    # Microsoft teams popups
+    for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
     
     # remove titlebar for chrome
     for_window [class="^(?i)google-chrome"] border pixel 1
