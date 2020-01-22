@@ -1,7 +1,7 @@
 # Components:
 - Waybar
 - swaylock and swayidle
-- rofi
+- wofi
 - swaybg
 - mako
 - grim (for screenshots)

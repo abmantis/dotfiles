@@ -7,7 +7,8 @@
     set $screenidletimeoff 240
 
 # Application launcher
-    set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+    #set $menu bash -c "source /etc/profile.d/apps-bin-path.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
+    set $menu wofi
 
 # Background
     set $background /home/acosta/Pictures/Wallpapers/i-see-stars.jpg
