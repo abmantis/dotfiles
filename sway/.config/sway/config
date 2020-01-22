@@ -458,6 +458,9 @@ bindsym $mod+r mode "resize"
 #
 # Autostart apps
 #
+    exec mako
+    exec_always makoctl reload
+
     # delay chrome to ensure the keyring daemon starts first 
     exec sleep 1 && google-chrome-stable --password-store=gnome
     # delay ferdi so that network is available and it doesn't go crazy
