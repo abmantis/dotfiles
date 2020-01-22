@@ -7,7 +7,7 @@ HAS_UPDATES_ICON=
 UPDATE_COUNT=0
 REBOOT_REQUIRED=0
 
-if [[ "${OS_NAME}" = "Antergos Linux" ]]; then
+if [[ "${OS_NAME}" = "Arch Linux" ]]; then
     TMPPATH="${TMPDIR:-/tmp}/checkup-db-${USER}"
     DBPATH="$(pacman-conf DBPath)"
 
