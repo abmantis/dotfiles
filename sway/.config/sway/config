@@ -90,6 +90,12 @@
         middle_emulation enabled
     }
 
+    input 1133:16511:Logitech_G502 {
+        accel_profile adaptive
+        pointer_accel -0.1
+        scroll_factor 1
+    }
+
 ### Key bindings
 #
 # Basics:
@@ -461,8 +467,7 @@ bindsym $mod+r mode "resize"
     exec mako
     exec_always makoctl reload
 
-    # delay chrome to ensure the keyring daemon starts first 
-    exec sleep 1 && google-chrome-stable --password-store=gnome
+    exec google-chrome-stable --password-store=gnome
     # delay ferdi so that network is available and it doesn't go crazy
     exec sleep 1 && ferdi
 
