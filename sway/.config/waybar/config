@@ -37,6 +37,12 @@
         "on-click": "gnome-calendar",
         "tooltip": false
     },
+    "clock#germany": {
+        "timezone": "Europe/Berlin",
+        "format": "{:%H:%M}",
+        "on-click": "gnome-calendar",
+        "tooltip": false
+    },
     "network": {
         "format": "",
         "format-disconnected": "{icon}",

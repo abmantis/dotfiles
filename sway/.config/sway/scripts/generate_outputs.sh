@@ -33,20 +33,28 @@ then
         set $ws10output eDP-1
         ' \
     >> $OUTPUTS_GEN_FILE
-elif grep -Fxq "Dell Inc. DELL U2417H 5K9YD89MF92L" <<< $CURR_OUTPUTS_LIST
+elif grep -Fxq "Dell Inc. DELL U2417H 5K9YD83VB68L" <<< $CURR_OUTPUTS_LIST
 then
+    # Setup outputs
+    echo '
+        output eDP-1 pos 0 0
+        output "Dell Inc. DELL U2419H 611KRS2" pos 1920 0
+        output "Dell Inc. DELL U2417H 5K9YD83VB68L" pos 3840 0
+        ' \
+    >> $OUTPUTS_GEN_FILE
+
     # Set outputs for each workspace
     echo '
-        set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD89MF92L"
-        set $ws1output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-        set $ws2output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
-        set $ws3output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-        set $ws4output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-        set $ws5output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-        set $ws6output  "Dell Inc. DELL U2417H 5K9YD89MC9FL"
-        set $ws7output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
-        set $ws8output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
-        set $ws9output  "Dell Inc. DELL U2417H 5K9YD89MF92L"
+        set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD83VB68L"
+        set $ws1output  "Dell Inc. DELL U2419H 611KRS2"
+        set $ws2output  "Dell Inc. DELL U2417H 5K9YD83VB68L"
+        set $ws3output  "Dell Inc. DELL U2419H 611KRS2"
+        set $ws4output  "Dell Inc. DELL U2419H 611KRS2"
+        set $ws5output  "Dell Inc. DELL U2419H 611KRS2"
+        set $ws6output  "Dell Inc. DELL U2419H 611KRS2"
+        set $ws7output  "Dell Inc. DELL U2417H 5K9YD83VB68L"
+        set $ws8output  "Dell Inc. DELL U2417H 5K9YD83VB68L"
+        set $ws9output  "Dell Inc. DELL U2417H 5K9YD83VB68L"
         set $ws10output eDP-1
         ' \
     >> $OUTPUTS_GEN_FILE
