@@ -19,6 +19,12 @@
 # Touchpad name
     set $touchpad_name "1739:0:Synaptics_TM3276-022"
 
+# Nipple mouse config
+input 2:10:TPPS/2_IBM_TrackPoint {
+        accel_profile adaptive
+        pointer_accel 1
+    }
+
 # Autostart apps
     exec gnome-terminal
     exec skypeforlinux
