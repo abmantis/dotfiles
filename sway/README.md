@@ -38,5 +38,8 @@ fi
 # Fix empty/white Java apps:
 Add the `_JAVA_AWT_WM_NONREPARENTING=1` env var to `~/.config/environment.d/profile.conf`
 
+# Firefox wayland
+Add the `OZ_ENABLE_WAYLAND=1` env var to `~/.config/environment.d/profile.conf`
+
 # Sway non-generic configs:
 Non-generic configs (ones that are specific to a machine), go into the sway/available_configs directory. Each machine creates a link (ln -s) inside the sway/enabled_configs dir to their specific config file.
