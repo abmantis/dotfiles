@@ -48,6 +48,7 @@
         exec swaymsg '[class="Ferdi"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Microsoft Teams - Preview"]   focus, move window to workspace $wsbs', \
+        exec swaymsg '[class="Signal"]                      focus, move window to workspace $wsbs', \
         exec swaymsg '[class="firefox"]                     focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="firefox"]                    focus, move window to workspace $ws1 ', \
         exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
@@ -378,8 +379,6 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
     bar {
-        #position top
-        #status_command i3status
         strip_workspace_numbers yes
         swaybar_command $swaybar_cmd
     }
@@ -443,6 +442,7 @@ bindsym $mod+r mode "resize"
     for_window [app_id="firefox"] border pixel 1
     for_window [class="firefox"] border pixel 1
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+    for_window [class="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
 
     assign [class="Ferdi"] $wsbs
     assign [class="Skype"] $wsbs
@@ -459,7 +459,6 @@ bindsym $mod+r mode "resize"
 #
 # Autostart services and daemons
 #
-    #exec gnome-power-manager
     exec lxpolkit
     exec swayidle \
          timeout $screenidletimelock '$swaylockcmd -f' \
@@ -467,16 +466,13 @@ bindsym $mod+r mode "resize"
               resume 'swaymsg "output * dpms on"' \
          before-sleep '$swaylockcmd -f'
 
-    set $gnome-schema org.gnome.desktop.interface
     exec_always {
-        gsettings set $gnome-schema gtk-theme $gtk_theme
-        gsettings set $gnome-schema icon-theme 'Adwaita'
-        gsettings set $gnome-schema cursor-theme 'Adwaita'
+        gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
+        gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+        gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
     }
 
     exec $HOME/.config/sway/scripts/generate_outputs.sh
-    #exec sleep 2 ; $HOME/.config/sway/scripts/dimm_unfocused_windows.py
-    #exec $HOME/.config/sway/scripts/autotiling.py
 
 #
 # Autostart apps

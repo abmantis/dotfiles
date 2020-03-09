@@ -19,9 +19,9 @@
     set $touchpad_name "1739:31251:DLL07BE:01_06CB:7A13_Touchpad"    
 
 # Autostart apps
-    exec redshift
-    exec dropbox
-    exec solaar
+    exec sleep 1 && redshift
+    exec sleep 5 && dropbox
     exec ~/Scripts/delayed_autostart_list.sh
-    exec pulseeffects --gapplication-service
-    exec sleep 5 && google-chrome-stable --password-store=gnome --new-window https://duo.google.com 
+    exec signal-desktop
+    exec google-chrome-stable --password-store=gnome --new-window https://duo.google.com
+    #exec pulseeffects --gapplication-service
