@@ -45,7 +45,7 @@ then
 
     # Set outputs for each workspace
     echo '
-        set $wsbsoutput "Dell Inc. DELL U2417H 5K9YD83VB68L"
+        set $wsbsoutput eDP-1
         set $ws1output  "Dell Inc. DELL U2419H 611KRS2"
         set $ws2output  "Dell Inc. DELL U2417H 5K9YD83VB68L"
         set $ws3output  "Dell Inc. DELL U2419H 611KRS2"
