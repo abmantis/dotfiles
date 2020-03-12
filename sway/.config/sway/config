@@ -440,8 +440,9 @@ bindsym $mod+r mode "resize"
     
     # remove titlebar for chrome/firefox
     for_window [class="^(?i)google-chrome"] border pixel 1
+
     for_window [app_id="firefox"] border pixel 1
-    for_window [class="firefox"] border pixel 1
+    for_window [class="[Ff]irefox"] border pixel 1
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
 
     assign [class="Ferdi"] $wsbs
