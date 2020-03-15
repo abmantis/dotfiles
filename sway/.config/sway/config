@@ -319,12 +319,12 @@ bindsym $mod+r mode "resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_goto Go to: Ferdi (f), Skype (s), Teams (t), Chrome (c)
+    set $mode_goto Go to: Ferdi (f), Signal (s), Teams (t), Browser (b)
     mode "$mode_goto" {
         bindsym f [class="Ferdi"] focus, mode "default"
-        bindsym s [class="Skype"] focus, mode "default"
+        bindsym s [class="Signal"] focus, mode "default"
         bindsym t [class="Microsoft Teams - Preview"] focus, mode "default"
-        bindsym c [class="Google-chrome"] focus, mode "default"
+        bindsym b [class="firefox"] focus, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -392,7 +392,7 @@ bindsym $mod+r mode "resize"
     set $white      #FFFFFF
     set $gray1      #1a1a1a
     set $gray2      #292b2e
-    set $gray3      #5f676a
+    set $gray3      #6f777a
     set $gray4      #aaaaaa
 
     set $base03     #002b36
@@ -420,12 +420,16 @@ bindsym $mod+r mode "resize"
 # Gaps and borders
 #
     smart_borders on
-    smart_gaps on
+    #smart_gaps on
     #gaps inner 10
 
+    titlebar_border_thickness 1
+    default_border normal 4
+    
 #
 # Window settings
 #
+    font Ubuntu 10
     focus_on_window_activation focus
 
     # jetbrains "search everywere" popups
@@ -438,11 +442,14 @@ bindsym $mod+r mode "resize"
     for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
     
     # remove titlebar for chrome/firefox
-    for_window [class="^(?i)google-chrome"] border pixel 1
-    for_window [app_id="firefox"] border pixel 1
-    for_window [class="firefox"] border pixel 1
+    for_window [class="^(?i)google-chrome"] border pixel 4
+    for_window [app_id="firefox"] border pixel 4
+    for_window [class="firefox"] border pixel 4
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
     for_window [class="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+
+    # Nautilus has client-side decorations (but using border csd is not working, so none it is)
+    for_window [app_id="org.gnome.Nautilus"] border none
 
     assign [class="Ferdi"] $wsbs
     assign [class="Skype"] $wsbs
