@@ -2,7 +2,7 @@
     border:        none;
     border-radius: 0;
     font-family:   "Ubuntu Nerd Font", "Ubuntu";
-    font-size:     15px;
+    font-size:     13px;
     box-shadow:    none;
     text-shadow:   none;
     transition-duration: 0s;
@@ -27,12 +27,14 @@ window#waybar.solo {
 }
 
 #workspaces button {
-    padding:    0 5px;
-    color:      rgba(217, 216, 216, 0.4);
+    border-top:     2px solid rgba(0, 0, 0, 0);
+    border-bottom:  2px solid rgba(0, 0, 0, 0);
+    padding:        0 5px;
+    color:          rgba(217, 216, 216, 0.4);
 }
 
 #workspaces button.visible {
-    color:      rgba(217, 216, 216, 1);
+    color: rgba(217, 216, 216, 1);
 }
 
 #workspaces button:hover {
@@ -40,8 +42,8 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    border-top: 3px solid rgba(217, 216, 216, 1);
-    border-bottom: 3px solid rgba(217, 216, 216, 0);
+    border-top-color:       rgba(217, 216, 216, 1);
+    border-bottom-color:    rgba(217, 216, 216, 0);
 }
 
 #workspaces button.urgent {

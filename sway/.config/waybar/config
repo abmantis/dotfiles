@@ -34,13 +34,13 @@
     },
     "clock": {
         "format": "{:%a %d %b %H:%M      W%V}",
-        "on-click": "gnome-calendar",
+        "on-click": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "clock#germany": {
         "timezone": "Europe/Berlin",
         "format": "{:%H:%M}",
-        "on-click": "gnome-calendar",
+        "on-click": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "network": {
@@ -131,7 +131,7 @@
     },
     "custom/power_menu": {
         "format": "{icon}",
-        "on-click": "wlogout",
+        "on-click-right": "wlogout",
         "format-icons": {
           "default": ""
         }
