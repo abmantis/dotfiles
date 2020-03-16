@@ -438,9 +438,13 @@ bindsym $mod+r mode "resize"
     # Microsoft teams popups
     for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
     
-    # remove titlebar for chrome/firefox
+    # remove titlebar for chrome
     for_window [class="^(?i)google-chrome"] border pixel 1
 
+    # fix teams "sharing toolbar" resizing windows and messing up window sharing
+    for_window [title="teams.microsoft.com is sharing a window."] floating enable
+    
+    # remove titlebar for firefox
     for_window [app_id="firefox"] border pixel 1
     for_window [class="[Ff]irefox"] border pixel 1
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
