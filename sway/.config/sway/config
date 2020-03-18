@@ -49,7 +49,7 @@
         exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Microsoft Teams - Preview"]   focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Signal"]                      focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="firefox"]                     focus, move window to workspace $ws1 ', \
+        exec swaymsg '[class="[Ff]irefox"]                  focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="firefox"]                    focus, move window to workspace $ws1 ', \
         exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
@@ -324,7 +324,7 @@ bindsym $mod+r mode "resize"
         bindsym f [class="Ferdi"] focus, mode "default"
         bindsym s [class="Signal"] focus, mode "default"
         bindsym t [class="Microsoft Teams - Preview"] focus, mode "default"
-        bindsym b [class="firefox"] focus, mode "default"
+        bindsym b [class="[Ff]irefox"] focus, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -440,18 +440,19 @@ bindsym $mod+r mode "resize"
 
     # Microsoft teams popups
     for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
+    no_focus [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"]
+    
+    # fix Web Teams "sharing toolbar" resizing windows and messing up window sharing
+    for_window [title="teams.microsoft.com is sharing a window."] floating enable
     
     # remove titlebar for chrome
     for_window [class="^(?i)google-chrome"] border pixel 4
-
-    # fix teams "sharing toolbar" resizing windows and messing up window sharing
-    for_window [title="teams.microsoft.com is sharing a window."] floating enable
     
     # remove titlebar for firefox
     for_window [app_id="firefox"] border pixel 1
     for_window [class="[Ff]irefox"] border pixel 1
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
-    for_window [class="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+    for_window [class="[Ff]irefox" title="^Picture-in-Picture$"] floating enable, sticky enable
 
     # Nautilus has client-side decorations (but using border csd is not working, so none it is)
     for_window [app_id="org.gnome.Nautilus"] border none

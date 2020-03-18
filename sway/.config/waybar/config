@@ -34,13 +34,13 @@
     },
     "clock": {
         "format": "{:%a %d %b %H:%M      W%V}",
-        "on-click": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
+        "on-click-middleC": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "clock#germany": {
         "timezone": "Europe/Berlin",
         "format": "{:%H:%M}",
-        "on-click": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
+        "on-click-middle": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "network": {
@@ -56,7 +56,7 @@
             "disconnected": [""]
         },
         "interval": 10,
-        "on-click": "gnome-terminal -- nmtui",
+        "on-click-middle": "gnome-terminal -- nmtui",
         "tooltip": false
     },
     "pulseaudio": {
@@ -68,7 +68,7 @@
         },
         "on-scroll-up": "amixer set Master 5%+",
         "on-scroll-down": "amixer set Master 5%-",
-        "on-click": "pavucontrol",
+        "on-click-middle": "pavucontrol",
         "tooltip": false
     },
     "custom/spotify": {
@@ -76,11 +76,12 @@
         "format-alt": "{icon} {}",
         "format-alt-click": "click-right",
         "interval": 10,
+        "signal": 20,
         "return-type": "json",
-        "exec": "~/.config/waybar/modules/music.sh",
+        "exec": "~/.config/waybar/modules/music.sh && pkill -RTMIN+20 waybar",
         "exec-if": "pgrep spotify",
         "escape": true,
-        "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",        
+        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
         "format-icons": {
           "default": ""
         }
@@ -90,7 +91,7 @@
         "interval": 10,
         "exec": "echo 'x'",
         "exec-if": "pgrep spotify",
-        "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
+        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
         "format-icons": {
           "default": "怜"
         }
@@ -101,7 +102,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/modules/upower.sh",
         "escape": true,
-        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
+        "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },
     "custom/system-updates": {
         "format": "{}",
@@ -109,7 +110,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/modules/system_updates.sh",
         "escape": true,
-        "on-click": "update-manager"
+        "on-click-middle": "update-manager"
     },
     "backlight": {
         "format": "{icon}",
@@ -124,8 +125,8 @@
         "format-alt": "{icon} {status}",
         "format-alt-click": "click-right",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "零",
+            "deactivated": "鈴"
         },
         "tooltip": false
     },
