@@ -310,13 +310,13 @@ bindsym $mod+r mode "resize"
 
     set $mode_media Pause (space), Next ($right), Previous($left), Exit (esc)
     mode "$mode_media" {
-        bindsym space  $spotifyplay, mode "default"
-        bindsym $right $spotifynext, mode "default"
-        bindsym $left  $spotifyprev, mode "default"
-        bindsym Plus   $volumeup
-        bindsym Minus  $volumedown
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym --locked space  $spotifyplay, mode "default"
+        bindsym --locked $right $spotifynext, mode "default"
+        bindsym --locked $left  $spotifyprev, mode "default"
+        bindsym --locked Plus   $volumeup
+        bindsym --locked Minus  $volumedown
+        bindsym --locked Return mode "default"
+        bindsym --locked Escape mode "default"
     }
 
     set $mode_goto Go to: Ferdi (f), Signal (s), Teams (t), Browser (b)
@@ -335,7 +335,7 @@ bindsym $mod+r mode "resize"
 # Screen capture
 #    
     bindsym $mod+p mode "$mode_system"
-    bindsym $mod+m mode "$mode_media"
+    bindsym --locked $mod+m mode "$mode_media"
     bindsym $mod+g mode "$mode_goto"
 
     # capture all screens to clipboard    
