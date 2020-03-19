@@ -78,20 +78,19 @@
         "interval": 10,
         "signal": 20,
         "return-type": "json",
-        "exec": "~/.config/waybar/modules/music.sh && pkill -RTMIN+20 waybar",
+        "exec": "~/.config/waybar/modules/music.sh",
         "exec-if": "pgrep spotify",
         "escape": true,
-        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
+        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause && pkill -RTMIN+20 waybar",
         "format-icons": {
           "default": ""
         }
     },
     "custom/spotify_next": {
         "format": "{icon}",
-        "interval": 10,
         "exec": "echo 'x'",
         "exec-if": "pgrep spotify",
-        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
+        "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next && pkill -RTMIN+20 waybar",
         "format-icons": {
           "default": "怜"
         }
