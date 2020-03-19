@@ -64,7 +64,7 @@ window#waybar.solo {
     font-family: "Ubuntu";
 }
 
-#workspaces, #clock, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #custom-power_menu, #network {
+#workspaces, #clock, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #custom-power_menu, #network, #cpu {
     background: #353535;
 }
 
@@ -80,11 +80,11 @@ window#waybar.solo {
     padding:    0px 10px 0px 5px;
 }
 
-#custom-system-updates, #backlight, #idle_inhibitor {
+#custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
     padding:    0px 5px;
 }
 
-#tray, #custom-spotify, #custom-spotify_next, #network, #custom-upower, #pulseaudio {
+#tray, #custom-spotify, #custom-spotify_next, #network, #custom-upower, #pulseaudio, #cpu {
     padding:    0px 15px 0px 15px;
     min-width:  25px;
 }

@@ -9,6 +9,7 @@
         "custom/spotify_next",
         "tray",
         "network",
+        "cpu",
         "pulseaudio",
         "custom/upower",
         "custom/system-updates",
@@ -139,5 +140,11 @@
     "tray": {
         "icon-size": 15,
         "spacing": 15
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10
     }
+
 }
