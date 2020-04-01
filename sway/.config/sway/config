@@ -142,6 +142,7 @@
     bindsym $mod+Up     focus up
     bindsym $mod+$right focus right
     bindsym $mod+Right  focus right
+    bindsym $mod+Tab    focus next
 
     # Move the focused window
     bindsym $mod+Shift+$left    move left
@@ -226,8 +227,8 @@
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
+    bindsym $mod+s layout toggle split tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
