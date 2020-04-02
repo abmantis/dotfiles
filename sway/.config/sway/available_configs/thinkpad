@@ -28,3 +28,5 @@ input 2:10:TPPS/2_IBM_TrackPoint {
 # Autostart apps
     exec gnome-terminal
     exec teams
+    exec keepass2
+    exec sleep 5 && swaymsg '[instance="keepass2"] focus, move scratchpad'
