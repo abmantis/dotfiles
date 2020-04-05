@@ -445,9 +445,12 @@ bindsym $mod+r mode "$mode_resize"
 
     # jetbrains "search everywere" popups
     for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
+    for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080
     for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating enable
-
+    for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080
+    
     for_window [app_id="gnome-calculator"] floating enable
+    for_window [instance="keepass2"] floating enable
 
     # Microsoft teams popups
     for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
