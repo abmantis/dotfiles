@@ -97,7 +97,7 @@
     input 1133:16511:Logitech_G502 {
         accel_profile adaptive
         pointer_accel -0.1
-        scroll_factor 1
+        scroll_factor 2
     }
 
 ### Key bindings
