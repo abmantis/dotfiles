@@ -243,8 +243,9 @@
     # Toggle floating window sticky state
     bindsym $mod+shift+s sticky toggle
 
-    # move focus to the parent container
+    # move focus to the parent/child container
     bindsym $mod+a focus parent
+    bindsym $mod+z focus child
 
 #
 # Scratchpad:
@@ -261,7 +262,8 @@
 #
 # Resizing containers:
 #
-mode "resize" {
+set $mode_resize Resize: 20% (1), 30% (2), 50% (3), 70% (4), 80% (5)
+mode "$mode_resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
@@ -287,11 +289,17 @@ mode "resize" {
     bindsym Shift+Up resize shrink height 100px
     bindsym Shift+Right resize grow width 100px
 
+    bindsym 1 resize set width 20 ppt, mode "default"
+    bindsym 2 resize set width 30 ppt, mode "default"
+    bindsym 3 resize set width 50 ppt, mode "default"
+    bindsym 4 resize set width 70 ppt, mode "default"
+    bindsym 5 resize set width 80 ppt, mode "default"
+
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$mode_resize"
 
 #
 # Custom Modes
