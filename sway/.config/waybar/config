@@ -10,12 +10,13 @@
         "tray",
         "network",
         "cpu",
+        "temperature",
         "pulseaudio",
         "custom/upower",
         "custom/system-updates",
+        "custom/vpn",
         "backlight",
-        "idle_inhibitor",
-        "custom/power_menu"],
+        "idle_inhibitor"],
 
     "sway/mode": {
         "format": " {}"
@@ -91,9 +92,23 @@
         "format": "{icon}",
         "exec": "echo 'x'",
         "exec-if": "pgrep spotify",
+        "interval": 999,
         "on-click-middle": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next && pkill -RTMIN+20 waybar",
         "format-icons": {
           "default": "怜"
+        }
+    },
+    "custom/vpn": {
+        "format": "{icon}",
+        "format-alt": "{icon} {}",
+        "format-alt-click": "click-right",
+        "interval": 60,
+        "signal": 10,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/vpn.sh",
+        "escape": true,
+        "format-icons": {
+          "default": "嬨"
         }
     },
     "custom/upower": {
@@ -143,8 +158,16 @@
     },
     "cpu": {
         "interval": 10,
-        "format": " {}%",
-        "max-length": 10
+        "format": " {usage}%",
+        "max-length": 10,
+        "states": {
+            "warning": 50,
+            "critical": 80
+        }
+    },
+    "temperature": {
+        "critical-threshold": 75,
+        "format": " {temperatureC}°C"
     }
 
 }

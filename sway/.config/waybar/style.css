@@ -47,11 +47,11 @@ window#waybar.solo {
 }
 
 #workspaces button.urgent {
-    color:      rgba(238, 46, 36, 1);
+    color:      rgba(255, 46, 36, 1);
 }
 
 #mode {
-    color:      rgba(238, 46, 36, 1);
+    color:      rgba(255, 46, 36, 1);
     background: #353535;
     font-family: "Ubuntu";
     margin-left: 10px;
@@ -64,7 +64,7 @@ window#waybar.solo {
     font-family: "Ubuntu";
 }
 
-#workspaces, #clock, #tray, #custom-system-updates, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #custom-power_menu, #network, #cpu {
+#workspaces, #clock, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #pulseaudio, #idle_inhibitor, #network, #cpu, #temperature {
     background: #353535;
 }
 
@@ -76,17 +76,17 @@ window#waybar.solo {
     border-bottom-left-radius: 10px;
 }
 
-#custom-power_menu {
-    padding:    0px 10px 0px 5px;
-}
-
 #custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
     padding:    0px 5px;
 }
 
-#tray, #custom-spotify, #custom-spotify_next, #network, #custom-upower, #pulseaudio, #cpu {
+#tray {
     padding:    0px 15px 0px 15px;
-    min-width:  25px;
+}
+
+#custom-spotify_next, #network, #custom-upower, #pulseaudio, #cpu, #temperature {
+    padding:    0px 10px 0px 10px;
+    min-width:  50px;
 }
 
 #custom-upower.low {
@@ -101,6 +101,10 @@ window#waybar.solo {
     color: red;
 }
 
+#custom-vpn.connected {
+    color: cyan;
+}
+
 #clock {
     padding: 0px 15px;    
     border-bottom-left-radius: 10px;
@@ -112,7 +116,7 @@ window#waybar.solo {
 }
 
 #battery.critical {
-    color:      rgba(238, 46, 36, 1);
+    color:      rgba(255, 46, 36, 1);
 }
 
 #battery.charging {
@@ -124,5 +128,16 @@ window#waybar.solo {
 }
 
 #custom-storage.critical {
-    color:      rgba(238, 46, 36, 1);
+    color:      rgba(255, 46, 36, 1);
+}
+
+#temperature.critical {
+    color:      rgba(255, 46, 36, 1);
+}
+
+#cpu.critical {
+    color:      rgba(255, 46, 36, 1);
+}
+#cpu.warning {
+    color:      rgba(255, 210, 4, 1);
 }
