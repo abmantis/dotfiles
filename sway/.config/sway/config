@@ -440,8 +440,8 @@ bindsym $mod+r mode "$mode_resize"
 #
 # Window settings
 #
-    font Ubuntu 10
-    for_window [title=".*"] title_format  %title
+    font Noto 9
+    for_window [title=".*"] title_format %title
 
     focus_on_window_activation focus
 
