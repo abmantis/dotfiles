@@ -22,6 +22,5 @@
     exec sleep 1 && redshift
     exec sleep 5 && dropbox
     exec ~/Scripts/delayed_autostart_list.sh
-    exec signal-desktop
     exec google-chrome-stable --password-store=gnome --new-window https://duo.google.com
     #exec pulseeffects --gapplication-service

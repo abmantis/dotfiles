@@ -48,7 +48,6 @@
         exec swaymsg '[class="Ferdi"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
         exec swaymsg '[class="Microsoft Teams - Preview"]   focus, move window to workspace $wsbs', \
-        exec swaymsg '[class="Signal"]                      focus, move window to workspace $wsbs', \
         exec swaymsg '[class="[Ff]irefox"]                  focus, move window to workspace $ws1 ', \
         exec swaymsg '[app_id="firefox"]                    focus, move window to workspace $ws1 ', \
         exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
@@ -330,10 +329,9 @@ bindsym $mod+r mode "$mode_resize"
         bindsym --locked Escape mode "default"
     }
 
-    set $mode_goto Go to: Ferdi (f), Signal (s), Teams (t), Browser (b)
+    set $mode_goto Go to: Ferdi (f), Teams (t), Browser (b)
     mode "$mode_goto" {
         bindsym f [class="Ferdi"] focus, mode "default"
-        bindsym s [class="Signal"] focus, mode "default"
         bindsym t [class="Microsoft Teams - Preview"] focus, mode "default"
         bindsym b [class="[Ff]irefox"] focus, mode "default"
 
