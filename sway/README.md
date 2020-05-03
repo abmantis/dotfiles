@@ -35,11 +35,19 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
+# Using sway in GDM (and other DMs), and setting env vars for sway:
+Copy the `sway.desktop` and `swayrun` files to the required locations, and set env vars in the `swayrun` file:
+
+```
+cp sway.desktop /usr/share/wayland-sessions/sway.desktop
+cp swayrun /usr/local/bin/swayrun && chmod +x /usr/local/bin/swayrun
+```
+
 # Fix empty/white Java apps:
-Add the `_JAVA_AWT_WM_NONREPARENTING=1` env var to `~/.config/environment.d/profile.conf`
+Set the `_JAVA_AWT_WM_NONREPARENTING=1` env var
 
 # Firefox wayland
-Add the `OZ_ENABLE_WAYLAND=1` env var to `~/.config/environment.d/profile.conf`
+Set the `OZ_ENABLE_WAYLAND=1` env var
 
 # Sway non-generic configs:
 Non-generic configs (ones that are specific to a machine), go into the sway/available_configs directory. Each machine creates a link (ln -s) inside the sway/enabled_configs dir to their specific config file.
