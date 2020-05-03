@@ -76,7 +76,7 @@ window#waybar.solo {
     border-bottom-left-radius: 10px;
 }
 
-#custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
+#custom-upower.high, #custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
     padding:    0px 5px;
 }
 
@@ -84,7 +84,7 @@ window#waybar.solo {
     padding:    0px 15px 0px 15px;
 }
 
-#custom-spotify_next, #network, #custom-upower, #pulseaudio, #cpu, #temperature {
+#custom-spotify_next, #network, #custom-upower.low, #custom-upower.mid, #pulseaudio, #cpu, #temperature {
     padding:    0px 10px 0px 10px;
     min-width:  50px;
 }
@@ -109,26 +109,6 @@ window#waybar.solo {
     padding: 0px 15px;    
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-}
-
-#battery.warning {
-   color:       rgba(255, 210, 4, 1);
-}
-
-#battery.critical {
-    color:      rgba(255, 46, 36, 1);
-}
-
-#battery.charging {
-    color:      rgba(217, 216, 216, 1);
-}
-
-#custom-storage.warning {
-    color:      rgba(255, 210, 4, 1);
-}
-
-#custom-storage.critical {
-    color:      rgba(255, 46, 36, 1);
 }
 
 #temperature.critical {
