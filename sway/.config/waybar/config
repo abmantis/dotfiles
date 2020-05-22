@@ -35,8 +35,8 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M      W%V}",
-        "on-click-middleC": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
+        "format": "{:%a %d %b %H:%M   W%V}",
+        "on-click-middle": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "clock#germany": {
