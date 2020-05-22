@@ -80,6 +80,7 @@
         "interval": 10,
         "signal": 20,
         "return-type": "json",
+        "max-length": 40,
         "exec": "~/.config/waybar/modules/music.sh",
         "exec-if": "pgrep spotify",
         "escape": true,
