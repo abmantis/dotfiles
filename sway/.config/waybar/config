@@ -3,14 +3,13 @@
     "position": "top",
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "custom/pomo"],
     "modules-right": [
         "custom/spotify",
         "custom/spotify_next",
         "tray",
         "network",
-        "cpu",
-        "temperature",
+        "custom/cpu",
         "pulseaudio",
         "custom/upower",
         "custom/system-updates",
@@ -35,8 +34,8 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M      W%V}",
-        "on-click-middleC": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
+        "format": "{:%a %d %b %H:%M   W%V}",
+        "on-click-middle": "xdg-open 'https://calendar.google.com' && swaymsg [app_id='firefox'] focus",
         "tooltip": false
     },
     "clock#germany": {
@@ -73,6 +72,12 @@
         "on-click-middle": "pavucontrol",
         "tooltip": false
     },
+    "custom/cpu": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/cpu.sh"
+    },
     "custom/spotify": {
         "format": "{icon}",
         "format-alt": "{icon} {}",
@@ -98,6 +103,16 @@
         "format-icons": {
           "default": "怜"
         }
+    },
+    "custom/pomo": {
+        "format": "{}",
+        "interval": 10,
+        "signal": 30,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/pomo_status.sh",
+        "escape": true,
+        "on-click-middle": "~/.config/waybar/modules/pomo.sh start && pkill -RTMIN+30 waybar",
+        "on-click-right": "~/.config/waybar/modules/pomo.sh pause && pkill -RTMIN+30 waybar"
     },
     "custom/vpn": {
         "format": "{icon}",
@@ -156,19 +171,5 @@
     "tray": {
         "icon-size": 15,
         "spacing": 15
-    },
-    "cpu": {
-        "interval": 10,
-        "format": " {usage}%",
-        "max-length": 10,
-        "states": {
-            "warning": 50,
-            "critical": 80
-        }
-    },
-    "temperature": {
-        "critical-threshold": 75,
-        "format": " {temperatureC}°C"
     }
-
 }
