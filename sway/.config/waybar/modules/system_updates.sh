@@ -25,11 +25,7 @@ else
     UPDATE_COUNT=`/usr/lib/update-notifier/apt-check --human-readable | head -1 | awk '{print $1;}'`
 
     if [ -f /var/run/reboot-required ]; then
-        echo -e "{\"text\":\""$HAS_UPDATES_ICON"\", \"class\":\"restart\", \"tooltip\":\"A system restart is required.\"}" 
-    elif [ "$UPDATE_COUNT" -gt "0" ]; then
-        echo -e "{\"text\":\""$HAS_UPDATES_ICON"\", \"class\":\"update\", \"tooltip\":\"There are $UPDATE_COUNT updates\"}"
-    else
-        echo -e "{\"text\":\"\", \"class\":\"uptodate\"}"
+        REBOOT_REQUIRED=1
     fi
 fi
 
