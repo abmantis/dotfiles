@@ -9,8 +9,7 @@
         "custom/spotify_next",
         "tray",
         "network",
-        "cpu",
-        "temperature",
+        "custom/cpu",
         "pulseaudio",
         "custom/upower",
         "custom/system-updates",
@@ -72,6 +71,12 @@
         "on-scroll-down": "amixer set Master 5%-",
         "on-click-middle": "pavucontrol",
         "tooltip": false
+    },
+    "custom/cpu": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/cpu.sh"
     },
     "custom/spotify": {
         "format": "{icon}",
@@ -165,19 +170,5 @@
     "tray": {
         "icon-size": 15,
         "spacing": 15
-    },
-    "cpu": {
-        "interval": 10,
-        "format": " {usage}%",
-        "max-length": 10,
-        "states": {
-            "warning": 50,
-            "critical": 80
-        }
-    },
-    "temperature": {
-        "critical-threshold": 75,
-        "format": " {temperatureC}°C"
     }
-
 }
