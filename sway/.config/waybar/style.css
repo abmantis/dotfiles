@@ -101,6 +101,11 @@ window#waybar.solo {
     color: red;
 }
 
+#custom-vpn.disconnected {
+    font-size: 0;
+    padding: 0px;
+}
+
 #custom-vpn.connected {
     color: cyan;
 }
