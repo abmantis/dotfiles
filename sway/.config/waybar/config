@@ -3,7 +3,7 @@
     "position": "top",
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "custom/pomo"],
     "modules-right": [
         "custom/spotify",
         "custom/spotify_next",
@@ -97,6 +97,16 @@
         "format-icons": {
           "default": "怜"
         }
+    },
+    "custom/pomo": {
+        "format": "{}",
+        "interval": 10,
+        "signal": 30,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/pomo_status.sh",
+        "escape": true,
+        "on-click-middle": "~/.config/waybar/modules/pomo.sh start && pkill -RTMIN+30 waybar",
+        "on-click-right": "~/.config/waybar/modules/pomo.sh pause && pkill -RTMIN+30 waybar"
     },
     "custom/vpn": {
         "format": "{icon}",
