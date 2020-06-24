@@ -348,13 +348,13 @@ bindsym $mod+r mode "$mode_resize"
     bindsym $mod+g mode "$mode_goto"
 
     # capture all screens to clipboard    
-    bindsym Print exec grim - | wl-copy && notify-send "All screens copied to clipboard"
+    bindsym Print exec /bin/bash -c 'grim - | tee >(swappy -f -) | wl-copy'
 
     # capture the specified screen area to clipboard    
-    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Region copied to clipboard"
+    bindsym Shift+Print exec /bin/bash -c 'grim -g "$(slurp)" - | tee >(swappy -f -) | wl-copy'
         
     # capture the focused monitor to clipboard    
-    bindsym Alt+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy && notify-send "Display $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') copied to clipboard"
+    bindsym Alt+Print exec /bin/bash -c 'grim -o $(swaymsg -t get_outputs | jq -r ".[] | select(.focused) | .name") - | tee >(swappy -f -) | wl-copy'
 
 #
 # Settings keys.

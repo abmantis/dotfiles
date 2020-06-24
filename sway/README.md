@@ -7,6 +7,7 @@
 - grim (for screenshots)
 - slurp (for screenshots)
 - wl-copy (for screenshots)
+- swappy (for screenshots)
 - redshift-wlr-gamma-control-git (optional for redshift)
 - jq (used in some commands)
 - wlogout (nice logout menu)
