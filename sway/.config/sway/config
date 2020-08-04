@@ -443,6 +443,9 @@ bindsym $mod+r mode "$mode_resize"
 
     focus_on_window_activation focus
 
+    # make nmtui from swaybar floating
+    for_window [app_id="gnome-terminal-server" title="nmtui"] floating enable
+
     # jetbrains "search everywere" popups
     for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
     for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080

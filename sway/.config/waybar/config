@@ -57,7 +57,7 @@
             "disconnected": [""]
         },
         "interval": 10,
-        "on-click-middle": "gnome-terminal -- nmtui",
+        "on-click-middle": "gnome-terminal --title=\"nmtui\" -- nmtui",
         "tooltip": false
     },
     "pulseaudio": {
