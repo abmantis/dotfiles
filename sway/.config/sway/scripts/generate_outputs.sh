@@ -13,12 +13,13 @@ if grep -Fxq "Ancor Communications Inc ASUS ML239 BBLMIB518036" <<< $CURR_OUTPUT
 then
     # Setup outputs
     echo '
+        output eDP-1 scale 1
         output eDP-1 pos 0 0
         output "Ancor Communications Inc ASUS ML239 BBLMIB518036" pos 1920 0
         ' \
     >> $OUTPUTS_GEN_FILE
 
-    # Set outputs for each workspace
+    # Assign outputs for each workspace
     echo '
         set $wsbsoutput eDP-1
         set $ws1output  "Ancor Communications Inc ASUS ML239 BBLMIB518036" 
@@ -43,7 +44,7 @@ then
         ' \
     >> $OUTPUTS_GEN_FILE
 
-    # Set outputs for each workspace
+    # Assign outputs for each workspace
     echo '
         set $wsbsoutput eDP-1
         set $ws1output  "Dell Inc. DELL U2419H 611KRS2"
@@ -59,7 +60,7 @@ then
         ' \
     >> $OUTPUTS_GEN_FILE
 else
-    # Set outputs for each workspace
+    # Assign outputs for each workspace
     echo '
         set $wsbsoutput eDP-1
         set $ws1output  eDP-1

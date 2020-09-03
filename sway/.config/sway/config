@@ -456,7 +456,8 @@ bindsym $mod+r mode "$mode_resize"
     for_window [instance="keepass2"] floating enable
 
     # Microsoft teams popups
-    for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable; move down 450; move right 800
+    #for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable, move down 450, move right 800
+    for_window [title="^Microsoft Teams Notification$"] floating enable, move down 450, move right 800
     no_focus [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"]
     
     # fix Web Teams "sharing toolbar" resizing windows and messing up window sharing
@@ -473,6 +474,8 @@ bindsym $mod+r mode "$mode_resize"
 
     # Nautilus has client-side decorations (but using border csd is not working, so none it is)
     for_window [app_id="org.gnome.Nautilus"] border none
+
+    for_window [app_id="dlt_viewer" title="Project|ECU Configuration|Filter Configuration"] floating enable
 
     assign [class="Ferdi"] $wsbs
     assign [class="Skype"] $wsbs
