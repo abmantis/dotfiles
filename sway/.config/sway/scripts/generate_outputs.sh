@@ -34,6 +34,8 @@ elif grep -Fxq "$DELL1_MODEL" <<< $CURR_OUTPUTS_LIST; then
 
 elif grep -Fxq "$DELL2_MODEL" <<< $CURR_OUTPUTS_LIST; then
     OUTPUT_E1=$DELL2_MODEL
+elif [ $CURR_OUTPUT_COUNT -eq 2 ]; then 
+    OUTPUT_E1=$(tail -1 <<< "$CURR_OUTPUTS_LIST")
 fi
 
 ############################################
@@ -84,9 +86,9 @@ if [ ! -z "$OUTPUT_E1" ]; then
         WS4OUTPUT=$OUTPUT_E1
         WS5OUTPUT=$OUTPUT_E1
         WS6OUTPUT=$OUTPUT_E1
-        WS7OUTPUT=$OUTPUT_E1
-        WS8OUTPUT=$OUTPUT_E1
-        WS9OUTPUT=$OUTPUT_E1
+        WS7OUTPUT=$OUTPUT_LAPTOP
+        WS8OUTPUT=$OUTPUT_LAPTOP
+        WS9OUTPUT=$OUTPUT_LAPTOP
         WS10OUTPUT=$OUTPUT_LAPTOP
     fi
 
