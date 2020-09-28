@@ -185,7 +185,7 @@ function send_msg {
     if [ "$(uname)" == "Darwin" ]; then
         osascript -e "tell app \"System Events\" to display dialog \"${1}\"" &> /dev/null
     elif command -v notify-send &> /dev/null; then
-        notify-send -t 10 Pomodoro "${1}"
+        notify-send -t 0 Pomodoro "${1}"
     else
         echo "${1}"
     fi
