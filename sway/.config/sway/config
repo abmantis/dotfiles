@@ -455,11 +455,6 @@ bindsym $mod+r mode "$mode_resize"
     for_window [app_id="gnome-calculator"] floating enable
     for_window [instance="keepass2"] floating enable
 
-    # Microsoft teams popups
-    #for_window [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"] floating enable, move down 450, move right 800
-    for_window [title="^Microsoft Teams Notification$"] floating enable, move down 450, move right 800
-    no_focus [class="Microsoft Teams - Preview" title="Microsoft Teams Notification"]
-    
     # fix Web Teams "sharing toolbar" resizing windows and messing up window sharing
     for_window [title="teams.microsoft.com is sharing a window."] floating enable
     
