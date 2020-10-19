@@ -332,6 +332,7 @@ bindsym $mod+r mode "$mode_resize"
         bindsym --locked Minus  $volumedown
         bindsym --locked Return mode "default"
         bindsym --locked Escape mode "default"
+        bindsym t exec amixer set Capture toggle
     }
 
     set $mode_goto Go to: Ferdi (f), Teams (t), Browser (b)
