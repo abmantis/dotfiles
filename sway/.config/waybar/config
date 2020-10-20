@@ -11,6 +11,7 @@
         "network",
         "custom/cpu",
         "pulseaudio",
+        "custom/mic",
         "custom/upower",
         "custom/system-updates",
         "custom/vpn",
@@ -71,6 +72,13 @@
         "on-scroll-down": "amixer set Master 5%-",
         "on-click-middle": "pavucontrol",
         "tooltip": false
+    },
+    "custom/mic": {
+        "format": "{}",
+        "interval": 10, 
+        "exec": "amixer get Capture | grep '\\[on\\]' 1>/dev/null && echo '' || echo ''", 
+        "on-click-middle": "amixer set Capture toggle && pkill -RTMIN+25 waybar",
+        "signal": 25
     },
     "custom/cpu": {
         "format": "{}",

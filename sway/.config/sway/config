@@ -74,6 +74,8 @@
                             org.mpris.MediaPlayer2.Player.Next
     set $volumeup       exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     set $volumedown     exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    set $soundmute      exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    set $micmute        exec amixer set Capture toggle && pkill -RTMIN+25 waybar
 
 # Output configuration
     output "*" bg $background fill
@@ -323,16 +325,18 @@ bindsym $mod+r mode "$mode_resize"
         bindsym Escape mode "default"
     }
 
-    set $mode_media Pause (space), Next ($right), Previous($left), Exit (esc)
+    set $mode_media Pause (space), Next ($right), Previous($left), Volume (+/-), Mute (m), Mic Mute (t), Exit (esc)
     mode "$mode_media" {
         bindsym --locked space  $spotifyplay, mode "default"
         bindsym --locked $right $spotifynext, mode "default"
         bindsym --locked $left  $spotifyprev, mode "default"
         bindsym --locked Plus   $volumeup
         bindsym --locked Minus  $volumedown
+        bindsym --locked m $soundmute
+        bindsym --locked t $micmute
         bindsym --locked Return mode "default"
         bindsym --locked Escape mode "default"
-        bindsym t exec amixer set Capture toggle
+        
     }
 
     set $mode_goto Go to: Ferdi (f), Teams (t), Browser (b)
@@ -366,10 +370,10 @@ bindsym $mod+r mode "$mode_resize"
 # Settings keys.
 # More can be found with xmodmap
     # Keybindings for the soundbuttons
-    bindsym XF86AudioMute           exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMute           $soundmute
     bindsym XF86AudioRaiseVolume    $volumeup
     bindsym XF86AudioLowerVolume    $volumedown
-    bindsym XF86AudioMicMute        exec amixer set Capture toggle
+    bindsym XF86AudioMicMute        $micmute
 
     bindsym XF86AudioPlay   $spotifyplay
     bindsym XF86AudioPrev   $spotifyprev
