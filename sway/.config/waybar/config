@@ -68,8 +68,8 @@
             "phone": ["奄", "奔", "墳", " "],
             "default": ["奄", "奔", "墳", ""]
         },
-        "on-scroll-up": "amixer set Master 5%+",
-        "on-scroll-down": "amixer set Master 5%-",
+        "on-scroll-up": "amixer -M -D pulse set Master 5%+",
+        "on-scroll-down": "amixer -M -D pulse set Master 5%-",
         "on-click-middle": "pavucontrol",
         "tooltip": false
     },
