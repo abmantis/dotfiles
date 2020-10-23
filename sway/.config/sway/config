@@ -391,6 +391,8 @@ bindsym $mod+r mode "$mode_resize"
     bindsym button2 kill
     # The right mouse button over a titlebar toggles flaot mode
     bindsym button3 floating toggle
+    bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button6 workspace prev
+    bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button7 workspace next
 
     focus_follows_mouse no
 

@@ -6,7 +6,7 @@
     set $screenidletimeoff 660
 
 # Background
-    set $background ~/Pictures/914205-wallpaper.jpg
+    set $background ~/Pictures/Wallpapers/forest.jpg
 
 # Theme
     set $gtk_theme 'Yaru-dark'
