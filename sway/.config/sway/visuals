@@ -1,0 +1,49 @@
+####################################################################################################
+# Solarized colors
+set $black      #000000
+set $white      #FFFFFF
+set $gray1      #1a1a1a
+set $gray2      #292b2e
+set $gray3      #6f777a
+set $gray4      #aaaaaa
+
+set $base03     #002b36
+set $base02     #073642
+set $base01     #586e75
+set $base00     #657b83
+set $base0      #839496
+set $base1      #93a1a1
+set $base2      #eee8d5
+set $base3      #fdf6e3
+set $yellow     #b58900
+set $orange     #cb4b16
+set $red        #dc322f
+set $magenta    #d33682
+set $violet     #6c71c4
+set $blue       #268bd2
+set $cyan       #2aa198
+set $green      #859900
+
+# class                 border  backgr. text    indica. child_border
+client.focused          $gray2  $gray2  $gray4  $cyan  $gray2
+client.unfocused        $gray3  $gray3  $gray4  $cyan  $gray3
+
+####################################################################################################
+# Gaps and borders
+smart_borders on
+#smart_gaps on
+#gaps inner 10
+
+titlebar_border_thickness 1
+default_border normal 4
+    
+####################################################################################################
+# Fonts and text
+font Noto 9
+for_window [title=".*"] title_format %title
+
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
+    gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+}

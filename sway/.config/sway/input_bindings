@@ -1,0 +1,277 @@
+####################################################################################################
+# Common key aliases
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+####################################################################################################
+
+####################################################################################################
+# Basics
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c nop # suppress the keystroke (or it will type a capital C before reloading sway)
+bindsym --release $mod+Shift+c reload
+
+# Regen outputs
+bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh
+####################################################################################################
+
+####################################################################################################
+# Moving around
+
+# Move your focus around
+bindsym $mod+$left          focus left
+bindsym $mod+Left           focus left
+bindsym $mod+$down          focus down
+bindsym $mod+Down           focus down
+bindsym $mod+$up            focus up
+bindsym $mod+Up             focus up
+bindsym $mod+$right         focus right
+bindsym $mod+Right          focus right
+bindsym $mod+Tab            focus next
+
+# Move the focused window
+bindsym $mod+Shift+$left    move left
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+$down    move down
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+$up      move up
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+$right   move right
+bindsym $mod+Shift+Right    move right
+####################################################################################################
+
+####################################################################################################
+# Workspaces
+
+# Switch to workspace
+bindsym $mod+Backslash  workspace $wsbs
+bindsym $mod+1          workspace $ws1
+bindsym $mod+2          workspace $ws2
+bindsym $mod+3          workspace $ws3
+bindsym $mod+4          workspace $ws4
+bindsym $mod+5          workspace $ws5
+bindsym $mod+6          workspace $ws6
+bindsym $mod+F1         workspace $ws7
+bindsym $mod+F2         workspace $ws8
+bindsym $mod+F3         workspace $ws9
+bindsym $mod+F4         workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+Backslash    move container to workspace $wsbs
+bindsym $mod+Shift+1            move container to workspace $ws1
+bindsym $mod+Shift+2            move container to workspace $ws2
+bindsym $mod+Shift+3            move container to workspace $ws3
+bindsym $mod+Shift+4            move container to workspace $ws4
+bindsym $mod+Shift+5            move container to workspace $ws5
+bindsym $mod+Shift+6            move container to workspace $ws6
+bindsym $mod+Shift+F1           move container to workspace $ws7
+bindsym $mod+Shift+F2           move container to workspace $ws8
+bindsym $mod+Shift+F3           move container to workspace $ws9
+bindsym $mod+Shift+F4           move container to workspace $ws10
+
+# Move focused container to workspace, and switch to it
+bindsym $mod+Control+Backslash    move container to workspace $wsbs, workspace $wsbs
+bindsym $mod+Control+1            move container to workspace $ws1, workspace $ws1
+bindsym $mod+Control+2            move container to workspace $ws2, workspace $ws2
+bindsym $mod+Control+3            move container to workspace $ws3, workspace $ws3
+bindsym $mod+Control+4            move container to workspace $ws4, workspace $ws4
+bindsym $mod+Control+5            move container to workspace $ws5, workspace $ws5
+bindsym $mod+Control+6            move container to workspace $ws6, workspace $ws6
+bindsym $mod+Control+F1           move container to workspace $ws7, workspace $ws7
+bindsym $mod+Control+F2           move container to workspace $ws8, workspace $ws8
+bindsym $mod+Control+F3           move container to workspace $ws9, workspace $ws9
+bindsym $mod+Control+F4           move container to workspace $ws10, workspace $ws10
+
+# Switch to next/prev workspaces
+bindsym alt+tab workspace next
+bindsym alt+shift+tab workspace prev
+
+# Reset workspace and window placement
+bindsym $mod+Shift+r $workspace_reset_cmd
+####################################################################################################
+
+####################################################################################################
+# Layout stuff:
+
+# You can "split" the current object of your focus with $mod+b or $mod+v, for horizontal and 
+# vertical splits respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout toggle split tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Toggle floating window sticky state
+bindsym $mod+shift+s sticky toggle
+
+# move focus to the parent/child container
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+####################################################################################################
+
+####################################################################################################
+# Scratchpad:
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+####################################################################################################
+
+####################################################################################################
+# Modes
+
+# Resizing
+set $mode_resize Resize: 20% (1), 30% (2), 50% (3), 70% (4), 80% (5)
+mode "$mode_resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Shift+$left resize shrink width 100px
+    bindsym Shift+$down resize grow height 100px
+    bindsym Shift+$up resize shrink height 100px
+    bindsym Shift+$right resize grow width 100px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Shift+Left resize shrink width 100px
+    bindsym Shift+Down resize grow height 100px
+    bindsym Shift+Up resize shrink height 100px
+    bindsym Shift+Right resize grow width 100px
+
+    bindsym 1 resize set width 20 ppt, mode "default"
+    bindsym 2 resize set width 30 ppt, mode "default"
+    bindsym 3 resize set width 50 ppt, mode "default"
+    bindsym 4 resize set width 70 ppt, mode "default"
+    bindsym 5 resize set width 80 ppt, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "$mode_resize"
+
+# System control
+set $mode_system System: Lock (l), Logout (e), Suspend (s), Hibernate (h), Reboot (r), Poweroff (p), Windows (w)
+mode "$mode_system" {
+    bindsym l exec $swaylockcmd, mode "default"
+    bindsym e exec swaymsg exit, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
+    bindsym h exec systemctl hibernate, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym p exec systemctl poweroff, mode "default"
+    bindsym w exec grub-reboot 2 && systemctl reboot, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "$mode_system"
+
+# Media
+set $mode_media Pause (space), Next ($right), Previous($left), Volume (+/-), Mute (m), Mic Mute (t), Exit (esc)
+mode "$mode_media" {
+    bindsym --locked space  $spotifyplay, mode "default"
+    bindsym --locked $right $spotifynext, mode "default"
+    bindsym --locked $left  $spotifyprev, mode "default"
+    bindsym --locked Plus   $volumeup
+    bindsym --locked Minus  $volumedown
+    bindsym --locked m $soundmute
+    bindsym --locked t $micmute
+    bindsym --locked Return mode "default"
+    bindsym --locked Escape mode "default"    
+}
+bindsym --locked $mod+m mode "$mode_media"
+
+# Go to ...
+set $mode_goto Go to: Ferdi (f), Teams (t), Browser (b)
+mode "$mode_goto" {
+    bindsym f [class="Ferdi"] focus, mode "default"
+    bindsym t [class="Microsoft Teams - Preview"] focus, mode "default"
+    bindsym b [class="[Ff]irefox"] focus, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+g mode "$mode_goto"
+
+####################################################################################################
+# Screen capture
+
+# capture all screens to clipboard    
+bindsym Print exec /bin/bash -c 'grim - | tee >(swappy -f -) | wl-copy'
+
+# capture the specified screen area to clipboard    
+bindsym Shift+Print exec /bin/bash -c 'grim -g "$(slurp)" - | tee >(swappy -f -) | wl-copy'
+
+# capture the focused monitor to clipboard    
+bindsym Alt+Print exec /bin/bash -c 'grim -o $(swaymsg -t get_outputs | jq -r ".[] | select(.focused) | .name") - | tee >(swappy -f -) | wl-copy'
+####################################################################################################
+
+####################################################################################################
+# Settings keys
+# More can be found with xmodmap
+
+# Audio
+bindsym XF86AudioMute           $soundmute
+bindsym XF86AudioRaiseVolume    $volumeup
+bindsym XF86AudioLowerVolume    $volumedown
+bindsym XF86AudioMicMute        $micmute
+bindsym XF86AudioPlay           $spotifyplay
+bindsym XF86AudioPrev           $spotifyprev
+bindsym XF86AudioNext           $spotifynext
+
+# Brightness and settings
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86Tools exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
+####################################################################################################
+
+####################################################################################################
+# Misc
+
+# The middle mouse button over a titlebar kills the window
+bindsym button2 kill
+
+# The right mouse button over a titlebar toggles flaot mode
+bindsym button3 floating toggle
+bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button6 workspace prev
+bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button7 workspace next
+####################################################################################################

@@ -110,5 +110,4 @@ write_line "set \$ws8output  \"$WS8OUTPUT\""
 write_line "set \$ws9output  \"$WS9OUTPUT\""
 write_line "set \$ws10output \"$WS10OUTPUT\""
 
-# reload sway
-swaymsg reload
+notify-send -t 5000 Sway "Output config generated"

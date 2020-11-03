@@ -1,0 +1,20 @@
+###################################################################################################
+# Generic
+set $term           gnome-terminal 
+set $swaylockcmd    swaylock -i $background --scaling fill
+
+###################################################################################################
+# Media
+set $spotifyplay    exec dbus-send --print-reply \
+                        --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                        org.mpris.MediaPlayer2.Player.PlayPause
+set $spotifyprev    exec dbus-send --print-reply \
+                        --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                        org.mpris.MediaPlayer2.Player.Previous
+set $spotifynext    exec dbus-send --print-reply \
+                        --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 \
+                        org.mpris.MediaPlayer2.Player.Next
+set $volumeup       exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $volumedown     exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $soundmute      exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $micmute        exec amixer set Capture toggle && pkill -RTMIN+25 waybar

@@ -1,0 +1,65 @@
+###################################################################################################
+# Workspace names
+# NOTE: the space used in workspace names is not the normal unicode space, to avoid having to use quotes.
+set $wsbs 0:S 
+set $ws1 1:1 
+set $ws2 2:2 
+set $ws3 3:3 
+set $ws4 4:4 
+set $ws5 5:5 
+set $ws6 6:6 
+set $ws7 7:F1 
+set $ws8 8:F2 
+set $ws9 9:F3 
+set $ws10 10:F4 
+
+###################################################################################################
+# Assign workspaces to outputs
+workspace $wsbs output $wsbsoutput
+workspace $ws1  output $ws1output
+workspace $ws2  output $ws2output
+workspace $ws3  output $ws3output
+workspace $ws4  output $ws4output
+workspace $ws5  output $ws5output
+workspace $ws6  output $ws6output
+workspace $ws7  output $ws7output
+workspace $ws8  output $ws8output
+workspace $ws9  output $ws9output
+workspace $ws10 output $ws10output
+
+###################################################################################################
+# Workspace specific settings
+for_window [workspace=$wsbs] layout tabbed
+
+###################################################################################################
+# Commands to reset workspace-output and app-workspace assignments
+set $workspace_reset_wspcs_cmd \
+    workspace $wsbs, move workspace to output $wsbsoutput, \
+    workspace $ws1, move workspace to output $ws1output, \
+    workspace $ws2, move workspace to output $ws2output, \
+    workspace $ws3, move workspace to output $ws3output, \
+    workspace $ws4, move workspace to output $ws4output, \
+    workspace $ws5, move workspace to output $ws5output, \
+    workspace $ws6, move workspace to output $ws6output, \
+    workspace $ws7, move workspace to output $ws7output, \
+    workspace $ws8, move workspace to output $ws8output, \
+    workspace $ws9, move workspace to output $ws9output, \
+    workspace $ws10, move workspace to output $ws10output
+
+set $workspace_reset_apps_cmd \
+    exec swaymsg '[class="Ferdi"]                       focus, move window to workspace $wsbs', \
+    exec swaymsg '[class="Skype"]                       focus, move window to workspace $wsbs', \
+    exec swaymsg '[class="Microsoft Teams - Preview"]   focus, move window to workspace $wsbs', \
+    exec swaymsg '[class="[Ff]irefox"]                  focus, move window to workspace $ws1 ', \
+    exec swaymsg '[app_id="firefox"]                    focus, move window to workspace $ws1 ', \
+    exec swaymsg '[class="Google-chrome"]               focus, move window to workspace $ws1 ', \
+    exec swaymsg '[app_id="gnome-terminal-server"]      focus, move window to workspace $ws2 ', \
+    exec swaymsg '[class="Code"]                        focus, move window to workspace $ws3 ', \
+    exec swaymsg '[class="jetbrains-clion"]             focus, move window to workspace $ws4 ', \
+    exec swaymsg '[app_id="dlt_viewer"]                 focus, move window to workspace $ws5 ', \
+    exec swaymsg '[title="Google Duo - Google Chrome"]  focus, move window to workspace $ws9 ', \
+    exec swaymsg '[class="Spotify"]                     focus, move window to workspace $ws10', \
+    exec swaymsg 'workspace $wsbs', \
+    exec swaymsg 'workspace $ws1'
+
+set $workspace_reset_cmd $workspace_reset_wspcs_cmd, $workspace_reset_apps_cmd

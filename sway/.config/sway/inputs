@@ -1,0 +1,26 @@
+# Input configuration
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+    input * {
+        xkb_layout "pt"
+        xkb_numlock enabled
+    }
+
+    input $touchpad_name {
+        dwt enabled
+        tap enabled
+        natural_scroll enabled
+        middle_emulation enabled
+    }
+
+    input 1133:16511:Logitech_G502 {
+        accel_profile adaptive
+        pointer_accel -0.1
+        scroll_factor 1
+    }
+
+    input 1133:45086:Logitech_Wireless_Mouse_MX_Master {
+        accel_profile adaptive
+        pointer_accel 0.2
+    }
+

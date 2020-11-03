@@ -1,0 +1,34 @@
+# make nmtui from swaybar floating
+for_window [app_id="gnome-terminal-server" title="nmtui"] floating enable
+
+# jetbrains "search everywere" popups
+for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
+for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080
+for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating enable
+for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080
+
+for_window [app_id="gnome-calculator"] floating enable
+for_window [instance="keepass2"] floating enable
+
+# fix Web Teams "sharing toolbar" resizing windows and messing up window sharing
+for_window [title="teams.microsoft.com is sharing a window."] floating enable
+
+# remove titlebar for chrome
+for_window [class="^(?i)google-chrome"] border pixel 4
+
+# remove titlebar for firefox
+for_window [app_id="firefox"] border pixel 1
+for_window [class="[Ff]irefox"] border pixel 1
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+for_window [class="[Ff]irefox" title="^Picture-in-Picture$"] floating enable, sticky enable
+
+# Nautilus has client-side decorations (but using border csd is not working, so none it is)
+for_window [app_id="org.gnome.Nautilus"] border none
+
+for_window [app_id="dlt_viewer" title="Project|ECU Configuration|Filter Configuration"] floating enable
+
+assign [class="Ferdi"] $wsbs
+assign [class="Skype"] $wsbs
+
+# assign does not work with spotify (https://github.com/swaywm/sway/issues/3793)
+for_window [class="Spotify"] move window to workspace $ws10 
