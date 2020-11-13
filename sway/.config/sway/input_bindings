@@ -24,7 +24,7 @@ bindsym $mod+Shift+c nop # suppress the keystroke (or it will type a capital C b
 bindsym --release $mod+Shift+c reload
 
 # Regen outputs
-bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh
+bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh reload
 ####################################################################################################
 
 ####################################################################################################

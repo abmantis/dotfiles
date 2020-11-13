@@ -1,11 +1,13 @@
 # Read `man 5 sway` for a complete reference.
 
+# This script generates a file in "enabled_configs" so it needs to run first
+exec $HOME/.config/sway/scripts/generate_outputs.sh
+
 include enabled_configs/*
 
 ####################################################################################################
 # Output configuration
 output "*" bg $background fill
-exec $HOME/.config/sway/scripts/generate_outputs.sh
 ####################################################################################################
 
 include inputs
