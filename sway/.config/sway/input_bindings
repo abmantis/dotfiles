@@ -263,6 +263,7 @@ bindsym XF86AudioMicMute        $micmute
 bindsym XF86AudioPlay           $spotifyplay
 bindsym XF86AudioPrev           $spotifyprev
 bindsym XF86AudioNext           $spotifynext
+bindsym Pause                   $micmute
 
 # Brightness and settings
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -276,8 +277,6 @@ bindsym XF86Tools exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
 # The middle mouse button over a titlebar kills the window
 bindsym button2 kill
 
-# The right mouse button over a titlebar toggles flaot mode
+# The right mouse button over a titlebar toggles float mode
 bindsym button3 floating toggle
-bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button6 workspace prev
-bindsym --input-device=1133:45086:Logitech_Wireless_Mouse_MX_Master --whole-window button7 workspace next
 ####################################################################################################
