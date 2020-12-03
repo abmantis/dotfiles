@@ -76,7 +76,8 @@
     "custom/mic": {
         "format": "{}",
         "interval": 10, 
-        "exec": "amixer get Capture | grep '\\[on\\]' 1>/dev/null && echo '' || echo ''", 
+        "return-type": "json",
+        "exec": "amixer get Capture | grep '\\[on\\]' 1>/dev/null && echo '{\"text\": \"\", \"class\": \"unmuted\"}' || echo '{\"text\": \"\", \"class\": \"muted\"}'",
         "on-click-middle": "amixer set Capture toggle && pkill -RTMIN+25 waybar",
         "signal": 25
     },
