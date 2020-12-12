@@ -1,5 +1,6 @@
 ###################################################################################################
 # Generic
+set $menu           wofi
 set $term           gnome-terminal 
 set $swaylockcmd    swaylock -i $background --scaling fill
 

@@ -11,10 +11,6 @@
 # Theme
     set $gtk_theme 'Yaru-dark'
 
-# Application launcher
-    #set $menu bash -c "source /etc/profile.d/snapd.sh && rofi -combi-modi window,drun -show-icons -show combi -modi combi"
-    set $menu wofi
-
 # Touchpad name
     set $touchpad_name "1739:31251:DLL07BE:01_06CB:7A13_Touchpad"    
 

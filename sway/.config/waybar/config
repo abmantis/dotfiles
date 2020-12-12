@@ -68,8 +68,6 @@
             "phone": ["奄", "奔", "墳", " "],
             "default": ["奄", "奔", "墳", ""]
         },
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
         "on-click-middle": "pavucontrol",
         "tooltip": false
     },
