@@ -135,3 +135,7 @@ window#waybar.solo {
 #custom-cpu.warning {
     color:      rgba(255, 210, 4, 1);
 }
+
+#custom-mic.muted {
+    color:      rgba(255, 46, 36, 1);
+}
