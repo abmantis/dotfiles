@@ -12,6 +12,7 @@ exec_always makoctl reload
 
 ####################################################################################################
 # Apps
+exec pulseeffects --gapplication-service
 #exec google-chrome-stable --password-store=gnome
 #exec $HOME/.config/sway/scripts/wait_for_network.sh && env vblank_mode=0 firefox
 exec $HOME/.config/sway/scripts/wait_for_network.sh && firefox
