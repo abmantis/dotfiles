@@ -45,5 +45,5 @@ for_window [title=".*"] title_format %title
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
     gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-    gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
 }

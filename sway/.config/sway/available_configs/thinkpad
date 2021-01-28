@@ -11,6 +11,7 @@
 
 # Theme
     set $gtk_theme 'Yaru'
+    set $cursor_theme 'Yaru'
 
 # Touchpad name
     set $touchpad_name "1739:0:Synaptics_TM3276-022"
