@@ -139,3 +139,9 @@ window#waybar.solo {
 #custom-mic.muted {
     color:      rgba(255, 46, 36, 1);
 }
+
+#custom-recorder {
+	font-size: 18px;
+	margin: 2px 7px 0px 7px;
+	color:rgba(255, 46, 36, 1);;
+}

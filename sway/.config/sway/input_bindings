@@ -242,13 +242,14 @@ bindsym $mod+g mode "$mode_goto"
 # Screen capture
 
 # capture all screens to clipboard    
-bindsym Print exec /bin/bash -c 'grim - | tee >(swappy -f -) | wl-copy'
+bindsym Alt+Print exec /bin/bash -c 'grim - | tee >(swappy -f -) | wl-copy'
 
 # capture the specified screen area to clipboard    
-bindsym Shift+Print exec /bin/bash -c 'grim -g "$(slurp)" - | tee >(swappy -f -) | wl-copy'
+bindsym Print exec /bin/bash -c 'grim -g "$($HOME/.config/sway/scripts/slurper.sh)" - | tee >(swappy -f -) | wl-copy'
 
-# capture the focused monitor to clipboard    
-bindsym Alt+Print exec /bin/bash -c 'grim -o $(swaymsg -t get_outputs | jq -r ".[] | select(.focused) | .name") - | tee >(swappy -f -) | wl-copy'
+# capture screen to X11 window (for screensharing)
+bindsym Control+Print exec /bin/bash -c 'unset SDL_VIDEODRIVER && wf-recorder -c rawvideo --geometry="$($HOME/.config/sway/scripts/slurper.sh)" -m sdl -f pipe:wayland-mirror'
+
 ####################################################################################################
 
 ####################################################################################################

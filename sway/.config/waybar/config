@@ -3,7 +3,7 @@
     "position": "top",
 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock", "custom/pomo"],
+    "modules-center": ["custom/recorder", "clock", "custom/pomo"],
     "modules-right": [
         "custom/spotify",
         "custom/spotify_next",
@@ -150,6 +150,14 @@
         "escape": true,
         "on-click-middle": "update-manager"
     },
+    "custom/recorder": {
+		"format": "",
+		"return-type": "json",
+		"interval": 5,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder",
+        "on-click-middle": "killall -s SIGINT wf-recorder"
+	},
     "backlight": {
         "format": "{icon}",
         "format-alt": "{icon} {percent}%",
@@ -167,14 +175,7 @@
             "deactivated": "鈴"
         },
         "tooltip": false
-    },
-    "custom/power_menu": {
-        "format": "{icon}",
-        "on-click-right": "wlogout",
-        "format-icons": {
-          "default": ""
-        }
-    },
+    },    
     "tray": {
         "icon-size": 15,
         "spacing": 15
