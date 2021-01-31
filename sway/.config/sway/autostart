@@ -1,7 +1,8 @@
 ####################################################################################################
 # Services and daemons
 exec lxpolkit
-exec swayidle \
+exec let notifytime=$screenidletimelock-5 ; swayidle -w \
+        timeout $notifytime '$locknotifycmd' \
         timeout $screenidletimelock '$swaylockcmd -f' \
         timeout $screenidletimeoff 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"' \

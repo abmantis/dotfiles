@@ -3,6 +3,7 @@
 set $menu           wofi
 set $term           gnome-terminal 
 set $swaylockcmd    swaylock -i $background --scaling fill
+set $locknotifycmd  notify-send -t 5000 Sway "Screen locking soon"
 
 ###################################################################################################
 # Media
