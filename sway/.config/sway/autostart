@@ -1,5 +1,15 @@
 ####################################################################################################
 # Services and daemons
+
+# Workaround for dbus session to get the right wayland envs 
+# (see https://github.com/swaywm/sway/issues/5732)
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Workaround for XDG_CURRENT_DESKTOP
+exec "systemctl --user import-environment"
+
 exec lxpolkit
 exec let notifytime=$screenidletimelock-5 ; swayidle -w \
         timeout $notifytime '$locknotifycmd' \
