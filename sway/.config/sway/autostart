@@ -11,12 +11,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec "systemctl --user import-environment"
 
 exec lxpolkit
-exec let notifytime=$screenidletimelock-5 ; swayidle -w \
-        timeout $notifytime '$locknotifycmd' \
-        timeout $screenidletimelock '$swaylockcmd -f' \
-        timeout $screenidletimeoff 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"' \
-        before-sleep '$swaylockcmd -f'
+exec $HOME/.config/sway/scripts/idle_handler.sh $screenidletimelock $screenidletimeoff $swaylockcmd
 
 exec mako
 exec_always makoctl reload
