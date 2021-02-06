@@ -2,7 +2,7 @@
 # Generic
 set $menu           wofi
 set $term           gnome-terminal 
-set $swaylockcmd    swaylock -i $background --scaling fill
+set $swaylockcmd    "swaylock -i $background --scaling fill"
 
 ###################################################################################################
 # Media
