@@ -9,7 +9,7 @@
     set $background ~/Pictures/Wallpapers/forest.jpg
 
 # Theme
-    set $gtk_theme 'Yaru-dark'
+    set $gtk_theme 'Nordic'
     set $cursor_theme 'Adwaita'
 
 # Touchpad name

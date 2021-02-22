@@ -8,72 +8,59 @@
     transition-duration: 0s;
 }
 
-window {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(35, 31, 32, 0.00);
-}
 window#waybar {
-    background: #292b2e;
-    color: #fdf6e3;
+    background: #353c4a;
+    color: #d8dee9;
 }
 
-window#waybar.solo {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(35, 31, 32, 0.85);
+#workspaces, #mode, #clock, #custom-pomo, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
+    background: #2e3440;
 }
 
 #workspaces {
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 5px;
 }
 
 #workspaces button {
     border-top:     2px solid rgba(0, 0, 0, 0);
     border-bottom:  2px solid rgba(0, 0, 0, 0);
-    padding:        0 5px;
-    color:          rgba(217, 216, 216, 0.4);
+    padding: 0 5px;
+    color: #8e95a4;
 }
 
 #workspaces button.visible {
-    color: rgba(217, 216, 216, 1);
+    color: #88c0d0;
 }
 
 #workspaces button:hover {
-    background: rgba(217, 216, 216, 0.2);
+    color: #d8dee9;
+    background: rgba(0x88, 0xc0, 0xd0, 0.7);
 }
 
 #workspaces button.focused {
-    border-top-color:       rgba(217, 216, 216, 1);
-    border-bottom-color:    rgba(217, 216, 216, 0);
+    border-top-color: #88c0d0;
 }
 
 #workspaces button.urgent {
-    color:      rgba(255, 46, 36, 1);
+    color: #c21b2c;
 }
 
 #mode {
-    color:      rgba(255, 46, 36, 1);
-    background: #353535;
+    color: #88c0d0;
     font-family: "Ubuntu";
     margin-left: 10px;
     padding: 0px 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    min-width:  25px;
 }
 
 #custom-spotify, #tray {
     font-family: "Ubuntu";
 }
 
-#workspaces, #clock, #custom-pomo, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
-    background: #353535;
-}
-
-#mode {
-    min-width:  25px;
-}
-
 #tray {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 5px;
 }
 
 #custom-mic, #custom-upower.high, #custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
@@ -90,15 +77,15 @@ window#waybar.solo {
 }
 
 #custom-upower.low {
-    color: red;
+    color: #c21b2c;
 }
 
 #custom-system-updates.update {
-    color: cyan;
+    color: #5dbcd6;
 }
 
 #custom-system-updates.restart {
-    color: red;
+    color: #c21b2c;
 }
 
 #custom-vpn.disconnected {
@@ -107,18 +94,18 @@ window#waybar.solo {
 }
 
 #custom-vpn.connected {
-    color: cyan;
+    color: #88c0d0;
 }
 
 #clock {
     padding-left: 15px;
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 5px;
 }
 
 #custom-pomo {
     padding-left: 10px;
     padding-right: 15px;    
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 5px;
 }
 
 #custom-pomo.break {
@@ -126,22 +113,22 @@ window#waybar.solo {
 }
 
 #temperature.critical {
-    color:      rgba(255, 46, 36, 1);
+    color:  #c21b2c;
 }
 
 #custom-cpu.critical {
-    color:      rgba(255, 46, 36, 1);
+    color:  #c21b2c;
 }
 #custom-cpu.warning {
     color:      rgba(255, 210, 4, 1);
 }
 
 #custom-mic.muted {
-    color:      rgba(255, 46, 36, 1);
+    color:  #c21b2c;
 }
 
 #custom-recorder {
 	font-size: 18px;
 	margin: 2px 7px 0px 7px;
-	color:rgba(255, 46, 36, 1);;
+	color: #c21b2c;
 }

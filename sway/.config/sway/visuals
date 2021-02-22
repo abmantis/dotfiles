@@ -1,32 +1,9 @@
 ####################################################################################################
 # Solarized colors
-set $black      #000000
-set $white      #FFFFFF
-set $gray1      #1a1a1a
-set $gray2      #292b2e
-set $gray3      #6f777a
-set $gray4      #aaaaaa
-
-set $base03     #002b36
-set $base02     #073642
-set $base01     #586e75
-set $base00     #657b83
-set $base0      #839496
-set $base1      #93a1a1
-set $base2      #eee8d5
-set $base3      #fdf6e3
-set $yellow     #b58900
-set $orange     #cb4b16
-set $red        #dc322f
-set $magenta    #d33682
-set $violet     #6c71c4
-set $blue       #268bd2
-set $cyan       #2aa198
-set $green      #859900
-
-# class                 border  backgr. text    indica. child_border
-client.focused          $gray2  $gray2  $gray4  $cyan  $gray2
-client.unfocused        $gray3  $gray3  $gray4  $cyan  $gray3
+# class                 border   backgr.  text     indic. child_border
+client.focused          #353c4a  #353c4a  #d8dee9  #88c0d0  #353c4a
+client.focused_inactive #4c566a  #4c566a  #8e95a4  #88c0d0  #4c566a
+client.unfocused        #4c566a  #4c566a  #8e95a4  #88c0d0  #4c566a
 
 ####################################################################################################
 # Gaps and borders
