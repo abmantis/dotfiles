@@ -20,8 +20,13 @@ font Noto 9
 for_window [title=".*"] title_format %title
 
 exec_always {
-    sed -i 's/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/' ~/.config/gtk-3.0/settings.ini
-    sed -i 's/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/' ~/.config/gtk-3.0/settings.ini    
+    grep -q "gtk-theme-name=" file && \
+        sed -i 's/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/' ~/.config/gtk-3.0/settings.ini || \
+        echo 'gtk-theme-name=$gtk_theme' >> ~/.config/gtk-3.0/settings.ini
+    grep -q "gtk-icon-theme-name=" file && \
+        sed -i 's/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/' ~/.config/gtk-3.0/settings.ini || \
+        echo 'gtk-icon-theme-name=$icon_theme' >> ~/.config/gtk-3.0/settings.ini
+
     gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
     gsettings set org.gnome.desktop.interface icon-theme $icon_theme
     gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
