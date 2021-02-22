@@ -10,7 +10,7 @@
     set $background /home/acosta/Pictures/Wallpapers/i-see-stars.jpg
 
 # Theme
-    set $gtk_theme 'Nordic'
+    set $gtk_theme 'Nordic-standard-buttons'
     set $icon_theme 'Adwaita'
     set $cursor_theme 'DMZ-White'
 
