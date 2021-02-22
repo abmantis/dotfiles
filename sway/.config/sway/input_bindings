@@ -56,6 +56,7 @@ bindsym $mod+Shift+Right    move right
 # Workspaces
 
 # Switch to workspace
+bindsym $mod+Grave                  workspace $wsbs
 bindsym $mod+Backslash              workspace $wsbs
 bindsym $mod+1                      workspace $ws1
 bindsym $mod+2                      workspace $ws2
@@ -69,6 +70,7 @@ bindsym $mod+F3                     workspace $ws9
 bindsym $mod+F4                     workspace $ws10
 
 # Move focused container to workspace
+bindsym $mod+Shift+Grave            move container to workspace $wsbs
 bindsym $mod+Shift+Backslash        move container to workspace $wsbs
 bindsym $mod+Shift+1                move container to workspace $ws1
 bindsym $mod+Shift+2                move container to workspace $ws2
@@ -82,6 +84,7 @@ bindsym $mod+Shift+F3               move container to workspace $ws9
 bindsym $mod+Shift+F4               move container to workspace $ws10
 
 # Move focused container to workspace, and switch to it
+bindsym $mod+Control+Grave          move container to workspace $wsbs, workspace $wsbs
 bindsym $mod+Control+Backslash      move container to workspace $wsbs, workspace $wsbs
 bindsym $mod+Control+1              move container to workspace $ws1, workspace $ws1
 bindsym $mod+Control+2              move container to workspace $ws2, workspace $ws2

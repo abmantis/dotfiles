@@ -8,6 +8,7 @@
 
     input 3141:38160:S_U {
         xkb_layout "us"
+        xkb_options compose:ralt
     }
 
     input $touchpad_name {
@@ -27,4 +28,3 @@
         accel_profile adaptive
         pointer_accel 0.2
     }
-
