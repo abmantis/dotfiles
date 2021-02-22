@@ -12,7 +12,7 @@
 # Theme
     set $gtk_theme 'Nordic'
     set $icon_theme 'Adwaita'
-    set $cursor_theme 'Adwaita'
+    set $cursor_theme 'DMZ-White'
 
 # Touchpad name
     set $touchpad_name "1739:0:Synaptics_TM3276-022"
