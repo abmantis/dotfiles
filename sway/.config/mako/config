@@ -1,7 +1,7 @@
 font=Ubuntu 11
-text-color=#ffffffdd
-background-color=#292b2edd
-border-color=#555555dd
+text-color=#2e3440
+background-color=#d8dee9
+border-color=#3b4252
 border-size=2
 border-radius=2
 width=500
@@ -16,5 +16,6 @@ format=(and %h more)
 text-color=#777777
 
 [urgency=high]
-background-color=#c00000
-border-color=#ff0000
+text-color=#d8dee9
+background-color=#a71b29
+border-color=#3b4252
