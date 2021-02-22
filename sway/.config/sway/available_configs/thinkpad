@@ -10,8 +10,9 @@
     set $background /home/acosta/Pictures/Wallpapers/i-see-stars.jpg
 
 # Theme
-    set $gtk_theme 'Yaru'
-    set $cursor_theme 'Yaru'
+    set $gtk_theme 'Nordic'
+    set $icon_theme 'Adwaita'
+    set $cursor_theme 'Adwaita'
 
 # Touchpad name
     set $touchpad_name "1739:0:Synaptics_TM3276-022"
