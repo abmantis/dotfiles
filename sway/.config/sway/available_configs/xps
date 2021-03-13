@@ -20,4 +20,3 @@
     exec sleep 1 && gammastep
     exec sleep 5 && dropbox
     exec ~/Scripts/delayed_autostart_list.sh
-    #exec pulseeffects --gapplication-service

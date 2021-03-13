@@ -24,5 +24,7 @@ input 2:10:TPPS/2_IBM_TrackPoint {
     }
 
 # Autostart apps
+    workspace $ws2
     exec gnome-terminal
+    workspace $wsbs
     exec teams    
