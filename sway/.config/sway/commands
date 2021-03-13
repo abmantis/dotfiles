@@ -19,3 +19,15 @@ set $volumeup       exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 set $volumedown     exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 set $soundmute      exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 set $micmute        exec amixer set Capture toggle && pkill -RTMIN+25 waybar
+
+###################################################################################################
+# Screen capture
+
+# capture all screens to clipboard    
+set $capture_screenshot_all     exec /bin/bash -c 'grim - | swappy -f -'
+# capture the specified screen area to clipboard    
+set $capture_screenshot_zone    exec /bin/bash -c 'grim -g "$($HOME/.config/sway/scripts/slurper.sh)" - | swappy -f -'
+# capture screen to X11 window (for screensharing)
+set $capture_screencast         exec unset SDL_VIDEODRIVER && wf-recorder -c rawvideo --geometry="$$($HOME/.config/sway/scripts/slurper.sh)" -m sdl -f pipe:wayland-mirror
+# capture screen to video
+set $capture_screenrec          exec wf-recorder --geometry="$$($HOME/.config/sway/scripts/slurper.sh)" -f ~/tmp/screen_rec_$(date +"%Y-%m-%d_%H:%M:%S").mp4
