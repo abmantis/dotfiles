@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Sway (in login shell)
-Comment=An i3-compatible Wayland compositor
-Exec=/usr/local/bin/swayrun
-Type=Application
