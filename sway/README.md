@@ -39,5 +39,18 @@ fi
 # Setting env vars for sway:
 Copy the files in `sway/.config/environment.d/` file files to `~/.config/environment.d/`.
 
+Since not all WMs load systemd env vars for the session (GDM does it), you may need to add the following to `.bash_profile`:
+```
+ENVIRONMENTD="$HOME/.config/environment.d"
+set -a
+if [ -d "$ENVIRONMENTD" ]; then
+    for conf in $(ls "$ENVIRONMENTD"/*.conf)
+    do
+        . "$conf"
+    done
+fi
+set +a
+```
+
 # Sway non-generic configs:
 Non-generic configs (ones that are specific to a machine), go into the sway/available_configs directory. Each machine creates a link (ln -s) inside the sway/enabled_configs dir to their specific config file.
