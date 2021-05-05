@@ -17,7 +17,7 @@ CURR_OUTPUT_COUNT=$(swaymsg -t get_outputs | jq -r '.[] | "\(.make) \(.model) \(
 # Output positions from left to right
 OUTPUT_POS1=""
 OUTPUT_POS2=""
-OUTPUT_POST3=""
+OUTPUT_POS3=""
 
 OUTPUT_MAIN=""
 OUTPUT_SECUNDARY=""
@@ -42,7 +42,6 @@ elif grep -Fxq "$LG_MODEL" <<< $CURR_OUTPUTS_LIST; then
     OUTPUT_SECUNDARY=$OUTPUT_POS1
 
     if grep -Fxq "$DELL2_MODEL" <<< $CURR_OUTPUTS_LIST; then
-    echo "DELL!"
         OUTPUT_POS1=$DELL2_MODEL
         OUTPUT_SECUNDARY=$OUTPUT_POS1
     fi
@@ -64,6 +63,10 @@ elif [ $CURR_OUTPUT_COUNT -eq 2 ]; then
     OUTPUT_POS2=$LAPTOP_MODEL
     OUTPUT_MAIN=$OUTPUT_POS1
     OUTPUT_SECUNDARY=$OUTPUT_POS2
+
+elif grep -Fxq "$LAPTOP_MODEL" <<< $CURR_OUTPUTS_LIST; then
+    OUTPUT_POS1=$LAPTOP_MODEL
+    OUTPUT_MAIN=$OUTPUT_POS1
 fi
 
 ############################################
@@ -73,8 +76,14 @@ write_line "output \"$OUTPUT_POS1\" pos 0 0"
 if [ ! -z "$OUTPUT_POS2" ]; then
     write_line "output \"$OUTPUT_POS2\" pos 1920 0"
 fi
-if [ ! -z "$OUTPUT_POST3" ]; then
-    write_line "output \"$OUTPUT_POST3\" pos 3840 0"
+if [ ! -z "$OUTPUT_POS3" ]; then
+    write_line "output \"$OUTPUT_POS3\" pos 3840 0"
+fi
+
+if [ "$LAPTOP_MODEL" != "$OUTPUT_POS1" ] && [ "$LAPTOP_MODEL" != "$OUTPUT_POS2" ] && [ "$LAPTOP_MODEL" != "$OUTPUT_POS3" ]; then
+    write_line "output \"$LAPTOP_MODEL\" disable"
+else
+    write_line "output \"$LAPTOP_MODEL\" enable"
 fi
 
 ############################################
@@ -118,7 +127,6 @@ if [ ! -z "$OUTPUT_SECUNDARY" ]; then
         WS9OUTPUT=$OUTPUT_SECUNDARY
         WS10OUTPUT=$OUTPUT_SECUNDARY
     fi
-
 fi
 
 write_line "set \$wsbsoutput \"$WSBSOUTPUT\""
