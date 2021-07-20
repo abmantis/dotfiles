@@ -41,10 +41,6 @@ window#waybar {
     border-top-color: #88c0d0;
 }
 
-#workspaces button.urgent {
-    color: #c21b2c;
-}
-
 #mode {
     color: #88c0d0;
     font-family: "Ubuntu";
