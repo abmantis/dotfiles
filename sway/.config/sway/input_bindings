@@ -274,6 +274,7 @@ bindsym XF86AudioRaiseVolume    $volumeup
 bindsym XF86AudioLowerVolume    $volumedown
 bindsym XF86AudioMicMute        $micmute
 bindsym XF86AudioPlay           $spotifyplay
+bindsym XF86AudioPause          $spotifyplay
 bindsym XF86AudioPrev           $spotifyprev
 bindsym XF86AudioNext           $spotifynext
 bindsym Pause                   $micmute
