@@ -1,0 +1,12 @@
+`include "%L"
+
+<Multi_key> <s> <h>: "🤷"
+<Multi_key> <l> <o> <l>: "😂"
+<Multi_key> <asciicircum> <asciicircum>: "😁"
+<Multi_key> <period> <minus> <minus>: "😒"
+<Multi_key> <p> <o> <o>: "💩"
+<Multi_key> <a> <a>: "ª"
+<Multi_key> <minus> <a>: "ã"
+<Multi_key> <minus> <A>: "Ã"
+<Multi_key> <minus> <o>: "õ"
+<Multi_key> <minus> <O>: "Õ"
