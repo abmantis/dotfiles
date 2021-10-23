@@ -9,6 +9,7 @@ for_window [class="jetbrains-studio" instance="sun-awt-X11-XWindowPeer"] floatin
 
 for_window [app_id="gnome-calculator"] floating enable
 for_window [instance="keepass2"] floating enable
+for_window [title="pipe:wayland-mirror"] floating enable
 
 # fix Web Teams "sharing toolbar" resizing windows and messing up window sharing
 for_window [title="teams.microsoft.com is sharing a window."] floating enable

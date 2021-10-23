@@ -3,8 +3,8 @@
     set $swaybar_cmd "/home/acosta/external/sway_repos/Waybar/build/waybar"
 
 # Screen lock and off idle time
-    set $screenidletimelock 180
-    set $screenidletimeoff 240
+    set $screenidletimelock 300
+    set $screenidletimeoff 360
 
 # Background
     set $background /home/acosta/Pictures/Wallpapers/i-see-stars.jpg

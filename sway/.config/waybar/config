@@ -24,7 +24,7 @@
     "sway/workspaces": {
         "format": "{name} {icon}",
         "format-icons": {
-            "urgent": "",
+            "urgent": "",
             "focused": "",
             "default": ""
         },
@@ -86,8 +86,8 @@
         "exec": "~/.config/waybar/modules/cpu.sh"
     },
     "custom/spotify": {
-        "format": "{icon}",
-        "format-alt": "{icon} {}",
+        "format": "{icon} {}",
+        "format-alt": "{icon}",
         "format-alt-click": "click-right",
         "interval": 10,
         "signal": 20,
