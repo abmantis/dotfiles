@@ -6,7 +6,7 @@
     set $screenidletimeoff 660
 
 # Background
-    set $background ~/Pictures/Wallpapers/forest.jpg
+    set $background ~/Pictures/Wallpapers/current.jpg
 
 # Theme
     set $gtk_theme 'Nordic'
