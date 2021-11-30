@@ -25,6 +25,7 @@ bindsym --release $mod+Shift+c reload
 
 # Regen outputs
 bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh reload
+bindsym --release --locked $mod+o output eDP-1 toggle
 ####################################################################################################
 
 ####################################################################################################
@@ -225,7 +226,7 @@ mode "$mode_media" {
     bindsym --locked $up    $volumeup
     bindsym --locked $down  $volumedown
     bindsym --locked m $soundmute
-    bindsym --locked t $micmute
+    bindsym --locked t $micmute, mode "default"
     bindsym --locked Return mode "default"
     bindsym --locked Escape mode "default"    
 }
@@ -280,7 +281,7 @@ bindsym XF86AudioPlay           $spotifyplay
 bindsym XF86AudioPause          $spotifyplay
 bindsym XF86AudioPrev           $spotifyprev
 bindsym XF86AudioNext           $spotifynext
-bindsym Pause                   $micmute
+bindsym $mod+F12                $micmute
 
 # Brightness and settings
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
