@@ -208,7 +208,7 @@ mode "$mode_system" {
     bindsym h exec systemctl hibernate, mode "default"
     bindsym r exec systemctl reboot, mode "default"
     bindsym p exec systemctl poweroff, mode "default"
-    bindsym w exec grub-reboot 2 && systemctl reboot, mode "default"
+    bindsym w exec sudo grub-reboot 2 && systemctl reboot, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
