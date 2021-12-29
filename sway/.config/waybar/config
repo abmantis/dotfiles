@@ -8,6 +8,7 @@
         "custom/spotify",
         "custom/spotify_next",
         "tray",
+        "custom/upower_headset",
         "network",
         "custom/cpu",
         "pulseaudio",
@@ -142,6 +143,14 @@
         "escape": true,
         "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },
+    "custom/upower_headset": {
+        "format": "{}",
+        "interval": 60,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/upower_headset.sh",
+        "escape": true,
+        "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
+    },
     "custom/system-updates": {
         "format": "{}",
         "interval": 3600,
@@ -178,6 +187,6 @@
     },    
     "tray": {
         "icon-size": 15,
-        "spacing": 15
+        "spacing": 10
     }
 }
