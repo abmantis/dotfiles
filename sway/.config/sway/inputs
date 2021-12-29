@@ -21,6 +21,11 @@
         xkb_options compose:ralt
     }
 
+    input 1452:591:Keychron_K3_Keyboard {
+        xkb_layout "us"
+        xkb_options compose:ralt
+    }
+
     input $touchpad_name {
         dwt enabled
         tap enabled
