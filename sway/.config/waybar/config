@@ -8,7 +8,7 @@
         "custom/spotify",
         "custom/spotify_next",
         "tray",
-        "custom/upower_headset",
+        "custom/power_headset",
         "network",
         "custom/cpu",
         "pulseaudio",
@@ -143,11 +143,11 @@
         "escape": true,
         "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },
-    "custom/upower_headset": {
+    "custom/power_headset": {
         "format": "{}",
         "interval": 60,
         "return-type": "json",
-        "exec": "~/.config/waybar/modules/upower_headset.sh",
+        "exec": "~/.config/waybar/modules/power_headset.sh",
         "escape": true,
         "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },

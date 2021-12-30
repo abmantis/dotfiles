@@ -13,7 +13,7 @@ window#waybar {
     color: #d8dee9;
 }
 
-#workspaces, #mode, #clock, #custom-pomo, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #custom-upower_headset, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
+#workspaces, #mode, #clock, #custom-pomo, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #custom-power_headset, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
     background: #2e3440;
 }
 
@@ -67,7 +67,7 @@ window#waybar {
     padding:    0px 10px 0px 15px;
 }
 
-#custom-upower_headset {
+#custom-power_headset {
     padding:    0px 10px 0px 0px;
 }
 
@@ -76,11 +76,11 @@ window#waybar {
     min-width:  50px;
 }
 
-#custom-upower_headset.low {
+#custom-power_headset.low {
     color: #c21b2c;
 }
 
-#custom-upower_headset.mid {
+#custom-power_headset.mid {
     color: rgba(255, 210, 4, 1);;
 }
 
