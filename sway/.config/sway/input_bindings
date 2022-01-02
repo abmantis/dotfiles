@@ -26,6 +26,10 @@ bindsym --release $mod+Shift+c reload
 # Regen outputs
 bindsym $mod+Shift+o exec $HOME/.config/sway/scripts/generate_outputs.sh reload
 bindsym --release --locked $mod+o output eDP-1 toggle
+
+# Toggle waybar visibility
+bindsym $mod+Shift+b exec killall -SIGUSR1 waybar
+
 ####################################################################################################
 
 ####################################################################################################
