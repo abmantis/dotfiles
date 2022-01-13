@@ -65,11 +65,16 @@
         "format": "{icon} {volume}%",
         "format-muted": "婢 {volume}%",
         "format-icons": {
-            "phone": ["奄", "奔", "墳", " "],
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "\uf095",
+            "bluez_output.14_3F_A6_00_3B_7D.headset-head-unit": "\uf7cd",
             "default": ["奄", "奔", "墳", ""]
         },
         "on-click-middle": "pavucontrol",
-        "tooltip": false
+        "on-click-right": "~/.config/waybar/modules/sound_toggle_bt_profile.sh",
+        "tooltip": true
     },
     "custom/mic": {
         "format": "{}",

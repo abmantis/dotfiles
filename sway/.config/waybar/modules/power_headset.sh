@@ -15,7 +15,7 @@ if [ -z "$BATTERY" ]; then
     exit
 fi
 
-BATTERY_ICON=""
+BATTERY_ICON=""
 if [[ "${BATTERY}" -le 15 ]]; then
     CLASS="low"
     TEXT="$BATTERY_ICON $BATTERY%"
