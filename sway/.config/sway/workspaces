@@ -28,10 +28,6 @@ workspace $ws9  output $ws9output
 workspace $ws10 output $ws10output
 
 ###################################################################################################
-# Workspace specific settings
-for_window [workspace=$wsbs] layout tabbed
-
-###################################################################################################
 # Commands to reset workspace-output and app-workspace assignments
 set $workspace_reset_wspcs_cmd \
     workspace $wsbs, move workspace to output $wsbsoutput, \

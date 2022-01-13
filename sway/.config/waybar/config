@@ -15,7 +15,6 @@
         "custom/mic",
         "custom/upower",
         "custom/system-updates",
-        "custom/vpn",
         "backlight",
         "idle_inhibitor"],
 
@@ -121,19 +120,6 @@
         "escape": true,
         "on-click-middle": "~/.config/waybar/modules/pomo.sh start && pkill -RTMIN+30 waybar",
         "on-click-right": "~/.config/waybar/modules/pomo.sh pause && pkill -RTMIN+30 waybar"
-    },
-    "custom/vpn": {
-        "format": "{icon}",
-        "format-alt": "{icon} {}",
-        "format-alt-click": "click-right",
-        "interval": 60,
-        "signal": 10,
-        "return-type": "json",
-        "exec": "~/.config/waybar/modules/vpn.sh",
-        "escape": true,
-        "format-icons": {
-          "default": "嬨"
-        }
     },
     "custom/upower": {
         "format": "{}",
