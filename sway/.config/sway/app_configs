@@ -25,6 +25,9 @@ for_window [class="[Ff]irefox" title="^Picture-in-Picture$"] floating enable, st
 for_window [app_id="firefox" title="^Firefox — Sharing Indicator"] floating enable
 for_window [class="[Ff]irefox" title="^Firefox — Sharing Indicator"] floating enable
 
+# Add titlebar to Teams
+for_window [class="Microsoft Teams - Preview"] border normal
+
 # Nautilus has client-side decorations (but using border csd is not working, so none it is)
 for_window [app_id="org.gnome.Nautilus"] border none
 

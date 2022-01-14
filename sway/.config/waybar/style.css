@@ -13,7 +13,7 @@ window#waybar {
     color: #d8dee9;
 }
 
-#workspaces, #mode, #clock, #custom-pomo, #tray, #custom-system-updates, #custom-vpn, #backlight, #custom-upower, #custom-power_headset, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
+#workspaces, #mode, #clock, #custom-pomo, #tray, #custom-system-updates, #backlight, #custom-upower, #custom-power_headset, #custom-mic, #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #temperature {
     background: #2e3440;
 }
 
@@ -59,7 +59,7 @@ window#waybar {
     border-bottom-left-radius: 5px;
 }
 
-#custom-mic, #custom-upower.high, #custom-system-updates, #custom-vpn, #backlight, #idle_inhibitor {
+#custom-mic, #custom-upower.high, #custom-system-updates, #backlight, #idle_inhibitor {
     padding:    0px 5px;
 }
 
@@ -94,15 +94,6 @@ window#waybar {
 
 #custom-system-updates.restart {
     color: #c21b2c;
-}
-
-#custom-vpn.disconnected {
-    font-size: 0;
-    padding: 0px;
-}
-
-#custom-vpn.connected {
-    color: #88c0d0;
 }
 
 #clock {
