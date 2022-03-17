@@ -18,7 +18,13 @@ def remove_gaps():
    
 def manage_new_close_window(self, e):
     focused = i3.get_tree().find_focused()
+    if not focused:
+        return
+    
     workspace = focused.workspace()
+    if not workspace:
+        return
+        
     y = len(workspace.leaves())
     
     if y > 1:

@@ -1,6 +1,10 @@
 # make nmtui from swaybar floating
 for_window [app_id="gnome-terminal-server" title="nmtui"] floating enable
 
+# make zenity apps float
+for_window [app_id="zenity"] floating enable
+no_focus [app_id="zenity" title="[Ww]inetricks"]
+
 # jetbrains "search everywere" popups
 for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating enable
 for_window [class="jetbrains-clion" instance="sun-awt-X11-XWindowPeer"] floating_maximum_size 1920x1080
