@@ -277,15 +277,15 @@ bindsym Ctrl+Shift+Print $capture_screenrec
 # More can be found with xmodmap
 
 # Audio
-bindsym XF86AudioMute           $soundmute
-bindsym XF86AudioRaiseVolume    $volumeup
-bindsym XF86AudioLowerVolume    $volumedown
-bindsym XF86AudioMicMute        $micmute
-bindsym XF86AudioPlay           $spotifyplay
-bindsym XF86AudioPause          $spotifyplay
-bindsym XF86AudioPrev           $spotifyprev
-bindsym XF86AudioNext           $spotifynext
-bindsym Control+F12             $micmute
+bindsym --locked XF86AudioMute $soundmute
+bindsym XF86AudioRaiseVolume $volumeup
+bindsym XF86AudioLowerVolume $volumedown
+bindsym --locked XF86AudioMicMute $micmute
+bindsym --locked XF86AudioPlay $spotifyplay
+bindsym --locked XF86AudioPause $spotifyplay
+bindsym --locked XF86AudioPrev $spotifyprev
+bindsym --locked XF86AudioNext $spotifynext
+bindsym --locked Control+F12 $micmute
 
 # Brightness and settings
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
