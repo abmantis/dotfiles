@@ -27,4 +27,4 @@ input 2:10:TPPS/2_IBM_TrackPoint {
     exec gnome-terminal
     workspace $wsbs
     exec teams --disable-gpu
-    exec /home/acosta/scripts/teams_call_detector.sh
+    exec /home/acosta/scripts/teams_call_detector.sh > /dev/null
