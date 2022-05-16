@@ -4,6 +4,8 @@ import i3ipc
 i3 = i3ipc.Connection()
 print("starting auto gaps")
 
+NON_GAPPED_APPS = ["code", "dlt-viewer"]
+
 def add_gaps():    
     i3.command('gaps right current set 700')
     i3.command('gaps left current set 700')
@@ -27,11 +29,16 @@ def manage_new_close_window(self, e):
         
     y = len(workspace.leaves())
     
-    if y > 1:
+    if y > 1 or y == 0:
         remove_gaps()
         return
     
     if workspace.rect.width <= 1920:
+        remove_gaps()
+        return
+
+    leaf = workspace.leaves()[0]
+    if leaf.window_instance in NON_GAPPED_APPS or leaf.app_id in NON_GAPPED_APPS:
         remove_gaps()
         return
 
