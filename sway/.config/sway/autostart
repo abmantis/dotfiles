@@ -10,8 +10,10 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # Workaround for XDG_CURRENT_DESKTOP
 exec "systemctl --user import-environment"
 
-exec lxpolkit
-exec $HOME/.config/sway/scripts/idle_handler.sh $screenidletimelock $screenidletimeoff $swaylockcmd
+# TODO: does ubunu have polkit-gnome? same path? maybe move this to laptop-specific files (also add to the readme)
+#exec lxpolkit
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec $HOME/.config/sway/scripts/idle_handler.sh $screenidletimelock $screenidletimeoff $swaylockcmdgrace
 
 exec mako
 exec_always makoctl reload
@@ -25,4 +27,5 @@ exec python $HOME/.config/sway/scripts/auto_gaps.py
 workspace $ws1
 exec $HOME/.config/sway/scripts/wait_for_network.sh && firefox
 workspace $wsbs
+#exec $HOME/.config/sway/scripts/wait_for_network.sh && ferdi --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec $HOME/.config/sway/scripts/wait_for_network.sh && ferdi --disable-gpu

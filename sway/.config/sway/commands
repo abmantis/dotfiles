@@ -2,7 +2,8 @@
 # Generic
 set $menu           wofi
 set $term           gnome-terminal 
-set $swaylockcmd    "swaylock -i $background --scaling fill"
+set $swaylockcmd    swaylock -i ~/Pictures/Wallpapers/current.jpg --effect-blur 7x5 --effect-vignette 0.5:0.5 --indicator-radius 70 --indicator-thickness 7 --ring-color 455a64 --ring-ver-color 455a64 --key-hl-color be5046 --text-color ffc107 --text-ver-color ffc107 --line-color 00000000 --line-ver-color 00000000 --inside-color 00000088 --inside-clear-color 00000055 --inside-ver-color 00000055 --separator-color 00000000 --fade-in 0.2
+set $swaylockcmdgrace '$swaylockcmd --grace 6 --fade-in 5'
 
 ###################################################################################################
 # Media
