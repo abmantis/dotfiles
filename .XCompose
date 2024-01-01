@@ -1,4 +1,9 @@
-`include "%L"
+# This is necessary to add your own Compose sequences
+# in addition to the builtin sequences of GTK. If this
+# is not what you want, just remove that line.
+#
+# A backup of the previous file contents has been made.
+include "%L"
 
 <Multi_key> <s> <h>: "🤷"
 <Multi_key> <l> <o> <l>: "😂"
