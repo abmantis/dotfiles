@@ -1,0 +1,4 @@
+[submodule "hypr"]
+	path = hypr
+	url = git@github.com:abmantis/hypr.dotfiles.git
+	branch = main
