@@ -1,0 +1,54 @@
+/* https://cloudninja.pw/docs/wofi.html */
+
+@define-color wofi-background #3b4252;
+@define-color wofi-selected-background #2e3440;
+@define-color wofi-selected-text #eceff4;
+@define-color wofi-separator #8fbcbb;
+@define-color wofi-list-text #d8dee9;
+
+* {
+    font-family: "Symbols Nerd Font", "Ubuntu";
+}
+
+window {
+    border: 1px solid darkslategrey;
+    background-color: @wofi-background;
+
+}
+
+#input {
+    margin: 5px;
+    background-color: @wofi-background;
+    color: @wofi-selected-text;
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+#scroll {
+    padding: 5px;
+    border-top: 1px dashed @wofi-separator;
+    font-size: 14pt;
+}
+
+#inner-box {
+    margin: 2px;
+}
+
+#text {
+    margin: 3px 5px;
+    color: @wofi-list-text;
+}
+
+#img {
+    margin: 3px 5px;
+}
+
+#text:selected {
+    color: @wofi-selected-text;
+}
+
+#entry:selected {
+    background-color: @wofi-selected-background;
+}
