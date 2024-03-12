@@ -9,18 +9,16 @@ BATTERY_TIME=$(echo "${UPOWER_DATA}" | grep -E "time to empty" | awk '{print $4 
 
 printf -v BATTERY_POWER_INT %.0f "$BATTERY_POWER"
 
-if [[ "${BATTERY_POWER_INT}" -gt 90 ]]; then
+if [[ "${BATTERY_POWER_INT}" -gt 80 ]]; then
     BATTERY_ICON=""
 elif [[ "${BATTERY_POWER_INT}" -gt 60 ]]; then
      BATTERY_ICON=""
 elif [[ "${BATTERY_POWER_INT}" -gt 40 ]]; then
      BATTERY_ICON=""
-elif [[ "${BATTERY_POWER_INT}" -gt 15 ]]; then
+elif [[ "${BATTERY_POWER_INT}" -gt 20 ]]; then
      BATTERY_ICON=""
-elif [[ "${BATTERY_POWER_INT}" -le 15 ]]; then
-     BATTERY_ICON=""
 else
-    BATTERY_ICON=""
+     BATTERY_ICON=""
 fi
 
 if [[ "${BATTERY_STATE}" != "discharging" ]]; then
