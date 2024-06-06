@@ -1,0 +1,130 @@
+### Variables
+set $HERE ~/.config/hypr
+set $SCRIPTS $HERE/scripts
+
+###################################################################################################
+# Config vars
+set $wallpaper $HERE/wallpaper
+
+# Workspace names
+# NOTE: the space used in workspace names is not the normal unicode space, to avoid having to use quotes.
+set $ws0 0:S 
+set $ws1 1:1 󰈹
+set $ws2 2:2 
+set $ws3 3:3 
+set $ws4 4:4 
+set $ws5 5:5 
+set $ws6 6:6 
+set $ws7 7:F1 
+set $ws8 8:F2 
+set $ws9 9:F3 
+set $ws10 10:F4 
+
+# ###############################################################################
+# Commands
+
+#
+# Utils
+set $menu wofi --prompt "Search..." --width 450
+set $term kitty
+set $lock chayang -d 0.5 && $SCRIPTS/lock_screen.sh
+set $lockIdle chayang -d 5 && $SCRIPTS/lock_screen.sh
+set $lockSleep $SCRIPTS/lock_screen.sh
+set $screenshot $SCRIPTS/screenshot.sh
+set $screenshot_full $SCRIPTS/screenshot_full.sh
+set $screenrec $term $SCRIPTS/screenrec.sh
+
+#
+# Media
+set $mediaPlay playerctl play-pause
+set $mediaPrev playerctl previous
+set $mediaNext playerctl next
+
+set $volRed pulsemixer --change-volume -5
+set $volInc pulsemixer --change-volume +5
+set $muteToggle pulsemixer --toggle-mute 
+set $micMuteToggle amixer set Capture toggle
+
+#
+# Brightness
+set $brightnessInc brightnessctl set +5%
+set $brightnessRed brightnessctl set 5%-
+
+include /etc/sway/config-vars.d/*
+include config-vars.d/*
+
+###################################################################################################
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+set $homeMonitor "Dell Inc. DELL S3422DWG CGS4KK3"
+output $homeMonitor resolution 3440x1440@120Hz position 0,0 adaptive_sync off
+output * bg wallpaper fill
+
+
+###################################################################################################
+### Input configuration
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+
+input type:keyboard {
+    xkb_options compose:ralt,caps:super
+    xkb_layout us
+}
+
+input 1:1:AT_Translated_Set_2_keyboard {
+    xkb_layout pt
+    xkb_options caps:super
+}
+
+###################################################################################################
+### Visuals
+default_border pixel 3
+gaps outer 2
+gaps inner 10
+
+# # Property Name             Border  BG      Text    Indicator Child-border
+# client.focused              #9077e7 #9077e7 #cecece #9077e7   #9077e7
+# client.focused_inactive     #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+# client.unfocused            #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+# client.urgent               #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+# client.placeholder          #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+
+###################################################################################################
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+
+include /etc/sway/config.d/*
+include config.d/*
