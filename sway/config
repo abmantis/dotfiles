@@ -1,5 +1,4 @@
-### Variables
-set $HERE ~/.config/hypr
+set $HERE ~/.config/sway
 set $SCRIPTS $HERE/scripts
 
 ###################################################################################################
@@ -89,15 +88,15 @@ focus_follows_mouse no
 
 # ###############################################################################
 # Visuals
-default_border pixel 4
+# default_border pixel 4
 gaps outer 2
 gaps inner 10
 
 # Property Name             Border  BG      Text    Indicator Child-border
-client.focused              #C6BAF3 #FF0000 #cecece #e3672f   #2fabe3
-client.focused_inactive     #C6BAF3 #C6BAF3 #cecece #f2cdcd   #585b70
-client.unfocused            #C6BAF3 #C6BAF3 #cecece #f2cdcd   #585b70
-client.urgent               #C6BAF3 #C6BAF3 #cecece #9077e7   #f38ba8
+client.focused              #2fabe3 #2fabe3 #cecece #e3672f   #2fabe3
+client.focused_inactive     #585b70 #585b70 #cecece #f2cdcd   #585b70
+client.unfocused            #585b70 #585b70 #cecece #f2cdcd   #585b70
+# client.urgent               #C6BAF3 #C6BAF3 #cecece #9077e7   #f38ba8
 client.placeholder          #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
 
 #
