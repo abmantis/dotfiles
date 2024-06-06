@@ -81,6 +81,12 @@ input 1:1:AT_Translated_Set_2_keyboard {
     xkb_options caps:super
 }
 
+input type:touchpad {
+    natural_scroll enabled
+}
+
+focus_follows_mouse no
+
 # ###############################################################################
 # Visuals
 default_border pixel 4
