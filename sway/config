@@ -81,14 +81,19 @@ input 1:1:AT_Translated_Set_2_keyboard {
 }
 
 input type:touchpad {
+    dwt enabled
+    tap enabled
     natural_scroll enabled
+    middle_emulation enabled
 }
 
 focus_follows_mouse no
+focus_on_window_activation focus
 
 # ###############################################################################
 # Visuals
-# default_border pixel 4
+default_border normal 4
+default_floating_border normal 4
 gaps outer 2
 gaps inner 10
 
