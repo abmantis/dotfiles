@@ -7,7 +7,7 @@ SCREEN_OFF_TIME="${2:-75}"
 
 LOCK_CMD="chayang -d 0.5 && $CURRENT_DIR/lock_screen.sh"
 IDLE_LOCK_CMD="chayang -d 5 && $CURRENT_DIR/lock_screen.sh"
-SLEEP_LOCK_CMD="$SCRIPTS/lock_screen.sh"
+SLEEP_LOCK_CMD="$CURRENT_DIR/lock_screen.sh"
 
 swayidle -w \
     timeout $IDLE_LOCK_TIME "$IDLE_LOCK_CMD" \
