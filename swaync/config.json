@@ -72,11 +72,11 @@
         "actions": [
           {
             "label": " Lock",
-            "command": "hyprctl dispatch exec ~/.config/hypr/scripts/lock_screen.sh"
+            "command": "loginctl lock-session"
           },
           {
             "label": " Logout",
-            "command": "hyprctl dispatch exit"
+            "command": "swaymsg exit"
           },
           {
             "label": "⏾ Suspend",
@@ -119,7 +119,7 @@
         "actions": [
           {
             "label": "",
-            "command": "bash -c 'swaync-client -cp; hyprctl dispatch exec ~/.config/hypr/scripts/screenshot.sh'"
+            "command": "bash -c 'swaync-client -cp; swaymsg exec ~/.config/sway/scripts/screenshot.sh'"
           }
         ]
       }

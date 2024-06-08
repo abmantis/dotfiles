@@ -9,7 +9,7 @@ selected=$(echo -e $entries|wofi --prompt "Type an action" --normal-window --wid
 
 case $selected in
   lock)
-    exec ${CURRENT_DIR}/lock_screen.sh;;
+    exec loginctl lock-session;;
   logout)
     exec swaymsg exit;;
   suspend)
