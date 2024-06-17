@@ -39,7 +39,7 @@
         "disable-scroll": false,
     },
     "sway/window": {
-        "on-click-middle": "hyprctl dispatch killactive"
+        "on-click-middle": "swaymsg kill"
     },
     "clock": {
         "format": "{:%a %d %b %H:%M   W%V}",
