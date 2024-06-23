@@ -29,7 +29,7 @@ if [ "$UPDATE_COUNT" -gt "100" ]; then
 fi
 
 if [ "$UPDATE_COUNT" -gt "10" ]; then
-    ACTION=$(notify-send -u $URGENCY -a Hyprland -i view-refresh-symbolic \
+    ACTION=$(notify-send -u $URGENCY -a Sway -i view-refresh-symbolic \
         --action update="Start Update" "System Updates" "There are $UPDATE_COUNT updates available")
 
     if [ "$ACTION" = "update" ]; then

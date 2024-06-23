@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
 
-    "modules-left": ["sway/workspaces", "sway/window","hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["custom/recorder", "clock", "privacy"],
     "modules-right": [
         "mpris",
@@ -14,21 +14,6 @@
         "custom/upower",
         "pulseaudio",
         "custom/notification"],
-
-    "hyprland/workspaces": {
-        "format": "{name} {icon}",
-        "format-icons": {
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
-        "disable-scroll": false,
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-scroll-up": "hyprctl dispatch workspace e-1"
-    },
-    "hyprland/window": {
-        "on-click-middle": "hyprctl dispatch killactive"
-    },
     "sway/workspaces": {
         "format": "{name} {icon}",
         "format-icons": {
@@ -135,13 +120,13 @@
         "format": "{}",
         "interval": 5,
         "return-type": "json",
-        "exec": "~/.config/hypr/components/waybar/modules/cpu.sh"
+        "exec": "~/.config/waybar/modules/cpu.sh"
     },
     "custom/upower": {
         "format": "{}",
         "interval": 60,
         "return-type": "json",
-        "exec": "~/.config/hypr/components/waybar/modules/upower.sh",
+        "exec": "~/.config/waybar/modules/upower.sh",
         "escape": true,
         "on-click-middle": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center power"
     },
