@@ -1,0 +1,15 @@
+[[profile]]
+name = "laptop"
+    [[profile.output]]
+    search  = ["v=California Institute of Technology", "m=0x1603"]
+    enable = true
+
+[[profile]]
+name = "home_office"
+    [[profile.output]]
+    search = ["s=CGS4KK3", "m=DELL S3422DWG"]
+    enable = true
+
+    [[profile.output]]
+    search  = ["v=California Institute of Technology", "m=0x1603"]
+    enable = false
