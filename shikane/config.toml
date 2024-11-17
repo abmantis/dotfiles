@@ -13,3 +13,13 @@ name = "home_office"
     [[profile.output]]
     search  = ["v=California Institute of Technology", "m=0x1603"]
     enable = false
+
+[[profile]]
+name = "home_office_framework16"
+    [[profile.output]]
+    search = ["s=CGS4KK3", "m=DELL S3422DWG"]
+    enable = true
+
+    [[profile.output]]
+    search  = ["m=", "s=", "v="]
+    enable = false
