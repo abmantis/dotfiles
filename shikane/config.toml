@@ -5,6 +5,12 @@ name = "laptop"
     enable = true
 
 [[profile]]
+name = "laptop_framework16"
+    [[profile.output]]
+    search  = ["m=0x0BC9", "s=", "v=BOE"]
+    enable = true
+
+[[profile]]
 name = "home_office"
     [[profile.output]]
     search = ["s=CGS4KK3", "m=DELL S3422DWG"]
