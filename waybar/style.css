@@ -60,9 +60,13 @@ window#waybar {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px inset;
 }
 
-#mpris, #window {
+#mpris, #custom-nixos-updates, #window {
     color: @way-soft-text;
     padding: 0px 15px 0px 15px;
+}
+
+#custom-nixos-updates.failed, #custom-nixos-updates.unknown  {
+    color: @way-attention-text;
 }
 
 #network, #custom-cpu {

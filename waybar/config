@@ -6,6 +6,7 @@
     "modules-center": ["custom/recorder", "clock", "privacy"],
     "modules-right": [
         "mpris",
+        "custom/nixos-updates",
         "tray",
         "custom/cpu",
         "network",
@@ -13,7 +14,8 @@
         "idle_inhibitor",
         "custom/upower",
         "pulseaudio",
-        "custom/notification"],
+        "custom/notification"
+    ],
     "sway/workspaces": {
         "format": "{name} {icon}",
         "format-icons": {
@@ -116,6 +118,12 @@
         "on-click-middle": "kitty --title pulsemixer -- pulsemixer",
         "tooltip": true
     },
+    "custom/nixos-updates": {
+        "format": "{}",
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/nixos_auto_update_state.sh"
+    },
     "custom/cpu": {
         "format": "{}",
         "interval": 5,
@@ -147,7 +155,7 @@
             "deactivated": "󰒲"
         },
         "tooltip": false
-    },    
+    },
     "tray": {
         "icon-size": 15,
         "spacing": 10
