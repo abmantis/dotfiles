@@ -120,7 +120,7 @@
     },
     "custom/nixos-updates": {
         "format": "{}",
-        "interval": 5,
+        "interval": 60,
         "return-type": "json",
         "exec": "~/.config/waybar/modules/nixos_auto_update_state.sh"
     },
