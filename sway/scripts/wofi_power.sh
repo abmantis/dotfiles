@@ -13,7 +13,7 @@ case $selected in
   logout)
     exec swaymsg exit;;
   suspend)
-    exec systemctl suspend;;
+    exec systemctl suspend-then-hibernate;;
   hibernate)
     exec systemctl hibernate;;
   reboot)
