@@ -4,7 +4,7 @@ include config-vars.d/*
 # ###############################################################################
 # Output configuration
 set $homeMonitor "Dell Inc. DELL S3422DWG CGS4KK3"
-output $homeMonitor resolution 3440x1440@120Hz position 0,0 adaptive_sync off
+output $homeMonitor resolution 3440x1440@120Hz position 0 0 adaptive_sync off
 output * bg wallpaper fill
 
 bar swaybar_command waybar
