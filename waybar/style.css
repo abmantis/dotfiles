@@ -50,6 +50,10 @@ window#waybar {
     border-top-color: @way-selected-text;
 }
 
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
 #workspaces, #privacy, #clock, #tray, #custom-upower, #bluetooth,
 #pulseaudio, #idle_inhibitor, #network, #custom-cpu, #custom-notification {
     padding: 0px 15px 0px 15px;

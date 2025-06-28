@@ -1,8 +1,9 @@
 {
     "layer": "top",
     "position": "top",
+    "height": 35,
 
-    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-left": ["niri/workspaces", "niri/window", "sway/workspaces", "sway/window"],
     "modules-center": ["custom/recorder", "clock", "privacy"],
     "modules-right": [
         "mpris",
@@ -16,6 +17,15 @@
         "pulseaudio",
         "custom/notification"
     ],
+    "niri/workspaces": {
+        "format": "{value} {icon}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "disable-scroll": false,
+    },
     "sway/workspaces": {
         "format": "{name} {icon}",
         "format-icons": {
@@ -24,6 +34,9 @@
             "default": ""
         },
         "disable-scroll": false,
+    },
+    "niri/window": {
+        "on-click-middle": "niri msg action close-window"
     },
     "sway/window": {
         "on-click-middle": "swaymsg kill"
