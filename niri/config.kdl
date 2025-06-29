@@ -166,7 +166,7 @@ binds {
     Mod+D        hotkey-overlay-title="Open Application List" { spawn "wofi" "--prompt" "Search..." "--width" "450"; }
     Mod+N        hotkey-overlay-title="Open SwayNC" { spawn "swaync-client" "-t"; }
     Mod+M        hotkey-overlay-title="Open Pulsemixer" { spawn "kitty" "--title" "pulsemixer" "--" "pulsemixer"; }
-    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn "bash" "-c" "[[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
+    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn "bash" "-c" "niri msg action do-screen-transition && [[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
     Mod+Shift+P  hotkey-overlay-title="Show Power Menu" { spawn "bash" "-c" "$NIRI_SCRIPTS/wofi_power.sh"; }
 
     Print      { spawn "bash" "-c" "$NIRI_SCRIPTS/screenshot.sh"; }
