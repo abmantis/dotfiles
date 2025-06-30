@@ -24,7 +24,9 @@
             "focused": "",
             "default": ""
         },
-        "disable-scroll": false,
+        "disable-scroll": true,
+        "on-scroll-up": "niri msg action focus-workspace-up",
+        "on-scroll-down": "niri msg action focus-workspace-down"
     },
     "sway/workspaces": {
         "format": "{name} {icon}",
