@@ -50,6 +50,10 @@ window#waybar {
     border-top-color: @way-selected-text;
 }
 
+#workspaces button.urgent {
+    background: rgba(0xff, 0x00, 0x00, 0.7);
+}
+
 #workspaces button.empty {
     opacity: 0.5;
 }

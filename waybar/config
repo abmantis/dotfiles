@@ -36,7 +36,9 @@
         "disable-scroll": false,
     },
     "niri/window": {
-        "on-click-middle": "niri msg action close-window"
+        "on-click-middle": "niri msg action close-window",
+        "on-scroll-up": "niri msg action focus-column-left",
+        "on-scroll-down": "niri msg action focus-column-right"
     },
     "sway/window": {
         "on-click-middle": "swaymsg kill"
