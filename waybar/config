@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
+    "height": 36,
 
     "modules-left": ["niri/workspaces", "niri/window", "sway/workspaces", "sway/window"],
     "modules-center": ["custom/recorder", "clock", "privacy"],
@@ -104,16 +104,16 @@
         "on-click-middle": "blueman-manager",
     },
     "network": {
-        "format": "󰈂",
-        "format-disconnected": "{icon}",
-        "format-ethernet": "{icon}",
+        "format": "{icon}",
+        "format-disabled": "X",
         "format-wifi": "{icon} {signalStrength}%",
         "format-alt": "{icon} {essid} ({ipaddr})",
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": ["", "" ,""],
             "ethernet": ["󰈀"],
-            "disconnected": ["󰈂"]
+            "disconnected": ["󰈂"],
+            "linked": ["󰈁"],
         },
         "interval": 10,
         "on-click-middle": "gnome-terminal --title=\"nmtui\" -- nmtui",
