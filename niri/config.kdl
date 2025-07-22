@@ -168,6 +168,7 @@ binds {
     Mod+M        hotkey-overlay-title="Open Pulsemixer" { spawn "kitty" "--title" "pulsemixer" "--" "pulsemixer"; }
     Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn "bash" "-c" "niri msg action do-screen-transition && [[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
     Mod+Shift+P  hotkey-overlay-title="Show Power Menu" { spawn "bash" "-c" "$NIRI_SCRIPTS/wofi_power.sh"; }
+    Mod+Shift+O  hotkey-overlay-title="Toggle laptop monitor" allow-when-locked=true { spawn "bash" "-c" "$NIRI_SCRIPTS/toggle_internal_output.sh"; }
 
     Print      { spawn "bash" "-c" "$NIRI_SCRIPTS/screenshot.sh"; }
     Ctrl+Print { spawn "bash" "-c" "$NIRI_SCRIPTS/screenshot_full.sh"; }
