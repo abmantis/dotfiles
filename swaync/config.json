@@ -138,7 +138,7 @@
             "type": "toggle",
             "active": true,
             "command": "bash -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && rfkill unblock bluetooth && sleep 3 && bluetoothctl power on || rfkill block bluetooth'",
-            "update-command": "bash -c '[[ $(bluetoothctl show | grep -oP \"(?<=Powered: )\\w+\") == \"yes\" ]] && echo true || echo false'"
+            "update-command": "bluetoothctl show | grep 'Powered: yes' > /dev/null && echo true || echo false"
           },
           {
             "label": "Dark Mode",
