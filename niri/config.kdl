@@ -292,12 +292,10 @@ binds {
 }
 
 environment {
-    DISPLAY ":0"
     NIRI_SCRIPTS "/home/acosta/.config/niri/scripts"
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swaync"
 spawn-at-startup "gammastep"
 spawn-at-startup "lxqt-policykit-agent"
