@@ -140,32 +140,32 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Super+Escape hotkey-overlay-title="Lock the Screen" { spawn "loginctl" "lock-session"; }
+    Super+Escape hotkey-overlay-title="Lock the Screen" { spawn-sh "loginctl lock-session"; }
     Mod+T        hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
-    Mod+D        hotkey-overlay-title="Open Application List" { spawn "wofi" "--prompt" "Search..." "--width" "450"; }
-    Mod+N        hotkey-overlay-title="Open SwayNC" { spawn "swaync-client" "-t"; }
-    Mod+M        hotkey-overlay-title="Open Pulsemixer" { spawn "kitty" "--title" "pulsemixer" "--" "pulsemixer"; }
-    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn "bash" "-c" "niri msg action do-screen-transition && [[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
-    Mod+Shift+P  hotkey-overlay-title="Show Power Menu" { spawn "bash" "-c" "$NIRI_SCRIPTS/wofi_power.sh"; }
-    Mod+Shift+O  hotkey-overlay-title="Toggle laptop monitor" allow-when-locked=true { spawn "bash" "-c" "$NIRI_SCRIPTS/toggle_internal_output.sh"; }
+    Mod+D        hotkey-overlay-title="Open Application List" { spawn-sh "wofi --prompt Search... --width 450"; }
+    Mod+N        hotkey-overlay-title="Open SwayNC" { spawn-sh "swaync-client -t"; }
+    Mod+M        hotkey-overlay-title="Open Pulsemixer" { spawn-sh "kitty --title pulsemixer -- pulsemixer"; }
+    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn-sh "niri msg action do-screen-transition && [[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
+    Mod+Shift+P  hotkey-overlay-title="Show Power Menu" { spawn-sh "$NIRI_SCRIPTS/wofi_power.sh"; }
+    Mod+Shift+O  hotkey-overlay-title="Toggle laptop monitor" allow-when-locked=true { spawn-sh "$NIRI_SCRIPTS/toggle_internal_output.sh"; }
 
-    Print      { spawn "bash" "-c" "$NIRI_SCRIPTS/screenshot.sh"; }
-    Ctrl+Print { spawn "bash" "-c" "$NIRI_SCRIPTS/screenshot_full.sh"; }
+    Print      { spawn-sh "$NIRI_SCRIPTS/screenshot.sh"; }
+    Ctrl+Print { spawn-sh "$NIRI_SCRIPTS/screenshot_full.sh"; }
     Alt+Print  { screenshot-window; }
-    Mod+Print  { spawn "bash" "-c" "kitty $NIRI_SCRIPTS/screenrec.sh"; }
+    Mod+Print  { spawn-sh "kitty $NIRI_SCRIPTS/screenrec.sh"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioPause       allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    Ctrl+F12             allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Ctrl+F12             allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86MonBrightnessUp    allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
-    XF86MonBrightnessDown  allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+    XF86MonBrightnessUp    allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
+    XF86MonBrightnessDown  allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 
@@ -299,7 +299,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "gammastep"
 spawn-at-startup "lxqt-policykit-agent"
-spawn-at-startup "bash" "-c" "swaybg -m fill -i ~/.config/niri/wallpaper"
-spawn-at-startup "bash" "-c" "$NIRI_SCRIPTS/idle_handler.sh 300 340"
-spawn-at-startup "bash" "-c" "$NIRI_SCRIPTS/set_theme.sh"
-spawn-at-startup "bash" "-c" "$NIRI_SCRIPTS/extra_startup_apps.sh"
+spawn-sh-at-startup "swaybg -m fill -i ~/.config/niri/wallpaper"
+spawn-sh-at-startup "$NIRI_SCRIPTS/idle_handler.sh 300 340"
+spawn-sh-at-startup "$NIRI_SCRIPTS/set_theme.sh"
+spawn-sh-at-startup "$NIRI_SCRIPTS/extra_startup_apps.sh"
