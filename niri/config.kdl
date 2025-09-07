@@ -167,7 +167,7 @@ binds {
     XF86MonBrightnessUp    allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
     XF86MonBrightnessDown  allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+E repeat=false { toggle-overview; }
 
     Mod+Shift+Q { close-window; }
 
