@@ -275,6 +275,7 @@ binds {
 
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
+    Mod+P       { spawn-sh "nirius toggle-follow-mode"; }
 
     Mod+W { toggle-column-tabbed-display; }
 
