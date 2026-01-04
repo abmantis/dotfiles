@@ -17,7 +17,7 @@ input {
     mouse {
     }
 
-    trackpoint {
+    trackball {
     }
 }
 
@@ -135,6 +135,15 @@ window-rule {
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+// Don't focus prusa slicer search window when it opens.
+window-rule {
+    match title="prusa-slicer" app-id="prusa-slicer"
+    open-focused false
+    open-floating true
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.5; }
 }
 
 binds {
