@@ -83,7 +83,7 @@
         "title-len": 50,
         "artist-len": 30,
         "player-icons": {
-            "default": "▶",
+            "default": "󰐍",
             "firefox": "󰈹 ",
             "spotify": ""
         },
