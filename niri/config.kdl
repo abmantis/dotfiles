@@ -282,6 +282,8 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
+    Mod+Alt+3 { spawn-sh "$NIRI_SCRIPTS/niri_tripple_view.sh"; }
+
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
     Mod+P       { spawn-sh "nirius toggle-follow-mode"; }
