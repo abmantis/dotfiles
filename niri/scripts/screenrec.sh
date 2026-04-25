@@ -1,2 +1,2 @@
 #!/bin/bash
-wf-recorder -x yuv420p -g "$(slurp)"
+wf-recorder --codec=h264_vaapi -f recording.mp4 -g "$(slurp)"
