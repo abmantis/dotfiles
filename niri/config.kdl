@@ -287,6 +287,7 @@ binds {
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
     Mod+P       { spawn-sh "nirius toggle-follow-mode"; }
+    Mod+Alt+C   { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)"; }
 
     Mod+W { toggle-column-tabbed-display; }
 
