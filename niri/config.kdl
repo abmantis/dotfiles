@@ -57,8 +57,9 @@ layout {
 
     border {
         width 4
-        active-gradient from="#0BD67E" to="#00C0A3" angle=45
-        inactive-gradient from="#505050" to="#404040" angle=45
+        active-gradient from="#00bcd4" to="#e91e63" angle=135
+        // active-gradient from="#ff1744" to="#ff9100" angle=90
+        inactive-color "#212121"
         urgent-color "#9b0000"
     }
 
@@ -152,16 +153,16 @@ binds {
     Super+Escape hotkey-overlay-title="Lock the Screen" { spawn-sh "loginctl lock-session"; }
     Mod+T        hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Mod+D        hotkey-overlay-title="Open Application List" { spawn-sh "wofi --prompt Search... --width 450"; }
-    Mod+N        hotkey-overlay-title="Open SwayNC" { spawn-sh "swaync-client -t"; }
+    Mod+N        hotkey-overlay-title="Show/hide Notificaitons" { spawn-sh "dms ipc call notifications toggle"; }
     Mod+M        hotkey-overlay-title="Open Pulsemixer" { spawn-sh "kitty --title pulsemixer -- pulsemixer"; }
-    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn-sh "niri msg action do-screen-transition && [[ $(gsettings get org.gnome.desktop.interface color-scheme | grep light) ]] && gsettings set org.gnome.desktop.interface color-scheme prefer-dark || gsettings set org.gnome.desktop.interface color-scheme prefer-light"; }
+    Mod+S        hotkey-overlay-title="Switch Light/Dark Theme" { spawn-sh "$NIRI_SCRIPTS/toggle_theme.sh"; }
     Mod+Shift+P  hotkey-overlay-title="Show Power Menu" { spawn-sh "$NIRI_SCRIPTS/wofi_power.sh"; }
     Mod+Shift+O  hotkey-overlay-title="Toggle laptop monitor" allow-when-locked=true { spawn-sh "$NIRI_SCRIPTS/toggle_internal_output.sh"; }
 
-    Print      { spawn-sh "$NIRI_SCRIPTS/screenshot.sh"; }
-    Ctrl+Print { spawn-sh "$NIRI_SCRIPTS/screenshot_full.sh"; }
-    Alt+Print  { screenshot-window; }
-    Mod+Print  { spawn-sh "kitty $NIRI_SCRIPTS/screenrec.sh"; }
+    Print hotkey-overlay-title="Screenshot selection" { spawn-sh "$NIRI_SCRIPTS/screenshot.sh"; }
+    Ctrl+Print hotkey-overlay-title="Screenshot full" { spawn-sh "$NIRI_SCRIPTS/screenshot_full.sh"; }
+    Alt+Print hotkey-overlay-title="Screenshot window" { screenshot-window; }
+    Mod+Print hotkey-overlay-title="Screen recording" { spawn-sh "kitty $NIRI_SCRIPTS/screenrec.sh"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -282,14 +283,14 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    Mod+Alt+3 { spawn-sh "$NIRI_SCRIPTS/niri_tripple_view.sh"; }
+    Mod+Alt+3 hotkey-overlay-title="3 window layout" { spawn-sh "$NIRI_SCRIPTS/niri_tripple_view.sh"; }
 
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
-    Mod+P       { spawn-sh "nirius toggle-follow-mode"; }
-    Mod+Alt+C   { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)"; }
+    Mod+P hotkey-overlay-title="Pin window to screen" { spawn-sh "nirius toggle-follow-mode"; }
+    Mod+Alt+C hotkey-overlay-title="Dynamic cast window picker" { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)"; }
 
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+W hotkey-overlay-title="Toggle tabbed display" { toggle-column-tabbed-display; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
@@ -308,12 +309,10 @@ environment {
     NIRI_SCRIPTS "/home/acosta/.config/niri/scripts"
 }
 
-spawn-at-startup "waybar"
-spawn-at-startup "swaync"
 spawn-at-startup "gammastep"
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "niriusd"
-spawn-sh-at-startup "swaybg -m fill -i ~/.config/niri/wallpaper"
 spawn-sh-at-startup "$NIRI_SCRIPTS/idle_handler.sh 300 340"
 spawn-sh-at-startup "$NIRI_SCRIPTS/set_theme.sh"
 spawn-sh-at-startup "$NIRI_SCRIPTS/extra_startup_apps.sh"
+include "dms/binds.kdl"
